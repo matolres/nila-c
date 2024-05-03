@@ -6,8 +6,11 @@ import Menu from "./components/menu";
 export default function Home() {
   return (
     <>
-    <Menu />
-
+    <Image className={styles.splash} src="/splash.jpg" alt="My Image" layout="fill"
+  objectFit="cover"
+    />
+    <Menu className={styles.menu} />
+    
     </>
   );
 }

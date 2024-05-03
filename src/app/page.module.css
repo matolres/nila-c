@@ -4,3 +4,12 @@ width: 100%
 }
 
 
+.splash {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+.menu {
+    z-index: 50;
+}

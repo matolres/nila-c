@@ -5,7 +5,23 @@
             
             
         }
+        .menu_header {
+            position: sticky;
+            z-index: 3000;
+            height: 100%;
+            width: 100%;
+        }
+        .menu_button {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+        }
+        
 
+        .front {
+            position: relative; /* or absolute, depending on your layout */
+            z-index: 999; /* Adjust the z-index value as needed */
+          }
 
 
     
@@ -17,7 +33,12 @@
             text-decoration: none;
             background: none;
             z-index: 10000;
+            border: 1px solid green;
 
+        }
+
+        .menu_anim {
+            position: sticky;
         }
     
         .moveMe {
@@ -31,7 +52,17 @@
             transform: translateX(100%); /* Start off-screen if it should animate in */
         }
         .logo {
-            border: 1px solid red;
+            font-weight: bolder;
+          
+        }
+        .logo_overlay {
+            font-weight: bolder;
+         
+        }
+        .hide {
+            opacity: 0;
+            transition: opacity 1s ease; /* You can adjust the duration and timing function as needed */
+            transition-delay: 0.5s; /* Adjust the delay time as needed */
         }
 
         #demo {
@@ -41,29 +72,44 @@
           
           }
 
-        .inactive {
-            transform: translateX(100%);
-            transition: transform 0.5s ease-in-out;
+        .list_container {
             position: absolute;
-            right: 0;
-            top: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             width: 100%;
-            height: 100vh;
-            background: yellow;
-            backdrop-filter: blur(3px);
-            z-index: 2;
+            height: 100%;
+            top: 0;
+            left: 0;
         }
 
+
+        
+
+
         .items {
-            padding-top: 8rem;
             line-height: 6rem;
             display: flex;
             flex-direction: column;
             justify-content: end;
             list-style: none;
-        .item{
-            font-size: 2rem;
+            top: 5rem;
+            left: 7rem;
+            z-index: 2000;
             text-align: center;
+            a {
+                text-decoration: none;
+                font-size: 2rem;
+            color: blue;
+            
+            }
+                .item {
+                    
+            font-size: 2rem;
+            color: blue;
+            text-align: center;
+            text-decoration: none !important; 
+            opacity: 0;
 
 
         }
@@ -96,6 +142,9 @@
             .toggle_button {
                 display: none;
             }
+        }
+        .menu_anim {
+            display: none;
         }
     }
 
