@@ -1,0 +1,102 @@
+
+        .nav {
+            position: relative;
+            width: 100%;
+            
+            
+        }
+
+
+
+    
+        .toggle_button {
+            display: block;
+            position: absolute;
+            right: 0;
+            border: none;
+            text-decoration: none;
+            background: none;
+            z-index: 10000;
+
+        }
+    
+        .moveMe {
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 100%;
+            height: 100vh;
+            background: yellow;
+            z-index: 2;
+            transform: translateX(100%); /* Start off-screen if it should animate in */
+        }
+        .logo {
+            border: 1px solid red;
+        }
+
+        #demo {
+            height: auto;
+            width: 100vw;
+            font-weight: 400;
+          
+          }
+
+        .inactive {
+            transform: translateX(100%);
+            transition: transform 0.5s ease-in-out;
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 100%;
+            height: 100vh;
+            background: yellow;
+            backdrop-filter: blur(3px);
+            z-index: 2;
+        }
+
+        .items {
+            padding-top: 8rem;
+            line-height: 6rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: end;
+            list-style: none;
+        .item{
+            font-size: 2rem;
+            text-align: center;
+
+
+        }
+    }
+        
+    @media only screen and (min-width: 680px){
+        .nav {
+            top: 0;
+            display: flex;
+            justify-content: space-between;
+            padding: 2rem;
+            position: fixed;
+            z-index: 10000;
+            width: 100%;
+            
+            
+        
+            .logo {
+                
+                padding: 1rem;
+                z-index: 200;
+                
+            }
+        
+            .items {
+                text-align: end;
+            }
+        
+        
+            .toggle_button {
+                display: none;
+            }
+        }
+    }
+
+    
