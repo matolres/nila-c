@@ -6,10 +6,9 @@
             
         }
         .menu_header {
-            position: sticky;
-            z-index: 3000;
             height: 100%;
             width: 100%;
+            z-index: 50;
         }
         .menu_button {
             position: absolute;
@@ -38,7 +37,7 @@
         }
 
         .menu_anim {
-            position: sticky;
+            position: fixed;
         }
     
         .moveMe {
@@ -72,8 +71,8 @@
           
           }
 
-        .list_container {
-            position: absolute;
+          .list_container {
+            /* Remove position: absolute; */
             display: flex;
             justify-content: center;
             align-items: center;
@@ -81,7 +80,7 @@
             height: 100%;
             top: 0;
             left: 0;
-        }
+          }
 
 
         
@@ -93,10 +92,10 @@
             flex-direction: column;
             justify-content: end;
             list-style: none;
-            top: 5rem;
-            left: 7rem;
             z-index: 2000;
             text-align: center;
+            position: fixed;
+            
             a {
                 text-decoration: none;
                 font-size: 2rem;
