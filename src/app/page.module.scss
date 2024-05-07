@@ -1,15 +1,34 @@
 .main {
 height: 100%;
-width: 100%
+width: 100%;
+display: flex;
+flex-direction: column;
+position: relative;
 }
-
 
 .splash {
-
-    top: 0;
-    left: 0;
-    z-index: 1;
+    position: relative;
+    overflow: hidden;
+    height: 100vh;
+    z-index: 20;
+    h1 {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        color: transparent;
+        -webkit-text-stroke-width: 2px;
+        -webkit-text-stroke-color: yellow;
+        
+    }
 }
+.video {
+    width: 200%; /* Adjust as needed */
+    height: 100%; /* Adjust as needed */
+    object-fit: cover; /* Adjust as needed */
+  }
+
 
 .container_1_1 {
     display: flex;
@@ -20,3 +39,57 @@ width: 100%
         text-align: center;
     }
 }
+
+//change to .scrolling_wrapper when data is fetch in .card
+.card {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  overflow-x: scroll;
+
+}
+
+
+.card2 {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    overflow-x: scroll;
+    gap: 1rem;
+    background-color: yellow;
+    padding: 2rem 0;
+}
+.container_1_4 {
+    padding: 2rem;
+    h1 {
+        text-align: center;
+    }
+}
+.background {
+    background-color: blue;
+    width: 100%;
+    height: 60px;
+    position: fixed;
+    z-index: 10;
+  }
+  
+
+.container_1_5 {
+    display: flex;
+    flex-direction: column;
+    background-color: yellow;
+    padding: 1rem 1rem;
+    gap: 1rem;
+
+  }
+  
+  .flexContainer {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+  }
+  
+  .photo1 {
+    width: 100%;
+  }
+  

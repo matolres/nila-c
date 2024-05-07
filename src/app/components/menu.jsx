@@ -1,27 +1,26 @@
 "use client"
 import styles from "@/app/css/menu.module.scss"
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
-import { Turn as Hamburger } from 'hamburger-react'
 import gsap from "gsap";
 
 
 export default function Menu() {
     const [isOpen, setIsOpen] = useState(false);
-      // Create a ref for the menu
+
 
     const toggleOpen = () => {
-        setIsOpen(!isOpen);  // Toggle the state
+        setIsOpen(!isOpen); 
     }
     const textRevealAnimation = () => {
-        // Select all <li> elements
+
         const listItems = document.querySelectorAll('.item-text');
       
-        // Set initial opacity to 0
+
         gsap.set(listItems, { opacity: 0, y: 20 });
       
-        // Create animation timeline
-        const tl = gsap.timeline({ delay: 0.4 });
+
+        const tl = gsap.timeline({ delay: 0.6 });
         const tl2 = gsap.timeline({ delay: 0 });
       
         if (isOpen) {
@@ -29,12 +28,12 @@ export default function Menu() {
           gsap.set(listItems, { opacity: 1, y: 0 });
       
           listItems.forEach((item, index) => {
-            tl2.to(item, { opacity: 0, y: 20, duration: 0.2, ease: "power1.out" }, index * 0.1);
+            tl2.to(item, { opacity: 0, y: 20, duration: 0.1, ease: "power1.out" }, index * 0.1);
           });
         } else {
-          // Animation when menu is closed
+
           listItems.forEach((item, index) => {
-            tl.to(item, { opacity: 1, y: 0, duration: 0.5, ease: "power1.out" }, index * 0.1);
+            tl.to(item, { opacity: 1, y: 0, duration: 0.2, ease: "power1.out" }, index * 0.1);
           });
         }
       };
@@ -45,20 +44,30 @@ export default function Menu() {
 
         if (isOpen) {
         gsap.to(".moveMe", {
-            duration:0.6,
-            x: '-100%',
-            
+            duration:0.3,
+            height:"100vh",
             ease: "sine.inOut",
         });
+        gsap.to(".fullsize", {
+            duration:0.3,
+            height:"100vh",
+            ease: "sine.inOut",
+        })
     }
         else {
           
             gsap.to(".moveMe", {
-                delay: 0.3,
-                duration: 0.6,
-                x: '0', 
-                ease: "sine.inOut"
+                delay: 0.5,
+                duration:0.3,
+                height:"0",
+                ease: "sine.inOut",
             });
+            gsap.to(".fullsize", {
+                delay: 0.5,
+                duration:0.3,
+                height:"62",
+                ease: "sine.inOut",
+            })
             
         
     }
@@ -69,37 +78,37 @@ export default function Menu() {
         <header className={styles.menu_header}>
 
         
-        
-<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%"  className={`${styles.menu_anim} ${styles.front}`}  preserveAspectRatio="xMidYMid meet">
+  
+<svg class="fullsize" xmlns="http://www.w3.org/2000/svg" width="100%" height="62"  className={`${styles.menu_anim} ${styles.front}`}  preserveAspectRatio="xMidYMid meet">
+    
     <defs>
         <clipPath id="theClipPath">
-            <rect class="moveMe" width="100%" height="100%" fill="purple" x="100%" y="0" >
+            <rect class="moveMe" width="100%"  fill="purple" y="0%" x="0" >
 
             </rect>
 
         </clipPath>
     </defs>
-    <rect class="moveMe" width="100%" height="100%" fill="yellow" x="100%" y="0" >
-
+    <rect class="moveMe" width="100%"  fill="yellow" y="0%" x="0" >
     </rect>
 
-    <text className={styles.logo} transform="translate(70 45)" text-anchor="middle" font-size="30" fill="yellow">NILA-C</text>
-    <line x1="0" y1="70" x2="100%" y2="70" stroke="yellow" stroke-width="2" />
+    <text className={styles.logo} transform="translate(45 35)" text-anchor="middle" font-size="20" fill="yellow">NILA-C</text>
+    <line x1="0" y1="60" x2="100%" y2="60" stroke="yellow" stroke-width="2" />
     <g clip-path="url(#theClipPath)" width="100%">
-        <text className={styles.logo_overlay} transform="translate(70 45)" text-anchor="middle" font-size="30" fill="blue">NILA-C</text>
-        <line x1="0" y1="70" x2="100%" y2="70" stroke="blue" stroke-width="2" />
+        <text className={styles.logo_overlay} transform="translate(45 35)" text-anchor="middle" font-size="20" fill="blue">NILA-C</text>
+        <line x1="0" y1="60" x2="100%" y2="60" stroke="blue" stroke-width="2" />
     </g>
 
-    <text onClick={() => { toggleOpen(); textRevealAnimation(); }}  transform="translate(330 45)" text-anchor="middle" font-size="15" fill="yellow" >MENU</text>
+    <text onClick={() => { toggleOpen(); textRevealAnimation(); }}  transform="translate(340 35)" text-anchor="middle" font-size="15" fill="yellow" >MENU</text>
     <g clip-path="url(#theClipPath)">
-        <text onClick={() => { toggleOpen(); textRevealAnimation(); }} transform="translate(330 45)" text-anchor="middle" font-size="15" fill="blue">MENU</text>
+        <text onClick={() => { toggleOpen(); textRevealAnimation(); }} transform="translate(340 35)" text-anchor="middle" font-size="15" fill="blue">MENU</text>
       
     </g>
 
 </svg>
-<div className={styles.list_container}>
+<div className={`${styles.items_container} ${isOpen ? styles.animate_menu : styles.animate_menu_up}`}>
 
-                <ul className={styles.items}>
+                <ul className={styles.items} >
                     <Link href='/'><li class="item-text" className={styles.item}>SHOP</li></Link>
                     <Link href='/artists'><li class="item-text" className={styles.item}>LOOKBOOK</li></Link>
                     <Link href='/paystep'><li class="item-text" className={styles.item}>ABOUT</li></Link>

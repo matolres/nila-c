@@ -1,7 +1,19 @@
-import { Inter } from "next/font/google";
-import "./globals.css";
+import "./globals.scss";
+import { Bebas_Neue, DM_Mono } from 'next/font/google';
+ 
 
-const inter = Inter({ subsets: ["latin"] });
+ 
+const bebas_Neue = Bebas_Neue({
+  subsets: ['latin'],
+  weight: ["400"],
+  display: 'swap',
+});
+
+const dm_Mono = DM_Mono({
+  subsets: ['latin'],
+  weight: ["300"],
+  display: 'swap',
+});
 
 export const metadata = {
   title: "Create Next App",
@@ -10,8 +22,9 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html lang="en" className={` ${bebas_Neue.className} ${dm_Mono.className}`}>
+      <body >{children}</body>
     </html>
   );
 }
+
