@@ -1,13 +1,44 @@
+"use client"
 import Image from "next/image";
 import styles from "./page.module.scss";
 import Menu from "./components/menu";
 import ColorCombo from "./components/color_combo_scroll";
 import RecItems from "./components/recommended_items";
-
+import Footer from "./components/footer";
+import { useEffect } from 'react';
+import gsap from 'gsap';
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import SplitType from 'split-type'
 
 
 
 export default function Home() {
+
+  useEffect(() => {
+     new SplitType(".title");
+     const lines = document.querySelectorAll('.line');
+     lines.forEach((line, index) => {
+       line.style.clipPath = 'polygon(0 0, 100% 0, 100% 100%, 0% 100%)';
+     });
+     gsap.from('.char', {
+      y: 60,
+      stagger: 0.005,
+      delay: 0.2,
+      duration: 0.7,
+      ease: "power4.out"
+    });
+    gsap.to('.char', {
+      y: 0,
+      stagger: 0.005,
+      delay: 0.2,
+      duration: 0.7,
+      ease: "power4.out"
+    });
+  }, []);
+
+
+
+
   return (
     
     <main>
@@ -19,10 +50,17 @@ export default function Home() {
               <source src="/dummy/splash.mp4" type="video/mp4" />
           </video>
           <h1>WEAR WHAT YOU ARE</h1>
+          
       </div>
-    <section className={styles.container_1_1}>
-      <h1>EACH PIECE IS HANDPAINTED</h1>
-      <p>hello Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+    <section className={styles.container_1_1}  >
+      <div className={styles.text_container}>
+      <h1 className="title" >EACH PIECE IS HANDPAINTED</h1>
+      </div>
+      
+      <p>Elevate Your Style: Unique Hand-Painted Clothing as Abstract Art.
+Discover a world where fashion meets individuality. Each garment is meticulously crafted, ensuring its status as a true original – a rare gem in a world of mass production.
+Make a bold statement with clothing that is as unique as you are. Welcome to a realm where fashion becomes a canvas and every piece tells a story.</p>
+      
     </section>
     <section className={styles.container_1_2}>
           
@@ -60,11 +98,7 @@ export default function Home() {
     </div>
   </div>
 </section>
+    <Footer />
     </main>
   );
 }
-/* 
-
-<Menu className={styles.menu} />
-
-*/

@@ -1,6 +1,9 @@
 import "./globals.scss";
 import { Bebas_Neue, DM_Mono } from 'next/font/google';
- 
+
+
+
+
 
  
 const bebas_Neue = Bebas_Neue({

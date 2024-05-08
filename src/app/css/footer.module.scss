@@ -1,0 +1,75 @@
+
+.footer_container {
+    position: relative;
+    overflow: hidden;
+    height: 50vh;
+    width: 100%;
+}
+.video{
+width: 200%; /* Adjust as needed */
+height: 100%; /* Adjust as needed */
+object-fit: cover;
+}
+.footer_content {
+    color: yellow;
+position: absolute;
+top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1rem 1rem;
+    gap: 1rem;
+    .content_1{
+        text-align: center;
+        h1 {
+            color: transparent;
+        -webkit-text-stroke-width: 2px;
+        -webkit-text-stroke-color: yellow;
+        }
+        .icons {
+            padding: 0.5rem 0;
+            display: flex;
+            justify-content: center;
+
+        .fb_icon {
+            fill: yellow;
+            height: 1.3rem;
+            width: 1.3rem;
+            align-self: center;
+
+
+        }
+        .insta_icon {
+            fill: yellow;
+            height: 1.5rem;
+            width: 1.5rem;
+
+            
+        }
+    }
+    }
+    .content_2 {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 1rem;
+        ul {
+            font-size: 1rem;
+            font-family: "Dm_Mono";
+            list-style: none;
+            a {
+                text-decoration: none;
+                color: yellow;
+            }
+        }
+        p {
+            align-self: end;
+            
+            text-align: end;
+        }
+    }
+}
