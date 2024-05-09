@@ -3,6 +3,8 @@ import styles from "@/app/css/menu.module.scss"
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+
 
 
 export default function Menu() {
@@ -99,9 +101,9 @@ export default function Menu() {
         <line x1="0" y1="60" x2="100%" y2="60" stroke="blue" stroke-width="2" />
     </g>
 
-    <text onClick={() => { toggleOpen(); textRevealAnimation(); }}  transform="translate(340 35)" text-anchor="middle" font-size="15" fill="yellow" >MENU</text>
+    <text className={styles.menu_icon} onClick={() => { toggleOpen(); textRevealAnimation(); }} x="90%" y="35" text-anchor="middle" font-size="15" fill="yellow" >MENU</text>
     <g clip-path="url(#theClipPath)">
-        <text onClick={() => { toggleOpen(); textRevealAnimation(); }} transform="translate(340 35)" text-anchor="middle" font-size="15" fill="blue">MENU</text>
+        <text onClick={() => { toggleOpen(); textRevealAnimation(); }} x="90%" y="35" text-anchor="middle" font-size="15" fill="blue">MENU</text>
       
     </g>
 

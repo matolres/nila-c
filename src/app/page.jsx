@@ -1,42 +1,16 @@
-"use client"
+
 import Image from "next/image";
 import styles from "./page.module.scss";
 import Menu from "./components/menu";
 import ColorCombo from "./components/color_combo_scroll";
 import RecItems from "./components/recommended_items";
 import Footer from "./components/footer";
-import { useEffect } from 'react';
-import gsap from 'gsap';
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import SplitType from 'split-type'
+import GSAPAnimation from "./components/Text-reveal-animation";
+
 
 
 
 export default function Home() {
-
-  useEffect(() => {
-     new SplitType(".title");
-     const lines = document.querySelectorAll('.line');
-     lines.forEach((line, index) => {
-       line.style.clipPath = 'polygon(0 0, 100% 0, 100% 100%, 0% 100%)';
-     });
-     gsap.from('.char', {
-      y: 60,
-      stagger: 0.005,
-      delay: 0.2,
-      duration: 0.7,
-      ease: "power4.out"
-    });
-    gsap.to('.char', {
-      y: 0,
-      stagger: 0.005,
-      delay: 0.2,
-      duration: 0.7,
-      ease: "power4.out"
-    });
-  }, []);
-
-
 
 
   return (
@@ -53,8 +27,9 @@ export default function Home() {
           
       </div>
     <section className={styles.container_1_1}  >
-      <div className={styles.text_container}>
-      <h1 className="title" >EACH PIECE IS HANDPAINTED</h1>
+    <GSAPAnimation targetSelector=".text_container_1" />
+      <div className={styles.container_span}>
+      <span className="text_container_1">EACH PIECE IS </span><span className="text_container_1">HANDPAINTED</span>
       </div>
       
       <p>Elevate Your Style: Unique Hand-Painted Clothing as Abstract Art.
@@ -83,7 +58,10 @@ Make a bold statement with clothing that is as unique as you are. Welcome to a r
         </div>
     </section>
     <section className={styles.container_1_4}>
-      <h1>OUR VISION IS TO BRING ART AND CLOTHING TOGETHER. DARE TO BE UNIQUE.</h1>
+    <GSAPAnimation targetSelector=".text_container_2" />
+    <div className={styles.container_span}>
+      <span className="text_container_2">OUR VISION IS </span> <span className="text_container_2">TO BRING ART</span> <span className="text_container_2"> AND CLOTHING </span> <span className="text_container_2"> TOGETHER.</span> <span className="text_container_2">DARE TO BE </span> <span className="text_container_2">UNIQUE.</span>
+    </div>
     </section>
     <section className={styles.container_1_5}>
   <div className="photo1">
@@ -102,3 +80,5 @@ Make a bold statement with clothing that is as unique as you are. Welcome to a r
     </main>
   );
 }
+
+//className={`${"line"} ${styles.line}`}

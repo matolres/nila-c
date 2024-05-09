@@ -102,17 +102,21 @@
             font-weight: 700;
             
             }
-                .item {
+                li {
                     
-            font-size: 2rem;
-            color: blue;
-            text-align: center;
-            text-decoration: none !important; 
-            opacity: 0;
+                    display: block;
+                    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+                    text-align: center;
+                    color: blue;
+            
             
 
 
         }
+    }
+    .menu_icon {
+        position: absolute;
+        right: 10%;
     }
         
     @media only screen and (min-width: 680px){

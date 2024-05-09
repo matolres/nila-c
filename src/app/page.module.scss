@@ -42,6 +42,7 @@ position: relative;
     }
     p {
       margin: 0 2rem;
+      color: blue;
     }
 }
 
@@ -98,15 +99,20 @@ position: relative;
   .photo1 {
     width: 100%;
   }
-  .text_container{
-    .line {
+  .container_span{
+    span {
+      display: block;
       clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+      text-align: center;
+      color: blue;
+      
     }
   }
 
+  .container_1_4{
+    .text_container :last-child {
+      color: yellow;
+    }
+  } 
 
-.char {
-  
-  transition: transform 0.5s;
-}
   
