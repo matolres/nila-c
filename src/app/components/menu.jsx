@@ -14,49 +14,40 @@ export default function Menu() {
     const toggleOpen = () => {
         setIsOpen(!isOpen); 
     }
-    const textRevealAnimation = () => {
-
-        const listItems = document.querySelectorAll('.item-text');
-      
-
-        gsap.set(listItems, { opacity: 0, y: 20 });
-      
-
-        const tl = gsap.timeline({ delay: 0.6 });
-        const tl2 = gsap.timeline({ delay: 0 });
-      
-        if (isOpen) {
-
-          gsap.set(listItems, { opacity: 1, y: 0 });
-      
-          listItems.forEach((item, index) => {
-            tl2.to(item, { opacity: 0, y: 20, duration: 0.1, ease: "power1.out" }, index * 0.1);
-          });
-        } else {
-
-          listItems.forEach((item, index) => {
-            tl.to(item, { opacity: 1, y: 0, duration: 0.2, ease: "power1.out" }, index * 0.1);
-          });
-        }
-      };
-
-    useEffect(() => {
 
 
+    useGSAP(() => {
 
         if (isOpen) {
+        gsap.from(".item-text",{
+            y: 15,
+            clipPath: 'polygon(0 100%, 100% 100%, 100% 100%, 0% 100%)',
+            stagger: 0.03,
+            delay: 0.8,
+            duration: 0.8
+        })
         gsap.to(".moveMe", {
             duration:0.3,
             height:"100vh",
             ease: "sine.inOut",
         });
+        
         gsap.to(".fullsize", {
             duration:0.3,
             height:"100vh",
             ease: "sine.inOut",
         })
+
     }
         else {
+            gsap.to(".item-text",{
+                y: 0,
+                clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0% 100%) ',
+                stagger: 0.03,
+                delay: 0.8,
+                duration: 0.2
+            }) 
+
           
             gsap.to(".moveMe", {
                 delay: 0.5,
@@ -70,6 +61,8 @@ export default function Menu() {
                 height:"62",
                 ease: "sine.inOut",
             })
+
+
             
         
     }
@@ -94,16 +87,16 @@ export default function Menu() {
     <rect class="moveMe" width="100%"  fill="yellow" y="0%" x="0" >
     </rect>
 
-    <text className={styles.logo} transform="translate(45 35)" text-anchor="middle" font-size="20" fill="yellow">NILA-C</text>
+    <text className={styles.logo} transform="translate(45 40)" text-anchor="middle" font-size="25" fill="yellow">NILA-C</text>
     <line x1="0" y1="60" x2="100%" y2="60" stroke="yellow" stroke-width="2" />
     <g clip-path="url(#theClipPath)" width="100%">
-        <text className={styles.logo_overlay} transform="translate(45 35)" text-anchor="middle" font-size="20" fill="blue">NILA-C</text>
+        <text className={styles.logo_overlay} transform="translate(45 40)" text-anchor="middle" font-size="25" fill="blue">NILA-C</text>
         <line x1="0" y1="60" x2="100%" y2="60" stroke="blue" stroke-width="2" />
     </g>
 
-    <text className={styles.menu_icon} onClick={() => { toggleOpen(); textRevealAnimation(); }} x="90%" y="35" text-anchor="middle" font-size="15" fill="yellow" >MENU</text>
+    <text className={styles.menu_icon} onClick={() => { toggleOpen(); }} x="90%" y="35" text-anchor="middle" font-size="15" fill="yellow" >MENU</text>
     <g clip-path="url(#theClipPath)">
-        <text onClick={() => { toggleOpen(); textRevealAnimation(); }} x="90%" y="35" text-anchor="middle" font-size="15" fill="blue">MENU</text>
+        <text onClick={() => { toggleOpen(); }} x="90%" y="35" text-anchor="middle" font-size="15" fill="blue">CLOSE</text>
       
     </g>
 

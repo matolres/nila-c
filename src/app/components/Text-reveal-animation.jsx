@@ -10,9 +10,9 @@ export default function GSAPAnimation({ targetSelector, additionalOptions }) {
     const defaultAnimationOptions = {
       y: 15,
       clipPath: 'polygon(0 100%, 100% 100%, 100% 100%, 0% 100%)',
-      stagger: 0.1,
+      stagger: 0.03,
       delay: 0.2,
-      duration: 0.7
+      duration: 0.8
     };
     const animationOptions = { ...defaultAnimationOptions, ...additionalOptions };
     gsap.from(targetSelector, {

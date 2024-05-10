@@ -43,10 +43,12 @@
         }
         .logo {
             font-weight: bolder;
+            font-size: 2rem;
           
         }
         .logo_overlay {
             font-weight: bolder;
+            font-size: 2rem;
          
         }
 
@@ -78,7 +80,12 @@
             top: -100vh;
           }
           
-
+        .item-text {
+            display: block;
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+            text-align: center;
+            color: blue;
+        }
         
 
 
@@ -100,19 +107,13 @@
             color: blue;
             font-family: "Oswald", sans-serif;
             font-weight: 700;
+            display: block;
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+            text-align: center;
+            color: blue;
             
             }
-                li {
-                    
-                    display: block;
-                    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
-                    text-align: center;
-                    color: blue;
-            
-            
 
-
-        }
     }
     .menu_icon {
         position: absolute;
