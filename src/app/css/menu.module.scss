@@ -44,12 +44,22 @@
         .logo {
             font-weight: bolder;
             font-size: 2rem;
+            color: yellow;
           
+        }
+        .line {
+            color: yellow;
+            stroke-width: 2px;
         }
         .logo_overlay {
             font-weight: bolder;
             font-size: 2rem;
-         
+            color: blue;
+        }
+
+        .line_overlay {
+            color: blue;
+            stroke-width: 2px;
         }
 
 
@@ -80,11 +90,12 @@
             top: -100vh;
           }
           
-        .item-text {
+        .item{
             display: block;
             clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
             text-align: center;
             color: blue;
+            transform: translateY(-150px);
         }
         
 

@@ -1,6 +1,6 @@
 "use client"
 import styles from "@/app/css/menu.module.scss"
-import { useState, useEffect } from "react";
+import { useState} from "react";
 import Link from "next/link";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
@@ -20,12 +20,21 @@ export default function Menu() {
 
         if (isOpen) {
         gsap.from(".item-text",{
-            y: 15,
-            clipPath: 'polygon(0 100%, 100% 100%, 100% 100%, 0% 100%)',
-            stagger: 0.03,
-            delay: 0.8,
-            duration: 0.8
+            y: 150,
+            stagger: 0.05,
+            delay: 0.6,
+            duration: 0.3,
+            ease: "circ.out",
         })
+        gsap.to(".item-text",{
+            y: 10,
+
+            stagger: 0.05,
+            delay: 0.7,
+            duration: 0.2,
+            ease: "circ.out",
+        }) 
+
         gsap.to(".moveMe", {
             duration:0.3,
             height:"100vh",
@@ -40,13 +49,22 @@ export default function Menu() {
 
     }
         else {
-            gsap.to(".item-text",{
-                y: 0,
-                clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0% 100%) ',
-                stagger: 0.03,
-                delay: 0.8,
-                duration: 0.2
+            gsap.from(".item-text",{
+                y: 10,
+    
+                stagger: 0.05,
+                delay: 0.2,
+                duration: 0.6,
+                ease: "circ.out",
             }) 
+            gsap.to(".item-text",{
+                y: 120,
+                stagger: 0.05,
+                delay: 0.2,
+                duration: 0.6,
+                ease: "circ.out",
+            })
+
 
           
             gsap.to(".moveMe", {
@@ -87,10 +105,11 @@ export default function Menu() {
     <rect class="moveMe" width="100%"  fill="yellow" y="0%" x="0" >
     </rect>
 
-    <text className={styles.logo} transform="translate(45 40)" text-anchor="middle" font-size="25" fill="yellow">NILA-C</text>
+    <Link rel="stylesheet" href="/"><text className={styles.logo} transform="translate(45 40)" text-anchor="middle" font-size="25" fill="yellow">NILA-C</text></Link>
     <line x1="0" y1="60" x2="100%" y2="60" stroke="yellow" stroke-width="2" />
     <g clip-path="url(#theClipPath)" width="100%">
-        <text className={styles.logo_overlay} transform="translate(45 40)" text-anchor="middle" font-size="25" fill="blue">NILA-C</text>
+        
+        <Link rel="stylesheet" href="/"><text className={styles.logo_overlay} transform="translate(45 40)" text-anchor="middle" font-size="25" fill="blue">NILA-C</text></Link>
         <line x1="0" y1="60" x2="100%" y2="60" stroke="blue" stroke-width="2" />
     </g>
 
@@ -104,10 +123,10 @@ export default function Menu() {
 <div className={`${styles.items_container} ${isOpen ? styles.animate_menu : styles.animate_menu_up}`}>
 
                 <ul className={styles.items} >
-                    <Link href='/'><li class="item-text" className={styles.item}>SHOP</li></Link>
-                    <Link href='/artists'><li class="item-text" className={styles.item}>LOOKBOOK</li></Link>
-                    <Link href='/paystep'><li class="item-text" className={styles.item}>ABOUT</li></Link>
-                    <Link href='/paystep'><li class="item-text" className={styles.item}>CONTACT</li></Link>
+                    <Link href='/shop'><li class="item-text" className={styles.item}>SHOP</li></Link>
+                    <Link href='/lookbook'><li class="item-text" className={styles.item}>LOOKBOOK</li></Link>
+                    <Link href='/about'><li class="item-text" className={styles.item}>ABOUT</li></Link>
+                    <Link href='/contact'><li class="item-text" className={styles.item}>CONTACT</li></Link>
                 </ul>
                 </div>
 </header>
