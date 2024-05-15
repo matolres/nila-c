@@ -4,7 +4,7 @@ import Image from "next/image";
 export default function ColorCombo() {
     return(
         <div className={styles.combo_container}>
-            <Image className={styles.combo_image} alt=""
+            <Image  className={styles.combo_image} src="/" alt=""
             height={200}
             width={200}
             />

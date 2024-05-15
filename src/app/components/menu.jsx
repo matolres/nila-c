@@ -92,30 +92,30 @@ export default function Menu() {
 
         
   
-<svg class="fullsize" xmlns="http://www.w3.org/2000/svg" width="100%" height="62"  className={`${styles.menu_anim} ${styles.front}`}  preserveAspectRatio="xMidYMid meet">
+<svg class="fullsize" xmlns="http://www.w3.org/2000/svg" width="100%" height="62"  className={`${styles.menu_anim} ${styles.front} `}  preserveAspectRatio="xMidYMid meet">
     
     <defs>
         <clipPath id="theClipPath">
-            <rect class="moveMe" width="100%"  fill="purple" y="0%" x="0" >
+            <rect className="moveMe" width="100%"  fill="purple" y="0%" x="0" >
 
             </rect>
 
         </clipPath>
     </defs>
-    <rect class="moveMe" width="100%"  fill="yellow" y="0%" x="0" >
+    <rect className="moveMe" width="100%"  fill="yellow" y="0%" x="0" >
     </rect>
 
-    <Link rel="stylesheet" href="/"><text className={styles.logo} transform="translate(45 40)" text-anchor="middle" font-size="25" fill="yellow">NILA-C</text></Link>
-    <line x1="0" y1="60" x2="100%" y2="60" stroke="yellow" stroke-width="2" />
-    <g clip-path="url(#theClipPath)" width="100%">
+    <Link rel="stylesheet" href="/"><text className={styles.logo} transform="translate(45 40)" textAnchor="middle" fontSize="25" fill="yellow">NILA-C</text></Link>
+    <line x1="0" y1="60" x2="100%" y2="60" stroke="yellow" strokeWidth="2" />
+    <g clipPath="url(#theClipPath)" width="100%">
         
-        <Link rel="stylesheet" href="/"><text className={styles.logo_overlay} transform="translate(45 40)" text-anchor="middle" font-size="25" fill="blue">NILA-C</text></Link>
-        <line x1="0" y1="60" x2="100%" y2="60" stroke="blue" stroke-width="2" />
+        <Link rel="stylesheet" href="/"><text className={styles.logo_overlay} transform="translate(45 40)" textAnchor="middle" fontSize="25" fill="blue">NILA-C</text></Link>
+        <line x1="0" y1="60" x2="100%" y2="60" stroke="blue" strokeWidth="2" />
     </g>
 
-    <text className={styles.menu_icon} onClick={() => { toggleOpen(); }} x="90%" y="35" text-anchor="middle" font-size="15" fill="yellow" >MENU</text>
-    <g clip-path="url(#theClipPath)">
-        <text onClick={() => { toggleOpen(); }} x="90%" y="35" text-anchor="middle" font-size="15" fill="blue">CLOSE</text>
+    <text className={styles.menu_icon} onClick={() => { toggleOpen(); }} x="90%" y="35" textAnchor="middle" fontSize="15" fill="yellow" >MENU</text>
+    <g clipPath="url(#theClipPath)">
+        <text onClick={() => { toggleOpen(); }} x="90%" y="35" textAnchor="middle" fontSize="15" fill="blue">CLOSE</text>
       
     </g>
 
@@ -123,10 +123,10 @@ export default function Menu() {
 <div className={`${styles.items_container} ${isOpen ? styles.animate_menu : styles.animate_menu_up}`}>
 
                 <ul className={styles.items} >
-                    <Link href='/shop'><li class="item-text" className={styles.item}>SHOP</li></Link>
-                    <Link href='/lookbook'><li class="item-text" className={styles.item}>LOOKBOOK</li></Link>
-                    <Link href='/about'><li class="item-text" className={styles.item}>ABOUT</li></Link>
-                    <Link href='/contact'><li class="item-text" className={styles.item}>CONTACT</li></Link>
+                    <Link href='/shop'><li class="item-text" className={`${ styles.item} ${"item-text"}`}>SHOP</li></Link>
+                    <Link href='/lookbook'><li class="item-text" className={`${styles.item} ${"item-text"}`}>LOOKBOOK</li></Link>
+                    <Link href='/about'><li class="item-text" className={`${styles.item} ${"item-text"}`}>ABOUT</li></Link>
+                    <Link href='/contact'><li class="item-text" className={`${styles.item} ${"item-text"}`}>CONTACT</li></Link>
                 </ul>
                 </div>
 </header>

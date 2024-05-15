@@ -19,7 +19,7 @@ export default function Home() {
       <div className={styles.background}></div>  
       <Menu className={styles.menu} />
       <div className={styles.splash}>
-          <video className={styles.video} autoPlay loop muted playsInline  layout='responsive' objectFit='cover'
+          <video className={styles.video} autoPlay loop muted playsInline  layout='responsive' objectfit='cover'
           >
               <source src="/dummy/splash.mp4" type="video/mp4" />
           </video>
@@ -65,14 +65,14 @@ Make a bold statement with clothing that is as unique as you are. Welcome to a r
     </section>
     <section className={styles.container_1_5}>
   <div className="photo1">
-    <Image src="/dummy/model1.jpg" alt="Photo 1" width={800} height={400} layout='responsive' objectFit='cover'/>
+    <Image src="/dummy/model1.jpg" alt="Photo 1" width={800} height={400} layout='responsive' objectfit='cover'/>
   </div>
   <div className={styles.flexContainer}>
     <div className="photo2">
-      <Image src="/dummy/model2.jpg"  alt="Photo 2" width={200} height={200} layout='responsive' objectFit='contain' />
+      <Image src="/dummy/model2.jpg"  alt="Photo 2" width={200} height={200} layout='responsive' objectfit='contain' />
     </div>
     <div className="photo3">
-      <Image src="/dummy/model3.jpg" alt="Photo 3" width={200} height={200} layout='responsive' objectFit='contain' />
+      <Image src="/dummy/model3.jpg" alt="Photo 3" width={200} height={200} layout='responsive' objectfit='contain' />
     </div>
   </div>
 </section>

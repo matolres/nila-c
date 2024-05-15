@@ -4,7 +4,7 @@ export default function recItems() {
     return(
         <>
         <div>
-         <Image alt=""
+         <Image src="/" alt=""
             height={150}
             width={150}
             />

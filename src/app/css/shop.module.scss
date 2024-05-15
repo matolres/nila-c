@@ -2,15 +2,29 @@
 .container_1 {
     position: relative; /* Add this to establish a positioning context */
     display: flex;
+    flex-direction: column;
+    .container_1_2_1 {
+        height: 100vh;
+        position: fixed;
+        width: 100%;
+        background-color: #00F135;
+        z-index: 100;
+        .close_filter {
+            position: absolute;
+            right: 0;
+        }
+    }
 
 
 .background {
     background-color: white;
     width: 100%;
-    height: 60px;
+    height: 100px;
     position: fixed;
     top: 0; /* Ensures it sticks to the top */
     z-index: 10;
+    position: relative;
+
 }
 
 .menu {
@@ -22,15 +36,21 @@
 
 .container_1_1 {
     flex: 1; /* This will make the categories take the remaining space */
-    margin-top: 60px;
+    padding-top: 60px;
     overflow-x: scroll;
     display: flex;
+    position: fixed;
+    width: 100vw;
+    z-index: 15;
+    background-color: white;
+    
     .filter {
         margin: 0.5rem;
         border: 1px red solid;
         padding: 0.5rem ;
+      
     }
-    /* Adjust this value to leave space for the fixed background */
+ 
 }
 .container_1_1_1 {
     display: flex;
@@ -38,6 +58,7 @@
 
     flex-direction: row;
     gap: 1rem;
+
     
     
     li {
@@ -53,4 +74,16 @@
         color: red;
     }
 }
+}
+
+.container_1_2 {
+
+    .card {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin: 0.8rem;
+        justify-content: space-between;
+
+    }
 }

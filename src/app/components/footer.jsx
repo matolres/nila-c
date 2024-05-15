@@ -9,7 +9,7 @@ export default function Footer() {
     return(
         <>
         <div className={styles.footer_container}>
-        <video className={styles.video} autoPlay loop muted playsInline  layout='responsive' objectFit='cover'
+        <video className={styles.video} autoPlay loop muted playsInline  layout='responsive' objectfit='cover'
           >
               <source src="/dummy/splash.mp4" type="video/mp4" />
           </video>
