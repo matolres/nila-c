@@ -32,13 +32,13 @@ export default function Home() {
       <span className="text_container_1">EACH PIECE IS </span><span className="text_container_1">HANDPAINTED</span>
       </div>
       
-      <p>Elevate Your Style: Unique Hand-Painted Clothing as Abstract Art.
+      <p>Elevate Your Style: Unique Hand-Painted Clothing as Abstract Art.<br></br><br></br>
 Discover a world where fashion meets individuality. Each garment is meticulously crafted, ensuring its status as a true original – a rare gem in a world of mass production.
-Make a bold statement with clothing that is as unique as you are. Welcome to a realm where fashion becomes a canvas and every piece tells a story.</p>
+<br></br><br></br>Make a bold statement with clothing that is as unique as you are. Welcome to a realm where fashion becomes a canvas and every piece tells a story.</p>
       
     </section>
     <section className={styles.container_1_2}>
-          
+          <h2>PAINT COMBINATIONS</h2>
           <div className={styles.scrolling_wrapper}>
             <div className={styles.card}>
               <ColorCombo />
@@ -47,8 +47,8 @@ Make a bold statement with clothing that is as unique as you are. Welcome to a r
             </div>
           </div>
           
-        </section>
-    <section className={styles.container_1_3}>
+
+
         <div className={styles.items_wrapper}>
           <div className={styles.card2}>
           <RecItems />
@@ -60,7 +60,7 @@ Make a bold statement with clothing that is as unique as you are. Welcome to a r
     <section className={styles.container_1_4}>
     <GSAPAnimation targetSelector=".text_container_2" />
     <div className={styles.container_span}>
-      <span className="text_container_2">OUR VISION IS </span> <span className="text_container_2">TO BRING ART</span> <span className="text_container_2"> AND CLOTHING </span> <span className="text_container_2"> TOGETHER.</span> <span className="text_container_2">DARE TO BE </span> <span className="text_container_2">UNIQUE.</span>
+      <span className="text_container_2">BRINGING </span> <span className="text_container_2">MODERN ART</span> <span className="text_container_2"> AND CLOTHING </span> <span className="text_container_2"> TOGETHER.</span> <span className="text_container_2">DARE TO BE </span> <span className="text_container_2">UNIQUE.</span>
     </div>
     </section>
     <section className={styles.container_1_5}>

@@ -130,38 +130,14 @@
         position: absolute;
         right: 10%;
     }
-        
-    @media only screen and (min-width: 680px){
-        .nav {
-            top: 0;
-            display: flex;
-            justify-content: space-between;
-            padding: 2rem;
-            position: fixed;
-            z-index: 10000;
-            width: 100%;
-            
-            
-        
-            .logo {
-                
-                padding: 1rem;
-                z-index: 200;
-                
-            }
-        
-            .items {
-                text-align: end;
-            }
-        
-        
-            .toggle_button {
-                display: none;
-            }
-        }
-        .menu_anim {
-            display: none;
-        }
+    .cart_icon {
+        fill: yellow;
+        font-size: 15px;
     }
+    .cart_overlay {
+        fill: blue;
+    }
+        
+
 
     

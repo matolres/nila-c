@@ -43,11 +43,14 @@
     width: 100vw;
     z-index: 15;
     background-color: white;
+    justify-content: end;
+    
     
     .filter {
         margin: 0.5rem;
         border: 1px red solid;
         padding: 0.5rem ;
+        align-self: flex-end;
       
     }
  
