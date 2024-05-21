@@ -1,10 +1,12 @@
 import Image from "next/image";
 import styles from "@/app/css/shop_product.module.scss"
 
+
 const Products = ({ product }) => {
   console.log(product);
 
   return (
+    
     <div className={styles.product_container}>
       <h4 className="type">{product.type}</h4>
       <div className="product_image_front">

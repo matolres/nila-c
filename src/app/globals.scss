@@ -27,10 +27,14 @@ a, ul {
   font-weight: 400;
 }
 
-h2, h3, h4, text {
+h2, h3, h4, text, button {
   font-family: "Bebas Neue", sans-serif;
   font-weight: 400;
   font-style: normal;
+}
+
+button {
+  font-size: 1.3rem;
 }
 
 h1, span {
