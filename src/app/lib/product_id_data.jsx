@@ -1,4 +1,4 @@
-import GetData from '@/app/lib/data';
+import GetData from '@/app/lib/datocms';
 
 
 export async function getProductData(id) {

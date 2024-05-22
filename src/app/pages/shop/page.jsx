@@ -3,12 +3,38 @@ import Menu from '@/app/components/menu';
 import styles from '@/app/css/shop.module.scss';
 import Products from '@/app/components/products';
 import FilterOptions from '@/app/components/filter';
-import GetData from '@/app/lib/data';
+import { fetchDatoCMS } from "@/app/lib/datocms";
 import Link from 'next/link';
 
+export const revalidate = 60; // Revalidate data every 60 seconds
 
-export default async function Shop() {
-    const products = await GetData()
+const query = `
+  query {
+    allProducts {
+      id
+      category
+      color
+      paintCombo
+      price
+      productDetail
+      recommended
+      size
+      productBackImage {
+        url
+      }
+      productFrontImage {
+        url
+      }
+      productModelImage {
+        url
+      }
+    }
+  }
+`;
+
+export default async function Shop({ products }) {
+    const data = await fetchDatoCMS(query);
+    console.log(data)
     return (
         <>
             <main className={styles.container_1}>
@@ -20,7 +46,7 @@ export default async function Shop() {
                 </section>
                 <section className={styles.container_1_2}>
                     <div className={styles.card}>
-                        {products.map((product) => (
+                        {data.allProducts.map((product) => (
                             
                         <Link href={`/pages/product/${product.id}`} key={product.id}>
                             <Products product={product} key={product.id} />
