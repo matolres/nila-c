@@ -1,9 +1,6 @@
 import "./globals.scss";
 import { Bebas_Neue, DM_Mono } from 'next/font/google';
-
-
-
-
+import { ShoppingBagProvider } from '@/app/components/shopping_bag_context';
 
  
 const bebas_Neue = Bebas_Neue({
@@ -26,7 +23,9 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={` ${bebas_Neue.className} ${dm_Mono.className}`}>
-      <body >{children}</body>
+      <body >
+      <ShoppingBagProvider>{children}</ShoppingBagProvider>
+        </body>
     </html>
   );
 }

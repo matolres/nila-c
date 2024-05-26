@@ -5,7 +5,8 @@ import React from 'react';
 import Slider from 'react-slick';
 import Collapsible from 'react-collapsible';
 import Image from 'next/image';
-import styles from '@/app/css/product_id.module.scss';
+import styles from '@/app/css/product_detail.module.scss';
+import { useShoppingBag } from '@/app/components/shopping_bag_context';
 
 const ProductDetail = ({ product }) => {
   const settings = {
@@ -15,6 +16,18 @@ const ProductDetail = ({ product }) => {
     slidesToShow: 1,
     slidesToScroll: 1,
     swipeToSlide: true
+  };
+
+  const { addToBag, removeFromBag } = useShoppingBag();
+
+  const handleAddToBag = () => {
+    addToBag(product);
+    console.log('Product added to bag:', product);
+    // Set a timeout to remove the product from the shopping bag after 15 minutes
+    setTimeout(() => {
+      console.log('Removing product from bag:', product);
+      removeFromBag(product.id);
+    }, 15 * 60 * 1000);
   };
 
   return (
@@ -97,7 +110,7 @@ const ProductDetail = ({ product }) => {
         </Collapsible>
       </section>
       <section className={styles.container_2}>
-        <button className={styles.container_2_1}>ADD TO BAG</button>
+        <button className={styles.container_2_1} onClick={handleAddToBag}>ADD TO BAG</button>
         <button className={styles.container_2_2}>CHECKOUT</button>
       </section>
     </>

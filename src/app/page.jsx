@@ -15,6 +15,7 @@ export default async function Home() {
 
   return (
     
+    
     <main>
       <div className={styles.background}></div>  
       <Menu className={styles.menu} />
