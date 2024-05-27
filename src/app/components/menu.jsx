@@ -1,5 +1,5 @@
 "use client"
-import styles from "@/app/css/menu.module.scss"
+import styles from "@/app/css/menu.module.scss";
 import { useState} from "react";
 import Link from "next/link";
 import gsap from "gsap";
@@ -24,72 +24,64 @@ export default function Menu() {
 
     useGSAP(() => {
 
-        if (isOpen) {
-        gsap.from(".item-text",{
-            y: 150,
-            stagger: 0.05,
-            delay: 0.6,
-            duration: 0.3,
-            ease: "circ.out",
-        })
-        gsap.to(".item-text",{
-            y: 10,
+        if (document.querySelector(".fullsize")) {
+            if (isOpen) {
+                gsap.from(".item-text", {
+                    y: 150,
+                    stagger: 0.05,
+                    delay: 0.6,
+                    duration: 0.3,
+                    ease: "circ.out",
+                });
+                gsap.to(".item-text", {
+                    y: 10,
+                    stagger: 0.05,
+                    delay: 0.7,
+                    duration: 0.2,
+                    ease: "circ.out",
+                });
 
-            stagger: 0.05,
-            delay: 0.7,
-            duration: 0.2,
-            ease: "circ.out",
-        }) 
+                gsap.to(".moveMe", {
+                    duration: 0.3,
+                    height: "100vh",
+                    ease: "sine.inOut",
+                });
 
-        gsap.to(".moveMe", {
-            duration:0.3,
-            height:"100vh",
-            ease: "sine.inOut",
-        });
-        
-        gsap.to(".fullsize", {
-            duration:0.3,
-            height:"100vh",
-            ease: "sine.inOut",
-        })
+                gsap.to(".fullsize", {
+                    duration: 0.3,
+                    height: "100vh",
+                    ease: "sine.inOut",
+                });
+            } else {
+                gsap.from(".item-text", {
+                    y: 10,
+                    stagger: 0.05,
+                    delay: 0.2,
+                    duration: 0.6,
+                    ease: "circ.out",
+                });
+                gsap.to(".item-text", {
+                    y: 120,
+                    stagger: 0.05,
+                    delay: 0.2,
+                    duration: 0.6,
+                    ease: "circ.out",
+                });
 
-    }
-        else {
-            gsap.from(".item-text",{
-                y: 10,
-    
-                stagger: 0.05,
-                delay: 0.2,
-                duration: 0.6,
-                ease: "circ.out",
-            }) 
-            gsap.to(".item-text",{
-                y: 120,
-                stagger: 0.05,
-                delay: 0.2,
-                duration: 0.6,
-                ease: "circ.out",
-            })
-
-
-          
-            gsap.to(".moveMe", {
-                delay: 0.5,
-                duration:0.3,
-                height:"0",
-                ease: "sine.inOut",
-            });
-            gsap.to(".fullsize", {
-                delay: 0.5,
-                duration:0.3,
-                height:"62",
-                ease: "sine.inOut",
-            })
-
-
-            
-        
-    }
+                gsap.to(".moveMe", {
+                    delay: 0.5,
+                    duration: 0.3,
+                    height: "0",
+                    ease: "sine.inOut",
+                });
+                gsap.to(".fullsize", {
+                    delay: 0.5,
+                    duration: 0.3,
+                    height: "62",
+                    ease: "sine.inOut",
+                });
+            }
+        }
 
 }, [isOpen]);
 
@@ -98,7 +90,7 @@ export default function Menu() {
 
         
   
-<svg class="fullsize" xmlns="http://www.w3.org/2000/svg" width="100%" height="62"  className={`${styles.menu_anim} ${styles.front} `}  preserveAspectRatio="xMidYMid meet">
+<svg  xmlns="http://www.w3.org/2000/svg" width="100%" height="62"  className={`fullsize ${styles.menu_anim} ${styles.front}`}  preserveAspectRatio="xMidYMid meet">
     
     <defs>
         <clipPath id="theClipPath">

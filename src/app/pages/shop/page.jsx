@@ -1,4 +1,4 @@
-import { fetchDatoCMS } from "@/app/lib/datocms";
+import { performRequest } from '@/app/lib/datocms';
 import ShopContent from '@/app/components/ShopContent';
 
 const query = `
@@ -25,19 +25,13 @@ const query = `
   }
 `;
 
-
-export async function generateStaticParams() {
-  const data = await fetchDatoCMS(query);
-  return {
-    products: data.allProducts,
-  };
-}
-
-
 export default async function Shop() {
-  const data = await fetchDatoCMS(query);
+  console.log("Executing Shop component"); // Log to check if Shop component is executed
+  const { data } = await performRequest({ query: query });
+  const allProducts = data.allProducts;
+  console.log("Fetched data in Shop component:", allProducts); // Log fetched data in Shop component
 
   return (
-    <ShopContent products={data.allProducts} />
+    <ShopContent products={allProducts} />
   );
 }

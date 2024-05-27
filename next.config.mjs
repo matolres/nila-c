@@ -4,6 +4,7 @@ const nextConfig = {
     images: {
         domains: ['www.datocms-assets.com'],
       },
+      reactStrictMode: false,
 };
 
 

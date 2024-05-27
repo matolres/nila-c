@@ -19,11 +19,11 @@
 .background {
     background-color: white;
     width: 100%;
-    height: 100px;
+    height: 60px;
     position: fixed;
-    top: 0; /* Ensures it sticks to the top */
+    top: 0; 
     z-index: 10;
-    position: relative;
+    
 
 }
 
@@ -36,7 +36,7 @@
 
 .container_1_1 {
     flex: 1; /* This will make the categories take the remaining space */
-    padding-top: 60px;
+    
     overflow-x: scroll;
     display: flex;
     position: fixed;
@@ -78,8 +78,27 @@
     }
 }
 }
+.filter_button {
+    padding-top: 60px;
+}
 
 .container_1_2 {
+
+    position: relative;
+    padding-top: 60px;
+    .filters {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin: 1rem;
+
+    }
+    .filter_container {
+        height: 100vh;
+        width: 100vw;
+        position: fixed;
+
+    }
 
     .card {
         display: flex;

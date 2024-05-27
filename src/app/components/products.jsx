@@ -3,7 +3,7 @@ import styles from "@/app/css/shop_product.module.scss"
 
 
 const Products = ({ product }) => {
-  console.log(product);
+console.log("products page:", product)
 
   return (
     

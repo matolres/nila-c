@@ -9,7 +9,6 @@ import GSAPAnimation from "./components/Text-reveal-animation";
 
 
 
-
 export default async function Home() {
 
 

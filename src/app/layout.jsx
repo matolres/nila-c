@@ -2,6 +2,7 @@ import "./globals.scss";
 import { Bebas_Neue, DM_Mono } from 'next/font/google';
 import { ShoppingBagProvider } from '@/app/components/shopping_bag_context';
 
+
  
 const bebas_Neue = Bebas_Neue({
   subsets: ['latin'],

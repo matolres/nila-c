@@ -77,7 +77,7 @@
             width: 100vw;
             height: 100vh;
             top: -100vh; /* Initially hidden above the viewport */
-            z-index: 50;
+            z-index: 1000;
             
             transition:  top 0.2s linear 0.4s; /* Transition the top property for smooth animation */
           }

@@ -1,43 +1,59 @@
-"use client"
-import React, { createContext, useContext, useEffect, useState } from 'react';
+"use client";
+import { createContext, useContext, useEffect, useState } from 'react';
 
 const ShoppingBagContext = createContext();
 
 export const ShoppingBagProvider = ({ children }) => {
     const [bag, setBag] = useState(() => {
-        const savedBag = localStorage.getItem('shoppingBag');
-        return savedBag ? JSON.parse(savedBag) : [];
+        if (typeof window !== 'undefined') {
+            const savedBag = sessionStorage.getItem('shoppingBag');
+            return savedBag ? JSON.parse(savedBag) : [];
+        }
+        return [];
     });
 
-    // Use effect to check for expired items without including `bag` in the dependencies
     useEffect(() => {
         const interval = setInterval(() => {
             setBag(prevBag => {
                 const now = Date.now();
                 const filteredBag = prevBag.filter(item => now < item.expiry);
                 if (filteredBag.length !== prevBag.length) {
-                    localStorage.setItem('shoppingBag', JSON.stringify(filteredBag));
+                    if (typeof window !== 'undefined') {
+                        sessionStorage.setItem('shoppingBag', JSON.stringify(filteredBag));
+                    }
                     return filteredBag;
                 }
-                return prevBag; // Return previous bag if no items are expired to avoid unnecessary re-renders
+                return prevBag;
             });
-        }, 300000); // Check every 5 minutes
+        }, 300000);
 
-        return () => clearInterval(interval); // Cleanup the interval when the component unmounts
+        return () => clearInterval(interval);
     }, []);
 
     const addToBag = (product) => {
+        let status = 'added';
         setBag(prevBag => {
-            const updatedBag = [...prevBag, { product: product, timestamp: Date.now(), expiry: Date.now() + 15 * 60 * 1000 }];
-            localStorage.setItem('shoppingBag', JSON.stringify(updatedBag));
-            return updatedBag;
+            const isProductInBag = prevBag.some(item => item.product.id === product.id);
+            if (isProductInBag) {
+                status = 'exists';
+                return prevBag;
+            } else {
+                const updatedBag = [...prevBag, { product: product, timestamp: Date.now(), expiry: Date.now() + 15 * 60 * 1000 }];
+                if (typeof window !== 'undefined') {
+                    sessionStorage.setItem('shoppingBag', JSON.stringify(updatedBag));
+                }
+                return updatedBag;
+            }
         });
+        return { status };
     };
 
     const removeFromBag = (productId) => {
         setBag(prevBag => {
             const updatedBag = prevBag.filter(item => item.product.id !== productId);
-            localStorage.setItem('shoppingBag', JSON.stringify(updatedBag));
+            if (typeof window !== 'undefined') {
+                sessionStorage.setItem('shoppingBag', JSON.stringify(updatedBag));
+            }
             return updatedBag;
         });
     };
