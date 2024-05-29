@@ -1,7 +1,7 @@
 import "./globals.scss";
 import { Bebas_Neue, DM_Mono } from 'next/font/google';
 import { ShoppingBagProvider } from '@/app/components/shopping_bag_context';
-import { ThemeProvider } from "./components/theme_context";
+
 
 
  
@@ -26,11 +26,11 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className={` ${bebas_Neue.className} ${dm_Mono.className}`}>
       <body >
-        <ThemeProvider>
+
           <ShoppingBagProvider>
             {children}
         </ShoppingBagProvider>
-      </ThemeProvider>
+
         </body>
     </html>
   );
