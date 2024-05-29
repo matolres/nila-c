@@ -1,0 +1,96 @@
+.main_container {
+    display: flex;
+
+    height:100dvh;
+    flex-direction: column;
+}
+
+.splash {
+    position: relative;
+    overflow: hidden;
+    object-fit:cover;
+    flex:1;
+
+    padding-right: 50%;
+    z-index: 20;
+    h1 {
+        position: absolute;
+        top: 60%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        color: transparent;
+        -webkit-text-stroke-width: 2px;
+        -webkit-text-stroke-color: yellow;
+        width: 100%;
+        
+    }
+}
+.video {
+    width: 200%; /* Adjust as needed */
+height: 100%;
+    object-fit:cover; /* Adjust as needed */
+  }
+
+/* contact.module.scss */
+.contactFormContainer {
+  
+    bottom: 0;
+    width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: blue;
+    label {
+        color: yellow;
+      }
+
+  }
+  
+  .contactForm {
+    display: flex;
+    flex-direction: column;
+  }
+
+
+  
+  .formGroup {
+    margin-bottom: 15px;
+  }
+  
+  .formGroup label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .formGroup input,
+  .formGroup textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid yellow;
+    border-radius: 4px;
+  }
+  
+  .formGroup textarea {
+    height: 100px;
+    resize: vertical;
+  }
+  
+  .submitButton {
+    padding: 10px 15px;
+    border: none;
+    background-color: yellow;
+    color: blue;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  
+  .submitButton:hover {
+    background-color: #0056b3;
+  }
+  
+  .confirmationMessage {
+    margin-top: 15px;
+    color: green;
+    font-weight: bold;
+  }
+  

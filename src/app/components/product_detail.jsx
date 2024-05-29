@@ -1,23 +1,19 @@
 'use client';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
-import React, { useState } from 'react';
-import Slider from 'react-slick';
+
+import React, { useState, useEffect } from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
 import Collapsible from 'react-collapsible';
 import Image from 'next/image';
 import styles from '@/app/css/product_detail.module.scss';
 import { useShoppingBag } from '@/app/components/shopping_bag_context';
 import { useRouter } from 'next/navigation';
+import 'swiper/css';
+import 'swiper/css/scrollbar';
+import { Scrollbar } from 'swiper/modules';
+import Link from 'next/link';
+
 
 const ProductDetail = ({ product }) => {
-  const settings = {
-    dots: true,
-    infinite: false,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    swipeToSlide: true
-  };
 
   const { addToBag, removeFromBag } = useShoppingBag();
   const router = useRouter();
@@ -40,35 +36,50 @@ const ProductDetail = ({ product }) => {
     router.push('/pages/checkout');
   };
 
+
+
   return (
-    <>
+    <main className={styles.main_container} style={{ position: 'relative' }}>
       <div className={styles.background}></div>
-      <Slider {...settings} className={styles.container_1_1}>
-        <Image 
-          alt=""
-          style={{objectFit: "contain"}}
-          loading="lazy"
-          src={product.productFrontImage.url}
-          height={400}
-          width={370}
-        />
-        <Image 
-          alt=""
-          style={{objectFit: "contain"}}
-          loading="lazy"
-          src={product.productBackImage.url}
-          height={400}
-          width={370}
-        />
-        <Image 
-          alt=""
-          style={{objectFit: "contain"}}
-          loading="lazy"
-          src={product.productModelImage.url}
-          height={400}
-          width={370}
-        />
-      </Slider>
+      <Link className={styles.back_to_shop} href='/pages/shop'>
+        <h2>BACK TO SHOP</h2>
+      </Link>
+      <Swiper
+        scrollbar={{ hide: true }}
+        modules={[Scrollbar]}
+        className={styles.container_1_1}
+      >
+        <SwiperSlide>
+          <Image 
+            alt=""
+            style={{objectFit: "cover", layout: "fill"}}
+            loading="lazy"
+            src={product.productFrontImage.url}
+            height={400}
+            width={400}
+          />
+        </SwiperSlide>
+        <SwiperSlide>
+          <Image 
+            alt=""
+            style={{objectFit: "cover"}}
+            loading="lazy"
+            src={product.productBackImage.url}
+            height={400}
+            width={400}
+          />
+        </SwiperSlide>
+        <SwiperSlide>
+          <Image 
+            alt=""
+            style={{objectFit: "cover"}}
+            loading="lazy"
+            src={product.productModelImage.url}
+            height={400}
+            width={400}
+          />
+        </SwiperSlide>
+      </Swiper>
       <section className={styles.container_1}>
         <div className={styles.container_1_2}>
           <div className={styles.container_1_2_1}>
@@ -93,15 +104,10 @@ const ProductDetail = ({ product }) => {
           open={false}
           classParentString={styles.MyCollapsible}
         >
-          <p>Relaxed sweatshirt in heavy 14oz cotton fleece. Features a zip closure, kangaroo pocket and brushed interior.</p>
-          <p>This garment has been individually painted on, producing a one-of-a-kind result. Color may fade or bleed after wash.</p>
-          <ul>
-            <li>Longsleeve</li>
-            <li>Relaxed fixed</li>
-            <li>Main material: 100% cotton</li>
-            <li>Ribbed cuffs and hem</li>
-          </ul>
+          <p className={styles.product_detail}>{product.productDetail}</p>
+          
         </Collapsible>
+        
         <Collapsible
           className={styles.triggers}
           trigger='Shipping'
@@ -119,8 +125,10 @@ const ProductDetail = ({ product }) => {
         <button className={styles.container_2_1} onClick={handleAddToBag}>ADD TO BAG</button>
         <button className={styles.container_2_2} onClick={handleCheckout}>CHECKOUT</button>
       </section>
-    </>
+    </main>
   );
 };
 
 export default ProductDetail;
+
+         

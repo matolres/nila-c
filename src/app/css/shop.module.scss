@@ -1,70 +1,67 @@
-
 .container_1 {
-    position: relative; /* Add this to establish a positioning context */
+    position: relative;
     display: flex;
     flex-direction: column;
+  
     .container_1_2_1 {
-        height: 100vh;
-        position: fixed;
-        width: 100%;
-        background-color: #00F135;
-        z-index: 100;
-        .close_filter {
-            position: absolute;
-            right: 0;
-        }
-    }
-
-
-.background {
-    background-color: white;
-    width: 100%;
-    height: 60px;
-    position: fixed;
-    top: 0; 
-    z-index: 10;
-    
-
-}
-
-.menu {
-    position: absolute;
-    top: 0; /* Ensures it's positioned at the top */
-    left: 0; /* Adjust as needed */
-    z-index: 20; /* Ensures it's above the background */
-}
-
-.container_1_1 {
-    flex: 1; /* This will make the categories take the remaining space */
-    
-    overflow-x: scroll;
-    display: flex;
-    position: fixed;
-    width: 100vw;
-    z-index: 15;
-    background-color: white;
-    justify-content: end;
-    
-    
-    .filter {
-        margin: 0.5rem;
-        border: 1px red solid;
-        padding: 0.5rem ;
-        align-self: flex-end;
+      height: 100vh;
+      position: fixed;
+      width: 100%;
+      background-color: var(--bg-color);
+      z-index: 100;
       
+      .close_filter {
+        position: absolute;
+        right: 0;
+      }
     }
- 
-}
-.container_1_1_1 {
-    display: flex;
-    overflow-x: scroll;
-
-    flex-direction: row;
-    gap: 1rem;
-
-    
-    
-    li {
+  
+    .background {
+      background-color: white;
+      width: 100%;
+      height: 60px;
+      position: fixed;
+      top: 0;
+      z-index: 10;
+    }
+  
+    .menu {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 20;
+    }
+  
+    .shopMenu {
+      background-color: red;
+      color: green;
+    }
+  
+    .container_1_1 {
+      flex: 1;
+      overflow-x: scroll;
+      display: flex;
+      position: fixed;
+      width: 100vw;
+      z-index: 15;
+      background-color: white;
+      justify-content: end;
+  
+      .filter {
+        margin: 0.5rem;
+        color: var(--text-color);
+        padding: 0.5rem;
+        align-self: flex-end;
+      }
+    }
+  
+    .container_1_1_1 {
+      display: flex;
+      overflow-x: scroll;
+      flex-direction: row;
+      gap: 1rem;
+  
+      li {
         list-style: none;
         flex: 1;
         white-space: nowrap;
@@ -74,38 +71,49 @@
         font-style: normal;
         text-align: center;
         font-size: 18.72px;
-        color: red;
+        color: var(--text-color);
+      }
     }
-}
-}
-.filter_button {
+  }
+  
+  .product_link {
+    text-decoration: none;
+  }
+  
+  .filter_button {
     padding-top: 60px;
-}
-
-.container_1_2 {
-
+    margin: 1rem 1rem 0 1rem;
+    text-align: end;
+  }
+  
+  .container_1_2 {
     position: relative;
-    padding-top: 60px;
+  
     .filters {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        margin: 1rem;
-
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      margin: 1rem;
     }
+  
     .filter_container {
-        height: 100vh;
-        width: 100vw;
-        position: fixed;
-
+      height: 100vh;
+      width: 100vw;
+      position: fixed;
     }
-
+  
     .card {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.5rem;
-        margin: 0.8rem;
-        justify-content: space-between;
-
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      width: 100%;
+      padding: 20px;
     }
-}
+  
+    @media (min-width: 768px) {
+      .card {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+  }
+  

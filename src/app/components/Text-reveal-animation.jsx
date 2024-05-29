@@ -21,7 +21,7 @@ export default function GSAPAnimation({ targetSelector, additionalOptions }) {
         trigger: targetSelector,
         toggleActions: 'restart none none none'
       },
-      ease: "back.out" // You can set a default ease or override it with props
+      ease: "back.out" 
     });
     gsap.context()
   });

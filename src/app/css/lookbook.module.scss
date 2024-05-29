@@ -1,0 +1,35 @@
+.background {
+    position: fixed;
+    background-color: white;
+    height: 60px;
+    width: 100%;
+    top: 0;
+    left: 0;
+  }
+  
+  .main_container {
+    width: 100%;
+    padding-top: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .headlines {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    margin: 1rem;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .images_container {
+    width: 100%;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    background-color: #ff91c6;
+  }
+  

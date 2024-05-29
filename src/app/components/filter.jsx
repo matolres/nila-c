@@ -15,13 +15,13 @@ const FilterOptions = ({ products, setFilteredProducts, isFilterVisible, toggleF
   useEffect(() => {
     if (isFilterVisible) {
       gsap.to(filterRef.current, {
-        x: "100%",
+        x: "0%",
         duration: 0.5,
         ease: "power2.out",
       });
     } else {
       gsap.to(filterRef.current, {
-        x: "0%",
+        x: "100%",
         duration: 0.5,
         ease: "power2.in",
       });

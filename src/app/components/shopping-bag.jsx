@@ -16,10 +16,11 @@ const ShoppingBag = () => {
   };
 
   return (
+    <main className={styles.main_container}>
     <div className={styles.container_1}>
-      <h2>Shopping Bag</h2>
+      <h2 className={styles.title}>Shopping Bag</h2>
       {message && <div className={styles.message}>{message}</div>}
-      <ul>
+      <ul className={styles.list}>
         {bag?.map(({ product, timestamp }) => (
           <li key={product.id} className={styles.container_1_1}>
             <div className={styles.container_1_1_1}>
@@ -33,19 +34,23 @@ const ShoppingBag = () => {
               />
             </div>
             <div className={styles.container_1_1_2}>
-              <h2>{product.category}</h2>
+              
+
+              <h2>{product.category} - {product.paintCombo}</h2>
+              
               <h3>{product.color}</h3>
               <h3>{product.size}</h3>
               <h3>{product.price}</h3>
-              <button onClick={() => handleRemoveFromBag(product.id)}>Remove</button>
-              <Link rel="" href="/pages/checkout" >
-                <button>CHECKOUT</button>
-              </Link>
+              <button className={styles.remove} onClick={() => handleRemoveFromBag(product.id)}>Remove</button>
             </div>
           </li>
         ))}
       </ul>
+      <Link rel="" href="/pages/checkout" >
+                <button className={styles.checkout}>CHECKOUT</button>
+              </Link>
     </div>
+    </main>
   );
 };
 

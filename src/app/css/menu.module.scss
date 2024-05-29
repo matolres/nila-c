@@ -21,6 +21,7 @@
             position: relative; /* or absolute, depending on your layout */
             z-index: 999; /* Adjust the z-index value as needed */
           }
+          
 
 
     
@@ -127,16 +128,40 @@
 
     }
     .menu_icon {
-        position: absolute;
-        right: 10%;
-    }
-    .cart_icon {
         fill: yellow;
-        font-size: 15px;
-    }
-    .cart_overlay {
+      }
+      
+      .closing_menu_icon {
         fill: blue;
-    }
+      }
+      
+      .logo {
+        fill: yellow;
+      }
+      
+      .logo_overlay {
+        fill: blue;
+      }
+      
+      .cart_icon {
+        fill: yellow;
+      }
+      
+      .cart_overlay {
+        fill: blue;
+      }
+      .rect_background {
+        fill: yellow;
+      }
+
+      .line {
+        stroke:yellow;
+      }
+      .line_overlay {
+        stroke:blue;
+      }
+      
+      
         
 
 

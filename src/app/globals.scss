@@ -23,6 +23,7 @@ text {
   font-size: 1.5rem;
 }
 
+
 a, ul {
   font-family: "dm_Mono", sans-serif;
   font-weight: 400;
@@ -38,13 +39,120 @@ button {
   font-size: 1.3rem;
 }
 
-h1, span {
-  font-size: 3rem;
+
+
+:root {
+  --font-size-base: 14px;
+
+  --font-size-h1: 3rem;
+  --font-size-h2: 2rem;
+  --font-size-h3: 1.25rem;
+  --font-size-h4: 1rem;
+  --font-size-span: 1.25rem;
+
+  --font-size-h1-tablet: 3.75rem;
+  --font-size-h2-tablet: 2.5rem;
+  --font-size-h3-tablet: 1.5rem;
+  --font-size-span-tablet:1.5rem;
+  --font-size-h4-tablet: 1.25rem;
+
+
+  --font-size-h1-desktop: 5rem;
+  --font-size-h2-desktop: 3rem;
+  --font-size-h3-desktop: 1.75rem;
+  --font-size-span-desktop:1.75rem;
+  --font-size-h4-desktop: 1.5rem;
+}
+
+body {
+  font-size: var(--font-size-base);
+}
+
+p {
+  font-size: var(--font-size-p);
+  font-family: "dm_Mono", sans-serif;
+  font-weight: 400;
+}
+
+h1, .text_container_1, .text_container_2 {
+  font-size: var(--font-size-h1);
   font-family: "Oswald", sans-serif;
   font-optical-sizing: auto;
   font-weight: 800;
   font-style: normal;
 }
+
+h2 {
+  
+  font-size: var(--font-size-h2);
+  font-family: "Oswald", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+}
+
+h3,span {
+  font-size: var(--font-size-h3);
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+h4 {
+  font-size: var(--font-size-h4);
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* Media query for larger screens */
+@media (min-width: 768px) {
+  p {
+    font-size: var(--font-size-p-tablet);
+  }
+
+  h1, .text_container_1, .text_container_2 {
+    font-size: var(--font-size-h1-tablet);
+  }
+
+  h2 {
+    font-size: var(--font-size-h2-tablet);
+  }
+
+  h3 {
+    font-size: var(--font-size-h3-tablet);
+  }
+
+  h4 {
+    font-size: var(--font-size-h4-tablet);
+  }
+}
+
+
+@media (min-width: 1024px){
+  p {
+    font-size: var(--font-size-p-desktop);
+  }
+
+  h1, .text_container_1, .text_container_2 {
+    font-size: var(--font-size-h1-desktop);
+  }
+
+  h2 {
+    font-size: var(--font-size-h2-desktop);
+  }
+
+  h3 {
+    font-size: var(--font-size-h3-desktop);
+  }
+
+  h4 {
+    font-size: var(--font-size-h4-desktop);
+  }
+}
+
+
+
 
 
 

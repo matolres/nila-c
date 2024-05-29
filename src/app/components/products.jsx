@@ -8,12 +8,14 @@ console.log("products page:", product)
   return (
     
     <div className={styles.product_container}>
-      <h4 className="type">{product.category}</h4>
+      
       <div className="product_image_front">
-        <Image src={product.productFrontImage.url} alt="" height="170" width="170" />
+        <Image src={product.productFrontImage.url} alt="" height="170" width="170" layout="responsive"  />
         <div className="color_price">
+        <h3 className="type">{product.category} - {product.paintCombo}</h3>
           <p>{product.color}</p>
-          <p>{product.price}</p>
+          <p>DKK {product.price}</p>
+          <p>size: {product.size}</p>
         </div>
       </div>
     </div>

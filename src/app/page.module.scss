@@ -35,7 +35,9 @@ position: relative;
     display: flex;
     flex-direction: column;
     margin: 3rem 1rem;
-    gap: 3rem;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
     
     h1 {
         text-align: center;
@@ -43,6 +45,7 @@ position: relative;
     p {
       margin: 0 2rem;
       color: blue;
+      max-width: 500px;
     }
 }
 .container_1_2 {
@@ -127,12 +130,59 @@ position: relative;
       color: blue;
       
     }
+    .span {
+      display: flex;
+      flex-direction: column;
+    }
   }
 
-  .container_1_4{
-    .text_container :last-child {
-      color: yellow;
+  .last_span :last-child {
+    color: yellow;
+  }
+
+  @media (min-width: 768px) {
+    .container_1_1 {
+      margin: 3rem 3rem;
+      flex-direction: row;
+      p {
+        margin-top: 1.5rem;
+      }
     }
-  } 
+
+
+  }
+
+  @media (min-width: 1024px) {
+    .container_1_1 {
+      gap: 3rem;
+      
+      margin: 3rem 5rem;
+      .container_span {
+        flex: 1;
+      }
+      p {
+        font-size: 1rem;
+        flex: 1;
+        align-self: center;
+        line-height: 1.4rem;
+        margin-top: 0;
+      }
+    
+    }
+    .container_span{
+
+      .span, .last_span {
+        display: flex;
+        flex-direction: row !important;
+        :first-child {
+          margin-right: 1rem;
+        }
+      }
+    }
+    
+
+  }
+
+
 
   

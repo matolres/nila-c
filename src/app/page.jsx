@@ -1,21 +1,22 @@
-
+"use client"
 import Image from "next/image";
 import styles from "./page.module.scss";
 import Menu from "./components/menu";
 import ColorCombo from "./components/color_combo_scroll";
 import RecItems from "./components/recommended_items";
 import Footer from "./components/footer";
-import GSAPAnimation from "./components/Text-reveal-animation";
+import GSAPAnimation from "./components/Text-reveal-animation"; 
 
 
 
-export default async function Home() {
 
+
+export default function Home() {
 
   return (
     
     
-    <main>
+    <main >
       <div className={styles.background}></div>  
       <Menu className={styles.menu} />
       <div className={styles.splash}>
@@ -60,7 +61,7 @@ Discover a world where fashion meets individuality. Each garment is meticulously
     <section className={styles.container_1_4}>
     <GSAPAnimation targetSelector=".text_container_2" />
     <div className={styles.container_span}>
-      <span className="text_container_2">BRINGING </span> <span className="text_container_2">MODERN ART</span> <span className="text_container_2"> AND CLOTHING </span> <span className="text_container_2"> TOGETHER.</span> <span className="text_container_2">DARE TO BE </span> <span className="text_container_2">UNIQUE.</span>
+      <div className={styles.span}><span className="text_container_2">BRINGING <br></br> </span> <span className="text_container_2"> MODERN ART</span></div> <div className={styles.span}> <span className="text_container_2"> AND CLOTHING </span> <span className="text_container_2"> TOGETHER.</span> </div> <div className={styles.last_span}><span className="text_container_2">DARE TO BE </span> <span className={`text_container_2 ${styles.last_span}`}>UNIQUE.</span> </div>
     </div>
     </section>
     <section className={styles.container_1_5}>
