@@ -83,8 +83,8 @@ const ProductDetail = ({ product }) => {
       <section className={styles.container_1}>
         <div className={styles.container_1_2}>
           <div className={styles.container_1_2_1}>
-            <h2>{product.paintCombo} {product.category}</h2>
-            <h2>{product.price} DKK</h2>
+            <h3>{product.paintCombo} {product.category}</h3>
+            <h3>{product.price} DKK</h3>
           </div>
           <h3>{product.color}</h3>
           <h3>size: {product.size}</h3>
