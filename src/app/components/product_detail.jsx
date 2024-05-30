@@ -44,6 +44,7 @@ const ProductDetail = ({ product }) => {
       <Link className={styles.back_to_shop} href='/pages/shop'>
         <h2>BACK TO SHOP</h2>
       </Link>
+      <section className={styles.product}>
       <Swiper
         scrollbar={{ hide: true }}
         modules={[Scrollbar]}
@@ -52,7 +53,7 @@ const ProductDetail = ({ product }) => {
         <SwiperSlide>
           <Image 
             alt=""
-            style={{objectFit: "cover", layout: "fill"}}
+            style={{objectFit: "cover", layout: "responsive"}}
             loading="lazy"
             src={product.productFrontImage.url}
             height={400}
@@ -62,7 +63,7 @@ const ProductDetail = ({ product }) => {
         <SwiperSlide>
           <Image 
             alt=""
-            style={{objectFit: "cover"}}
+            style={{objectFit: "cover", layout: "responsive"}}
             loading="lazy"
             src={product.productBackImage.url}
             height={400}
@@ -72,7 +73,7 @@ const ProductDetail = ({ product }) => {
         <SwiperSlide>
           <Image 
             alt=""
-            style={{objectFit: "cover"}}
+            style={{objectFit: "cover", layout: "responsive"}}
             loading="lazy"
             src={product.productModelImage.url}
             height={400}
@@ -80,16 +81,17 @@ const ProductDetail = ({ product }) => {
           />
         </SwiperSlide>
       </Swiper>
+      <section className={styles.product_description}>
       <section className={styles.container_1}>
         <div className={styles.container_1_2}>
           <div className={styles.container_1_2_1}>
-            <h3>{product.paintCombo} {product.category}</h3>
+            <h3>{product.category} - {product.paintCombo}</h3>
             <h3>{product.price} DKK</h3>
           </div>
-          <h3>{product.color}</h3>
-          <h3>size: {product.size}</h3>
+          <h4>{product.color}</h4>
+          <h4>size: {product.size}</h4>
         </div>
-      </section>
+      
 
       {message && <div className={styles.message}>{message}</div>}
 
@@ -121,9 +123,12 @@ const ProductDetail = ({ product }) => {
           <p>The delivery charge is DKK 60. Free Shipping on orders over DKK 750. Delivery within 4-6 working days</p>
         </Collapsible>
       </section>
+      </section>
       <section className={styles.container_2}>
         <button className={styles.container_2_1} onClick={handleAddToBag}>ADD TO BAG</button>
         <button className={styles.container_2_2} onClick={handleCheckout}>CHECKOUT</button>
+      </section>
+      </section>
       </section>
     </main>
   );
