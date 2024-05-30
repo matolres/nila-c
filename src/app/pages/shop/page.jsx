@@ -1,5 +1,7 @@
 import { performRequest } from '@/app/lib/datocms';
 import ShopContent from '@/app/components/ShopContent';
+import Menu from '@/app/components/menu';
+import Footer from '@/app/components/footer';
 
 const query = `
   query {
@@ -32,6 +34,26 @@ export default async function Shop() {
   console.log("Fetched data in Shop component:", allProducts); // Log fetched data in Shop component
 
   return (
+    <>
+    <Menu 
+    menuIconColor="red"
+    closingMenuIconColor="#00F135"
+    moveMeColor="#00F135"
+    rectColor="red"
+    logoColor="red"
+    logoOverlayColor="#00F135"
+    lineColor="red"
+    lineOverlayColor="#00F135"
+    cartIconColor="red"
+    cartOverlayColor="#00F135"
+    itemTextColor="#00F135"
+/>
     <ShopContent products={allProducts} />
+    <Footer
+    color="red"
+    fill="red"
+    border=" 1px red"
+    />
+    </>
   );
 }

@@ -9,11 +9,13 @@ html,
 body {
 height: 100%;
 width: 100dvw;
+padding: 0;
+margin: 0;
+box-sizing: border-box;
+overflow-x: hidden;
 }
 
 
-
-@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
 
 
 h4 {
@@ -21,6 +23,11 @@ h4 {
 }
 text {
   font-size: 1.5rem;
+}
+
+h1 {
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: 700;
 }
 
 
@@ -44,20 +51,20 @@ button {
 :root {
   --font-size-base: 14px;
 
-  --font-size-h1: 3rem;
-  --font-size-h2: 2rem;
+  --font-size-h1: 3.5rem;
+  --font-size-h2: 2.5rem;
   --font-size-h3: 1.25rem;
   --font-size-h4: 1rem;
   --font-size-span: 1.25rem;
 
-  --font-size-h1-tablet: 3.75rem;
-  --font-size-h2-tablet: 2.5rem;
+  --font-size-h1-tablet: 4.25rem;
+  --font-size-h2-tablet: 3rem;
   --font-size-h3-tablet: 1.5rem;
   --font-size-span-tablet:1.5rem;
   --font-size-h4-tablet: 1.25rem;
 
 
-  --font-size-h1-desktop: 5rem;
+  --font-size-h1-desktop: 5.5rem;
   --font-size-h2-desktop: 3rem;
   --font-size-h3-desktop: 1.75rem;
   --font-size-span-desktop:1.75rem;
@@ -76,18 +83,16 @@ p {
 
 h1, .text_container_1, .text_container_2 {
   font-size: var(--font-size-h1);
-  font-family: "Oswald", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 800;
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: 700;
   font-style: normal;
 }
 
 h2 {
   
   font-size: var(--font-size-h2);
-  font-family: "Oswald", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 600;
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: 550;
   font-style: normal;
 }
 

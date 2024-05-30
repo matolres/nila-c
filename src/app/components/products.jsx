@@ -1,5 +1,7 @@
 import Image from "next/image";
 import styles from "@/app/css/shop_product.module.scss"
+import Link from "next/link";
+
 
 
 const Products = ({ product }) => {
@@ -8,9 +10,9 @@ console.log("products page:", product)
   return (
     
     <div className={styles.product_container}>
-      
+      <Link href={`/pages/product/${product.id}`} key={product.id} className={styles.product_link}>
       <div className="product_image_front">
-        <Image src={product.productFrontImage.url} alt="" height="170" width="170" layout="responsive"  />
+        <Image src={product.productFrontImage.url} alt="" height="200" width="200" layout="responsive"  />
         <div className="color_price">
         <h3 className="type">{product.category} - {product.paintCombo}</h3>
           <p>{product.color}</p>
@@ -18,6 +20,7 @@ console.log("products page:", product)
           <p>size: {product.size}</p>
         </div>
       </div>
+      </Link>
     </div>
   );
 };
