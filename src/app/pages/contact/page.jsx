@@ -46,7 +46,7 @@ export default function Contact() {
         <main className={styles.main_container}>
             
             <div className={styles.splash}>
-          <video className={styles.video} autoPlay loop muted playsInline  layout='responsive' objectfit='cover'
+          <video className={styles.video} autoPlay loop muted playsInline  layout='responsive' 
           >
               <source src="/dummy/splash.mp4" type="video/mp4" />
           </video>

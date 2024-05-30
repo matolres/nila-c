@@ -13,19 +13,29 @@ const FilterOptions = ({ products, setFilteredProducts, isFilterVisible, toggleF
   const filterRef = useRef(null);
 
   useEffect(() => {
-    if (isFilterVisible) {
-      gsap.to(filterRef.current, {
-        x: "0%",
-        duration: 0.5,
-        ease: "power2.out",
-      });
-    } else {
-      gsap.to(filterRef.current, {
-        x: "100%",
-        duration: 0.5,
-        ease: "power2.in",
-      });
-    }
+    const updatePosition = () => {
+      const width = window.innerWidth;
+      const translateXValue = width > 1024 ? '65%' : '0%';
+
+      if (isFilterVisible) {
+        gsap.to(filterRef.current, {
+          x: translateXValue,
+          duration: 0.5,
+          ease: "power2.out",
+        });
+      } else {
+        gsap.to(filterRef.current, {
+          x: "100%",
+          duration: 0.5,
+          ease: "power2.in",
+        });
+      }
+    };
+
+    updatePosition();
+    window.addEventListener('resize', updatePosition);
+
+    return () => window.removeEventListener('resize', updatePosition);
   }, [isFilterVisible]);
 
   useEffect(() => {
@@ -61,7 +71,7 @@ const FilterOptions = ({ products, setFilteredProducts, isFilterVisible, toggleF
   return (
     <section className={`${styles.container} ${isFilterVisible ? styles.visible : ''}`} ref={filterRef}>
       <div className={styles.filtercontainer}>
-        <h2 className={styles.close_filter} onClick={toggleFilterVisibility} style={{ cursor: 'pointer' }}>CLOSE</h2>
+        <h3 className={styles.close_filter} onClick={toggleFilterVisibility} style={{ cursor: 'pointer' }}>CLOSE</h3>
         <div className={styles.options_container}>
           {[
             { label: 'CATEGORIES', filterType: 'categories', options: ['Hoodie', 'Jeans', 'T-shirt'] },

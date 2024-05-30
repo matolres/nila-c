@@ -1,5 +1,8 @@
 .main_container {
-    width: 100%;
+    display: flex;
+    justify-content: center; /* Centers the main container horizontally */
+    /* Centers the main container vertically */
+
 
 }
 
@@ -13,11 +16,20 @@
         z-index: 10;
       
 }
+
+
+.product {
+    width: 100%;
+    max-width: 1400px;
+    padding: 1rem 2rem;
+}
 .back_to_shop {
     text-decoration: none;
     color: red;
-    h2 {
+    
+    h3 {
         margin: 1rem 1rem 1rem 1rem;
+        padding-top: 70px;
     }
 }
 .back_button {
@@ -32,12 +44,13 @@
 .container_1 {
     display: flex;
     gap: 1rem;
+    padding: 0.5rem;
     flex-direction: column;
      > * {
         border-bottom: 2px solid rgba($color: #00F135, $alpha: 0.2);
         padding-bottom: 1rem;
     }
-    .container_1_2 {
+    .container_1_2  {
         align-items: center;
     }
 
@@ -66,7 +79,7 @@
 .container_2 {
     display: flex;
     width: 100dvw;
-    max-width: 500px;
+
     justify-content: center;
     gap: 0.5rem;
     height: 4rem;
@@ -116,9 +129,7 @@
     z-index: 9;
   }
 
-  .main_container {
-    padding-top: 60px;
-  }
+
 
   @media (min-width: 768px) {
     .product {
@@ -140,10 +151,7 @@
             
 
             width: 50vw;
-            .container_3{
 
-                overflow: scroll;
-            }
             .container_2 {
                 width: 100%;
                 bottom: 0;
@@ -153,4 +161,22 @@
         }
     }
 
+  }
+
+  @media (min-width: 1024px) {
+    .info_container {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+    .container_1_2 > div {
+        margin-bottom: 1rem;
+    }
+    .container_3 > * {
+        margin-bottom: 1rem;
+        .product_detail {
+            margin: 1rem;
+        }
+    }
+    
   }

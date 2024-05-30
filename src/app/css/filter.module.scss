@@ -10,7 +10,7 @@
     z-index: 800;
     transform: translate(100%, 0px);
 
-    h2 {
+    h3 {
         color: red;
         text-align: end;
         margin: 1rem;
@@ -30,7 +30,7 @@
     width: 100vw;
     padding-bottom: 6rem;
     .buttons {
-        width: 100%;
+        width: 100vw;
     
         display: flex;
         
@@ -83,7 +83,7 @@
     margin: 2rem 1rem 1rem 1rem;
     height: 100dvh;
 
-    overflow-y: scroll;/* Adjust spacing between the different sections */
+
 
     .MyCollapsible {
         margin: 10px 0;
@@ -174,4 +174,19 @@ input[type="checkbox"]:checked + span::before {
 }
 
 }
+
+@media (min-width: 768px) {
+    .container {
+    width: 100vw;
+    transform: translate(100%, 0px);
+    }
+    .filtercontainer {
+        width: 35vw;
+        overflow-y:hidden;
+        .buttons {
+            width: 35vw;
+        }
+    }
+    }
+
 

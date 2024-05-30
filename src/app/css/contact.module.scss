@@ -27,10 +27,11 @@
     }
 }
 .video {
-    width: 200%; /* Adjust as needed */
-height: 100%;
-    object-fit:cover; /* Adjust as needed */
-  }
+  width: 200%; /* Set to 100% to fill the container */
+  height: 100%; /* Allow the height to adjust proportionally */
+ /* Remove any max-width constraints */
+  object-fit: cover; /* Maintain aspect ratio and cover the container */
+}
 
 /* contact.module.scss */
 .contactFormContainer {
@@ -94,3 +95,27 @@ height: 100%;
     font-weight: bold;
   }
   
+  @media (min-width:768px) {
+    .contactFormContainer {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+    }
+    .video {
+      width: 200%; /* Adjust as needed */
+      height: 100%; /* Adjust as needed */
+      object-fit: fill;
+      overflow: hidden;
+      position: absolute; /* Adjust as needed */
+    }
+    
+
+    .contactForm {
+      width: 100%;
+      max-width: 600px;
+    }
+    .main_container {
+      flex-direction: row;
+    }
+  }

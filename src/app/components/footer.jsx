@@ -17,7 +17,7 @@ export default function Footer({color, border, fill}) {
             <div className={styles.content_1}>
                 <h1 
                 style={{color: 'transparent',
-                WebkitTextStrokeWidth: '3px',
+                WebkitTextStrokeWidth: '1px',
                 WebkitTextStrokeColor: color,
                 border: border, }}>NILA-C</h1>
                 <p style={{color: color}}>nila-c@gmail.com</p>

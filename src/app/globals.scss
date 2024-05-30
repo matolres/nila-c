@@ -25,16 +25,13 @@ text {
   font-size: 1.5rem;
 }
 
-h1 {
+h1, li {
   font-family: "Bebas Neue", sans-serif;
   font-weight: 700;
 }
 
 
-a, ul {
-  font-family: "dm_Mono", sans-serif;
-  font-weight: 400;
-}
+
 
 h2, h3, h4, text, button {
   font-family: "Bebas Neue", sans-serif;
@@ -77,8 +74,7 @@ body {
 
 p {
   font-size: var(--font-size-p);
-  font-family: "dm_Mono", sans-serif;
-  font-weight: 400;
+
 }
 
 h1, .text_container_1, .text_container_2 {
@@ -137,6 +133,7 @@ h4 {
 @media (min-width: 1024px){
   p {
     font-size: var(--font-size-p-desktop);
+    line-height: 1.2rem;
   }
 
   h1, .text_container_1, .text_container_2 {
