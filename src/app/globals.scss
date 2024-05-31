@@ -46,7 +46,7 @@ button {
 
 
 :root {
-  --font-size-base: 14px;
+  --font-size-base: 12px;
 
   --font-size-h1: 3.5rem;
   --font-size-h2: 2.5rem;
@@ -110,6 +110,8 @@ h4 {
 @media (min-width: 768px) {
   p {
     font-size: var(--font-size-p-tablet);
+    font-size: 14px;
+    line-height: 1.2;
   }
 
   h1, .text_container_1, .text_container_2 {
@@ -133,7 +135,8 @@ h4 {
 @media (min-width: 1024px){
   p {
     font-size: var(--font-size-p-desktop);
-    line-height: 1.2rem;
+    font-size: 16px;
+    line-height: 1.4;
   }
 
   h1, .text_container_1, .text_container_2 {

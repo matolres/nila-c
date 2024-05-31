@@ -1,3 +1,5 @@
+
+
 .main {
 height: 100%;
 width: 100%;
@@ -30,6 +32,7 @@ position: relative;
     object-fit: cover; /* Adjust as needed */
   }
 
+  .container_1 {
 
 .container_1_1 {
     display: flex;
@@ -48,6 +51,17 @@ position: relative;
       max-width: 350px;
     }
 }
+}
+.image {
+  min-width: 200px;
+  min-height: 200px;
+  max-height: 350px;
+  max-width: 350px;
+}
+.container_1 {
+  width: 100%;
+}
+
 .container_1_2 {
   background-color: yellow;
   h2 {
@@ -66,7 +80,17 @@ position: relative;
   .card {
     display: flex;
     flex-direction: row;
+    gap: 1rem;
     width: 100%;
+    h3 {
+      background-color: blue;
+      color: yellow;
+      text-align: center;
+    }
+
+
+
+    padding: 0 2rem 2rem 2rem;
     overflow-x: scroll;
   
   }  
@@ -141,6 +165,8 @@ position: relative;
   }
 
   @media (min-width: 768px) {
+    .container_1 {
+
     .container_1_1 {
       margin: 3rem 3rem;
       flex-direction: row;
@@ -148,6 +174,7 @@ position: relative;
         margin-top: 1.5rem;
       }
     }
+  }
     .container_1_4{
       display: flex;
       justify-content: center;
@@ -168,6 +195,8 @@ position: relative;
   }
 
   @media (min-width: 1024px) {
+    .container_1 {
+      max-width: 1400px;
     .container_1_1 {
       gap: 0;
       
@@ -185,6 +214,7 @@ position: relative;
       }
     
     }
+  }
     .container_1_4{
       display: flex;
       justify-content: center;
@@ -200,10 +230,33 @@ position: relative;
         }
       }
     }
-    
+
+    .card {
+      justify-content: center;
+    }
+    .hide1 {
+      display: block;
+    }
+    .hide2 {
+      display: block;
+    }
 
   }
 
 
 
-  
+  @media (max-width: 767px){
+    .hide1 {
+      display: none;
+    }
+    .hide2 {
+      display: none;
+    }
+  }
+
+  @media (max-width: 1023px){
+    .hide2 {
+      display: none;
+    }
+  }
+

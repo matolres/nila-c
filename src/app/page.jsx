@@ -2,21 +2,19 @@
 import Image from "next/image";
 import styles from "./page.module.scss";
 import Menu from "./components/menu";
-import ColorCombo from "./components/color_combo_scroll";
-import RecItems from "./components/recommended_items";
 import Footer from "./components/footer";
 import GSAPAnimation from "./components/Text-reveal-animation"; 
 
 
 
 
-
 export default function Home() {
+  
 
   return (
     
     
-    <main >
+    <main className={styles.main_container} >
       <div className={styles.background}></div>  
       <Menu className={styles.menu} />
       <div className={styles.splash}>
@@ -27,6 +25,7 @@ export default function Home() {
           <h1>WEAR WHAT YOU ARE</h1>
           
       </div>
+      <section className={styles.container_1}>
     <section className={styles.container_1_1}  >
     <GSAPAnimation targetSelector=".text_container_1" />
       <div className={styles.container_span}>
@@ -38,23 +37,98 @@ Discover a world where fashion meets individuality. Each garment is meticulously
 <br></br><br></br>Make a bold statement with clothing that is as unique as you are. Welcome to a realm where fashion becomes a canvas and every piece tells a story.</p>
       
     </section>
+    </section>
     <section className={styles.container_1_2}>
           <h2>PAINT COMBINATIONS</h2>
+          <p></p>
           <div className={styles.scrolling_wrapper}>
             <div className={styles.card}>
-              <ColorCombo />
-              <ColorCombo />
-              <ColorCombo />
+              <div className={styles.image}>
+              <Image alt=""
+              src="/yellow and blue.jpeg"
+              width={200}
+              height={200}
+              layout="responsive"
+
+              />
+              <h3>Yellow and Blue</h3>
+              </div>
+              <div className={styles.image}>
+              <Image alt=""
+              src="/purple and pink.jpeg"
+              width={200}
+              height={200}
+              layout="responsive"
+
+              />
+              <h3>Purple and Pink</h3>
+              </div>
+              <div className={styles.image}>
+              <Image alt=""
+              src="/red and green.jpeg"
+              width={200}
+              height={200}
+              layout="responsive"
+
+              />
+              <h3>Red and Green</h3>
+              </div>
+              <div className={styles.image}>
+              <Image alt=""
+              src="/black and orange.jpeg"
+              width={200}
+              height={200}
+              layout="responsive"
+
+              />
+              <h3>Black and Orange</h3>
+              </div>
+
             </div>
           </div>
           
 
+          <h2>LATEST PRODUCTS</h2>
+        <div className={styles.scrolling_wrapper}>
+          <div className={styles.card}>
+          <div className={styles.image}>
+              <Image alt=""
+              src="/black pants front.png"
+              width={200}
+              height={200}
+              layout="responsive"
 
-        <div className={styles.items_wrapper}>
-          <div className={styles.card2}>
-          <RecItems />
-          <RecItems />
-          <RecItems />
+              />
+              </div>
+              <div className={styles.image}>
+              <Image alt=""
+              src="/Blue shirt front.png"
+              width={200}
+              height={200}
+              layout="responsive"
+
+              />
+              </div>
+              <div className={styles.image}>
+              <Image alt=""
+              src="/Grey pants front.png"
+              width={200}
+              height={200}
+              layout="responsive"
+
+              />
+              </div>
+              <div className={styles.image}>
+              <Image alt=""
+              src="/Grey pants front.png"
+              width={200}
+              height={200}
+              layout="responsive"
+
+              />
+              </div>
+
+
         </div> 
         </div>
     </section>
@@ -65,16 +139,31 @@ Discover a world where fashion meets individuality. Each garment is meticulously
     </div>
     </section>
     <section className={styles.container_1_5}>
+      <div className={styles.flexContainer}>
   <div className="photo1">
-    <Image src="/dummy/model1.jpg" alt="Photo 1" width={800} height={400} layout='responsive' objectfit='cover'/>
+    
+    <Image src="/models/Joe blue.jpg" alt="blue t-shirt" width={800} height={400} layout='responsive' objectfit='cover'/>
+  </div>
+  <div className={styles.hide1}>
+    
+    <Image src="/models/Joe blue.jpg" alt="blue t-shirt" width={800} height={400} layout='responsive' objectfit='cover'/>
+  </div>
+  <div className={styles.hide2}>
+    
+    <Image src="/models/Joe blue.jpg" alt="blue t-shirt" width={800} height={400} layout='responsive' objectfit='cover'/>
+  </div>
   </div>
   <div className={styles.flexContainer}>
     <div className="photo2">
-      <Image src="/dummy/model2.jpg"  alt="Photo 2" width={200} height={200} layout='responsive' objectfit='contain' />
+      <Image src="/models/Helena Black sweats.jpg"  alt="Black sweats" width={200} height={200} layout='responsive' objectfit='contain' />
     </div>
     <div className="photo3">
-      <Image src="/dummy/model3.jpg" alt="Photo 3" width={200} height={200} layout='responsive' objectfit='contain' />
+      <Image src="/models/Andji Black tee.jpg" alt="Black tee" width={200} height={200} layout='responsive' objectfit='contain' />
     </div>
+    <div className={styles.hide2}>
+      <Image src="/models/Andji Black tee.jpg" alt="Photo 3" width={200} height={200} layout='responsive' objectfit='contain' />
+    </div>
+
   </div>
 </section>
     <Footer />

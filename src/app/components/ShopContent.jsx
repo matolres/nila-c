@@ -1,11 +1,10 @@
 "use client"
 import React, { useState } from 'react';
 import styles from '@/app/css/shop.module.scss';
-import Menu from '@/app/components/menu';
+
 import FilterOptions from '@/app/components/filter';
 import Products from '@/app/components/products';
-import Link from 'next/link';
-import Footer from './footer';
+
 
 
 export default function ShopContent({ products }) {
