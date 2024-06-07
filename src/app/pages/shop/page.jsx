@@ -28,10 +28,10 @@ const query = `
 `;
 
 export default async function Shop() {
-  console.log("Executing Shop component"); // Log to check if Shop component is executed
+  console.log("Executing Shop component");
   const { data } = await performRequest({ query: query });
   const allProducts = data.allProducts;
-  console.log("Fetched data in Shop component:", allProducts); // Log fetched data in Shop component
+  console.log("Fetched data in Shop component:", allProducts);
 
   return (
     <>
@@ -48,7 +48,7 @@ export default async function Shop() {
     cartOverlayColor="#00F135"
     itemTextColor="#00F135"
 />
-    <ShopContent products={allProducts} />
+      <ShopContent products={allProducts} />
     <Footer
     color="red"
     fill="red"

@@ -76,7 +76,11 @@ export default async function ProductPage({ params }) {
       itemTextColor="#00F135"
       />
       <ProductDetail product={product} />
-      <Footer />
+      <Footer
+    color="red"
+    fill="red"
+    border=" 1px red"
+    />
     </>
   );
 }

@@ -13,7 +13,7 @@ console.log("products page:", product)
       <Link href={`/pages/product/${product.id}`} key={product.id} className={styles.product_link}>
       <div className="product_image_front">
         <Image src={product.productFrontImage.url} alt="" height="200" width="200" layout="responsive"  />
-        <div className="color_price">
+        <div className={styles.color_price}>
         <h3 className="type">{product.category} - {product.paintCombo}</h3>
           <p>{product.color}</p>
           <p>DKK {product.price}</p>

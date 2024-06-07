@@ -21,15 +21,17 @@
 .product {
     width: 100%;
     max-width: 1400px;
-    padding: 1rem 2rem;
+
 }
 .back_to_shop {
     text-decoration: none;
     color: red;
+    padding: 1rem;
     
     h3 {
-        margin: 1rem 1rem 1rem 1rem;
+
         padding-top: 70px;
+        padding-left: 1rem;
     }
 }
 .back_button {
@@ -65,6 +67,10 @@
    
     .container_1_2 {
         margin: 1rem 1rem 0 1rem;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
 
     }
 
@@ -72,13 +78,15 @@
 }
 
 .container_3 {
-    margin: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin: 0 1rem;
 
     
 }
 .container_2 {
     display: flex;
-    width: 100dvw;
 
     justify-content: center;
     gap: 0.5rem;
@@ -118,8 +126,7 @@
 .message {
     position: fixed;
     top: 70px;
-    left: 50%;
-    transform: translateX(-50%);
+    left: 1rem;
     background-color: #00F135;
     padding: 10px;
     width: 250px;

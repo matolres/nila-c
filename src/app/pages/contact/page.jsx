@@ -1,7 +1,6 @@
 "use client"
 
 import Menu from "@/app/components/menu"
-import Footer from "@/app/components/footer"
 import styles from "@/app/css/contact.module.scss"
 import { useState } from 'react';
 
@@ -26,16 +25,15 @@ export default function Contact() {
     
       const handleSubmit = (e) => {
         e.preventDefault();
-        // Clear the form fields
+
         setFormData({
           name: '',
           email: '',
           phone: '',
           message: ''
         });
-        // Set submitted to true to show the confirmation message
+
         setSubmitted(true);
-        // Hide the confirmation message after 3 seconds
         setTimeout(() => {
           setSubmitted(false);
         }, 3000);

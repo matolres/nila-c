@@ -36,7 +36,7 @@ const ProductDetail = ({ product }) => {
 
   return (
     <>
-          <div className={styles.background}></div>
+      <div className={styles.background}></div>
       <Link className={styles.back_to_shop} href='/pages/shop'>
         <h3>BACK TO SHOP</h3>
       </Link>
@@ -93,7 +93,7 @@ const ProductDetail = ({ product }) => {
               <h4>size: {product.size}</h4>
             </div>
           
-          {message && <div className={styles.message}>{message}</div>}
+          {message && <div className={styles.message}><h2>{message}</h2></div>}
           <section className={styles.info_container}>
           <section className={styles.container_3}>
             <Collapsible

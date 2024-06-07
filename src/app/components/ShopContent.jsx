@@ -21,14 +21,13 @@ export default function ShopContent({ products }) {
     <main className={styles.container_1}>
       <div className={styles.background}></div>
 
-      <h3 className={styles.filter_button} onClick={toggleFilterVisibility} style={{ cursor: 'pointer' }}>Filter</h3>
-      <FilterOptions
-        products={products}
-        setFilteredProducts={setFilteredProducts}
-        isFilterVisible={isFilterVisible}
-        toggleFilterVisibility={toggleFilterVisibility}
-        
-      />
+      <h3 className={styles.filter_button} onClick={toggleFilterVisibility} style={{ cursor: 'pointer' }}> Filter</h3>
+        <FilterOptions
+          products={products}
+          setFilteredProducts={setFilteredProducts}
+          isFilterVisible={isFilterVisible}
+          toggleFilterVisibility={toggleFilterVisibility} 
+        />
       <section className={styles.container_1_2}>
         <div className={styles.card}>
           {filteredProducts.map(product => (
