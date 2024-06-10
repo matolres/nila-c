@@ -33,10 +33,13 @@ export default function Home() {
             <span className="text_container_1">HANDPAINTED</span>
           </div>
           <p>
-            At our brand, every garment is a testament to originality. Each piece is meticulously hand-painted, making it truly one of one. With four exclusive paint combinations to choose from, you can celebrate your unique style with clothing that stands apart from the crowd.
+            Elevate Your Style: Unique Hand-Painted Clothing as Abstract Art.
             <br />
             <br />
-            Since every item is unique, they come in one size depending on what is produced. Experience the essence of individuality with our original, one-of-a-kind creations.
+            Discover a world where fashion meets individuality. Each garment is meticulously crafted, ensuring its status as a true original – a rare gem in a world of mass production.
+            <br />
+            <br />
+            Make a bold statement with clothing that is as unique as you are. Welcome to a realm where fashion becomes a canvas and every piece tells a story.
           </p>
         </section>
       </section>

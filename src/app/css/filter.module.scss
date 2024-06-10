@@ -5,7 +5,7 @@
     flex-direction: column;
     background-color: #00F135;
     position: fixed;
-    top: 60px;
+    top: 61px;
     bottom: 0;
     z-index: 800;
     transform: translate(100%, 0px);
@@ -181,10 +181,10 @@ input[type="checkbox"]:checked + span::before {
     transform: translate(100%, 0px);
     }
     .filtercontainer {
-        width: 35vw;
+        width: 33vw;
         overflow-y:hidden;
         .buttons {
-            width: 35vw;
+            width: 34vw;
         }
     }
     }

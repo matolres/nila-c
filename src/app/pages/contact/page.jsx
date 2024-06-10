@@ -43,6 +43,7 @@ export default function Contact() {
         <Menu
         DesktopItemTextColor="yellow"
         />
+        <div className={styles.background}></div>
         <main className={styles.main_container}>
             
             <div className={styles.splash}>

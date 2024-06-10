@@ -186,7 +186,12 @@
           gap: 4rem;
           li {
             font-weight: 400;
+            transition: ease-in-out;
           }
+          li:hover {
+            font-weight: 600;
+          }
+
           a {
             text-align: center;
             font-weight: 400;
