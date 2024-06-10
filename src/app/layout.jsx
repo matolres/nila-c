@@ -24,8 +24,8 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={` ${bebas_Neue.className} ${dm_Mono.className}`}>
-      <body >
+    <html lang="en" >
+      <body className={` ${bebas_Neue.className} ${dm_Mono.className}`} >
 
           <ShoppingBagProvider>
             {children}
