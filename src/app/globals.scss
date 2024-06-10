@@ -3,15 +3,16 @@
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+  scroll-behavior: smooth;
 }
 
 html,
 body {
-height: 100%;
-width: 100dvw;
+scroll-behavior: smooth;
 padding: 0;
 margin: 0;
-box-sizing: border-box;
+
+
 
 }
 
@@ -61,8 +62,8 @@ button {
   --font-size-h4-tablet: 1.25rem;
 
 
-  --font-size-h1-desktop: 5.5rem;
-  --font-size-h2-desktop: 3rem;
+  --font-size-h1-desktop: 8rem;
+  --font-size-h2-desktop: 5.5rem;
   --font-size-h3-desktop: 1.75rem;
   --font-size-span-desktop:1.75rem;
   --font-size-h4-desktop: 1.5rem;
@@ -88,7 +89,7 @@ h2 {
   
   font-size: var(--font-size-h2);
   font-family: "Bebas Neue", sans-serif;
-  font-weight: 550;
+  font-weight: 700;
   font-style: normal;
 }
 

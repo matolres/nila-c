@@ -1,11 +1,10 @@
-
-
 .main {
 height: 100%;
 width: 100%;
 display: flex;
 flex-direction: column;
 position: relative;
+
 }
 
 .splash {
@@ -57,6 +56,9 @@ position: relative;
   min-height: 200px;
   max-height: 350px;
   max-width: 350px;
+  img {
+    border-radius: 5px;
+  }
 }
 .container_1 {
   width: 100%;
@@ -65,8 +67,7 @@ position: relative;
 .container_1_2 {
   background-color: yellow;
   h2 {
-    padding: 1rem;
-    text-align: center;
+    padding: 1rem 1rem 1rem 2rem;
     color: blue;
 
   }
@@ -110,10 +111,7 @@ position: relative;
 }
 .container_1_4 {
     padding: 2rem;
-    h1 {
-        text-align: center;
-        
-    }
+
 }
 .background {
     background-color: blue;
@@ -178,6 +176,7 @@ position: relative;
     .container_1_4{
       display: flex;
       justify-content: center;
+
     }
     .container_span{
  
@@ -195,12 +194,25 @@ position: relative;
   }
 
   @media (min-width: 1024px) {
+
+
     .container_1 {
       max-width: 1400px;
+      height: 60dvh;
+      align-items: center;
+      justify-content: center;
+      display: flex;
+      margin: auto;
+      padding-top: 5rem;
+      padding-bottom: 5rem;
+
     .container_1_1 {
-      gap: 0;
+      gap: 3rem;
       
-      margin: 3rem 5rem;
+      
+
+      
+      margin: 0;
       .container_span {
         flex: 1;
       }
@@ -214,10 +226,24 @@ position: relative;
       }
     
     }
+    .container_1_2 {
+      display: flex;
+      flex-direction: column;
+      .paint_comb_container {
+        max-width: 1400px;
+        h2 {
+          text-align: left;
+        }
+
+      }
+
+    }
   }
     .container_1_4{
       display: flex;
       justify-content: center;
+      align-items: center;
+      height: 100dvh;
     }
     .container_span{
  

@@ -2,8 +2,6 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  overflow-x: hidden; /* Prevent horizontal scroll */
-  width: 100vw; /* Ensure container does not exceed viewport width */
 }
 
 .background {

@@ -32,21 +32,15 @@ export default function Home() {
             <span className="text_container_1">HANDPAINTED</span>
           </div>
           <p>
-            Elevate Your Style: Unique Hand-Painted Clothing as Abstract Art.
+            At our brand, every garment is a testament to originality. Each piece is meticulously hand-painted, making it truly one of one. With four exclusive paint combinations to choose from, you can celebrate your unique style with clothing that stands apart from the crowd.
             <br />
             <br />
-            Discover a world where fashion meets individuality. Each garment is
-            meticulously crafted, ensuring its status as a true original – a
-            rare gem in a world of mass production.
-            <br />
-            <br />
-            Make a bold statement with clothing that is as unique as you are.
-            Welcome to a realm where fashion becomes a canvas and every piece
-            tells a story.
+            Since every item is unique, they come in one size depending on what is produced. Experience the essence of individuality with our original, one-of-a-kind creations.
           </p>
         </section>
       </section>
       <section className={styles.container_1_2}>
+        <div className={styles.paint_comb_container}>
         <h2>PAINT COMBINATIONS</h2>
         <p></p>
         <div className={styles.scrolling_wrapper}>
@@ -59,7 +53,6 @@ export default function Home() {
                 height={200}
                 layout="responsive"
               />
-              <h3>Yellow and Blue</h3>
             </div>
             <div className={styles.image}>
               <Image
@@ -69,7 +62,6 @@ export default function Home() {
                 height={200}
                 layout="responsive"
               />
-              <h3>Purple and Pink</h3>
             </div>
             <div className={styles.image}>
               <Image
@@ -79,7 +71,6 @@ export default function Home() {
                 height={200}
                 layout="responsive"
               />
-              <h3>Red and Green</h3>
             </div>
             <div className={styles.image}>
               <Image
@@ -89,10 +80,12 @@ export default function Home() {
                 height={200}
                 layout="responsive"
               />
-              <h3>Black and Orange</h3>
+
             </div>
           </div>
         </div>
+        </div>
+        <div className={styles.latest_container}>
         <h2>LATEST PRODUCTS</h2>
         <div className={styles.scrolling_wrapper}>
           <div className={styles.card}>
@@ -133,6 +126,7 @@ export default function Home() {
               />
             </div>
           </div>
+        </div>
         </div>
       </section>
       <section className={styles.container_1_4}>
