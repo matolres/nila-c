@@ -19,6 +19,7 @@ export default function About() {
                 cartIconColor="#ff7300"
                 cartOverlayColor="black"
                 itemTextColor="black"
+                DesktopItemTextColor="#ff7300"
             />
             
             <section className={styles.container_1}>

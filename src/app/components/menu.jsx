@@ -18,7 +18,8 @@ export default function Menu({
     lineOverlayColor,
     cartIconColor,
     cartOverlayColor,
-    itemTextColor
+    itemTextColor,
+    DesktopItemTextColor
 }) {
     const [isOpen, setIsOpen] = useState(false);
     const [isShoppingBagOpen, setShoppingBagOpen] = useState(false);
@@ -94,6 +95,7 @@ export default function Menu({
 
 
     return (
+      <>
         <header className={styles.menu_header}>
 
 <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="62" className={`fullsize ${styles.menu_anim} ${styles.front}`} preserveAspectRatio="xMidYMid meet">
@@ -148,6 +150,7 @@ export default function Menu({
   </g>
 </svg>
 
+
 {isShoppingBagOpen && <ShoppingBag />}
 <div className={`${styles.items_container} ${isOpen ? styles.animate_menu : styles.animate_menu_up}`}>
 
@@ -159,7 +162,17 @@ export default function Menu({
                     <Link href='/pages/contact'><li className={`${styles.item} item-text`} style={{ color: itemTextColor }}>CONTACT</li></Link>
                 </ul>
                 </div>
+
 </header>
+<div className={styles.desktop_menu_container}>
+                <ul className={styles.menu_items_desktop} >
+                    <Link href='/pages/shop'><li className={styles.item_desktop} style={{ color: DesktopItemTextColor }}>SHOP</li></Link>
+                    <Link href='/pages/lookbook'><li className={styles.item_desktop} style={{ color: DesktopItemTextColor }}>LOOKBOOK</li></Link>
+                    <Link href='/pages/about'><li className={styles.item_desktop} style={{ color: DesktopItemTextColor }}>ABOUT</li></Link>
+                    <Link href='/pages/contact'><li className={styles.item_desktop} style={{ color: DesktopItemTextColor }}>CONTACT</li></Link>
+                </ul>
+                </div>
+</>
 
 
     );

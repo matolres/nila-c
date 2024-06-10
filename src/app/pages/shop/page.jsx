@@ -47,6 +47,7 @@ export default async function Shop() {
     cartIconColor="red"
     cartOverlayColor="#00F135"
     itemTextColor="#00F135"
+    DesktopItemTextColor="red"
 />
       <ShopContent products={allProducts} />
     <Footer

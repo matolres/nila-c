@@ -164,6 +164,37 @@
         stroke:blue;
       }
       
+      @media (min-width: 1024px) {
+        .desktop_menu_container {
+          position: fixed;
+          z-index: 1000;
+          right: 2rem;
+          top: 0.8rem;
+        }
+        .menu_icon {
+          display: none;
+        }
+        .closing_menu_icon {
+          display: none;
+        }
+        .menu_items_desktop {
+          z-index: 1000;
+          display: flex;
+          flex-direction: row;
+          justify-content: end;
+          font-size: 1.5rem;
+          gap: 4rem;
+          li {
+            font-weight: 400;
+          }
+          a {
+            text-align: center;
+            font-weight: 400;
+            text-decoration: none;
+            list-style: none;
+          }
+        }
+      }
       
         
 

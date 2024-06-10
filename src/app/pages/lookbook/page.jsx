@@ -35,7 +35,8 @@ export default async function Lookbook() {
         lineOverlayColor="#FF69B1"
         cartIconColor="#6A00AB"
         cartOverlayColor="#FF69B1"
-        itemTextColor="#FF69B1" 
+        itemTextColor="#FF69B1"
+        DesktopItemTextColor="#6A00AB"
       />
       <div className={styles.background}></div>
       <main className={styles.main_container}>

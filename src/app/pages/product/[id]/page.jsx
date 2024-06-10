@@ -74,6 +74,7 @@ export default async function ProductPage({ params }) {
       cartIconColor="red"
       cartOverlayColor="#00F135"
       itemTextColor="#00F135"
+      DesktopItemTextColor="red"
       />
       <ProductDetail product={product} />
       <Footer

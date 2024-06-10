@@ -9,7 +9,8 @@ export default function Home() {
   return (
     <main className={styles.main_container}>
       <div className={styles.background}></div>
-      <Menu className={styles.menu} />
+      <Menu className={styles.menu}
+      DesktopItemTextColor="yellow" />
       <div className={styles.splash}>
         <video
           className={styles.video}

@@ -40,7 +40,9 @@ export default function Contact() {
       };
     return(
         <>
-        <Menu/>
+        <Menu
+        DesktopItemTextColor="yellow"
+        />
         <main className={styles.main_container}>
             
             <div className={styles.splash}>
