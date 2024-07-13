@@ -17,7 +17,7 @@
     "@gsap/react": "^2.1.1",
     "datocms-client": "^3.5.24",
     "graphql": "^16.8.1",
-    "graphql-request": "^7.0.1",
+    "graphql-request": "^7.1.0",
     "gsap": "^3.12.5",
     "next": "^14.2.3",
     "next-google-fonts": "^2.2.0",
