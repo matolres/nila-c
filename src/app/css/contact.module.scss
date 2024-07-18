@@ -29,13 +29,13 @@
     }
 }
 .video {
-  width: 200%; /* Set to 100% to fill the container */
-  height: 100%; /* Allow the height to adjust proportionally */
- /* Remove any max-width constraints */
-  object-fit: cover; /* Maintain aspect ratio and cover the container */
+  width: 200%;
+  height: 100%;
+
+  object-fit: cover; 
 }
 
-/* contact.module.scss */
+
 .contactFormContainer {
   
     bottom: 0;
@@ -69,8 +69,12 @@
   .formGroup textarea {
     width: 100%;
     padding: 8px;
-    border: 1px solid yellow;
-    border-radius: 4px;
+    border-bottom: 2px solid yellow;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    
+    background-color: blue;
   }
   
   .formGroup textarea {
@@ -79,18 +83,66 @@
   }
   
   .submitButton {
-    padding: 10px 15px;
-    border: none;
-    background-color: yellow;
-    color: blue;
-    cursor: pointer;
-    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    align-items: end;
+  border:none;
+  background-color: blue;
+
+  text-decoration: none;
+ 
+  cursor:pointer;
+  .submit_content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: end;
+    padding: 2px 8px;
+    
+    .first {
+      color: yellow;
+            font-weight: 600;
+
+          padding: 4px;
+          border-radius:2px;
+    }
+    .arrow {
+      height: 20px;
+      fill: yellow;
+    }
+
   }
-  
-  .submitButton:hover {
-    background-color: #0056b3;
+  .submit_overlay {
+            background-color: yellow;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            padding: 2px 8px;
+            
+            right: 0;
+            top: 0;
+            border-radius:2px;
+            clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0 100%);
+            transition: clip-path 0.15s ease-in-out;
+            .second {
+              color: blue;
+              font-weight: 600;
+              padding: 4px;
+            }
+            .arrow_overlay {
+              height: 20px;
+              fill: blue;
+            }
+
   }
-  
+
+}
+.submitButton:hover .submit_overlay{
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+    
   .confirmationMessage {
     margin-top: 15px;
     color: green;

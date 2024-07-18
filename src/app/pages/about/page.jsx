@@ -7,19 +7,9 @@ export default function About() {
     return (
         <main className={styles.main_container}>
             <div className={styles.background}></div>
-            <Menu  
-                menuIconColor="#ff7300"
-                closingMenuIconColor="black"
-                moveMeColor="black"
-                rectColor="#ff7300"
-                logoColor="#ff7300"
-                logoOverlayColor="black"
-                lineColor="#ff7300"
-                lineOverlayColor="black"
-                cartIconColor="#ff7300"
-                cartOverlayColor="black"
-                itemTextColor="black"
-                DesktopItemTextColor="#ff7300"
+            <Menu 
+            primary="#ff7300"
+            secondary="black"
             />
             
             <section className={styles.container_1}>

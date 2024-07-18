@@ -19,7 +19,8 @@ export default function GSAPAnimation({ targetSelector, additionalOptions }) {
       ...animationOptions,
       scrollTrigger: {
         trigger: targetSelector,
-        toggleActions: 'restart none none none'
+        toggleActions: 'restart none none none',
+        
       },
       ease: "back.out" 
     });

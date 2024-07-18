@@ -2,8 +2,13 @@
   position: relative;
   display: flex;
   flex-direction: column;
+  padding-top: 60px;
 }
 
+/*
+primary="red"
+secondary="#00F135"
+*/
 .background {
   background-color: #00F135;
   width: 100%;
@@ -22,9 +27,28 @@
 }
 
 .filter_button {
-  margin: 1rem 1.9rem 0 1rem;
-  text-align: end;
+  margin: 2rem;
+  cursor: pointer;
+  text-decoration: none;
+  border: none;
+  background-color: transparent;
+  display: flex;
   color: red;
+  width: fit-content;
+  align-self: end;
+  position: relative;
+  .button_text_overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
+    transition: clip-path 0.15s ease-in-out;
+    color: #00F135;
+    
+  }
+}
+.filter_button:hover .button_text_overlay {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
 }
 
 .container_1_2 {
@@ -71,7 +95,6 @@
   }
 
   .filter_button {
-    padding-top: 60px;
     margin: 1rem 2rem 0 1rem;
   }
 }

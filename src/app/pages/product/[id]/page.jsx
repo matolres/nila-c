@@ -28,7 +28,6 @@ async function getProductData(id) {
         paintCombo
         price
         productDetail
-        recommended
         size
         productBackImage {
           url
@@ -63,18 +62,8 @@ export default async function ProductPage({ params }) {
   return (
     <>
       <Menu
-      menuIconColor="red"
-      closingMenuIconColor="#00F135"
-      moveMeColor="#00F135"
-      rectColor="red"
-      logoColor="red"
-      logoOverlayColor="#00F135"
-      lineColor="red"
-      lineOverlayColor="#00F135"
-      cartIconColor="red"
-      cartOverlayColor="#00F135"
-      itemTextColor="#00F135"
-      DesktopItemTextColor="red"
+      primary="red"
+      secondary="#00F135"
       />
       <ProductDetail product={product} />
       <Footer

@@ -9,7 +9,7 @@ const ShoppingBag = () => {
   const { bag, removeFromBag, message } = useShoppingBag();
 
   const handleRemoveFromBag = (productId) => {
-    // Call removeFromBag function asynchronously
+
     setTimeout(() => {
       removeFromBag(productId);
     }, 0);

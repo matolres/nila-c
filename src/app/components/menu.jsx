@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import styles from "@/app/css/menu.module.scss";
 import { useState } from "react";
 import Link from "next/link";
@@ -8,18 +8,8 @@ import ShoppingBag from "./shopping-bag";
 import GSAPAnimation from "./Text-reveal-animation";
 
 export default function Menu({
-    menuIconColor,
-    closingMenuIconColor,
-    moveMeColor,
-    rectColor,
-    logoColor,
-    logoOverlayColor,
-    lineColor,
-    lineOverlayColor,
-    cartIconColor,
-    cartOverlayColor,
-    itemTextColor,
-    DesktopItemTextColor
+    primary,
+    secondary
 }) {
     const [isOpen, setIsOpen] = useState(false);
     const [isShoppingBagOpen, setShoppingBagOpen] = useState(false);
@@ -96,24 +86,24 @@ export default function Menu({
 
     return (
       <>
-        <header className={styles.menu_header}>
+        <header className={styles.menu_header} style={{ '--desktop-item-primary': primary, '--desktop-item-secondary': secondary }}>
 
 <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="62" className={`fullsize ${styles.menu_anim} ${styles.front}`} preserveAspectRatio="xMidYMid meet">
   <defs>
     <clipPath id="theClipPath">
-      <rect className="moveMe" width="100%" style={{ fill: moveMeColor }} y="0%" x="0"></rect>
+      <rect className="moveMe" width="100%" style={{ fill: secondary }} y="0%" x="0"></rect>
     </clipPath>
   </defs>
-  <rect className={`moveMe ${styles.rect_background}`} width="100%" style={{ fill: rectColor }} y="0%" x="0"></rect>
+  <rect className={`moveMe ${styles.rect_background}`} width="100%" style={{ fill: primary }} y="0%" x="0"></rect>
   <Link rel="stylesheet" href="/">
-    <text className={styles.logo} x="30" y="40" fontSize="25" style={{ fill: logoColor }}>NILA-C</text>
+    <text className={styles.logo} x="30" y="40" fontSize="25" style={{ fill: primary }}>NILA-C</text>
   </Link>
-  <line className={styles.line} x1="0" y1="60" x2="100%" y2="60" style={{ stroke: lineColor }} strokeWidth="2" />
+  
   <g clipPath="url(#theClipPath)" width="100%">
     <Link rel="stylesheet" href="/">
-      <text className={styles.logo_overlay} x="30" y="40" fontSize="25" style={{ fill: logoOverlayColor }}>NILA-C</text>
+      <text className={styles.logo_overlay} x="30" y="40" fontSize="25" style={{ fill: secondary }}>NILA-C</text>
     </Link>
-    <line className={styles.line_overlay} x1="0" y1="60" x2="100%" y2="60" style={{ stroke: lineOverlayColor }} strokeWidth="2" />
+    
   </g>
   <text
     className={styles.menu_icon}
@@ -123,13 +113,13 @@ export default function Menu({
     y="35"
     textAnchor="end"
     fontSize="15"
-    style={{ fill: menuIconColor }}
+    style={{ fill: primary }}
   >
     MENU
   </text>
 
   <svg className={styles.cart_icon} onClick={handleShoppingBagClick} xmlns="http://www.w3.org/2000/svg" x="150px" y="15" height="25" width="25" viewBox="0 0 448 512">
-    <path fill={cartIconColor} d="M160 112c0-35.3 28.7-64 64-64s64 28.7 64 64v48H160V112zm-48 48H48c-26.5 0-48 21.5-48 48V416c0 53 43 96 96 96H352c53 0 96-43 96-96V208c0-26.5-21.5-48-48-48H336V112C336 50.1 285.9 0 224 0S112 50.1 112 112v48zm24 48a24 24 0 1 1 0 48 24 24 0 1 1 0-48zm152 24a24 24 0 1 1 48 0 24 24 0 1 1 -48 0z" />
+    <path fill={primary} d="M160 112c0-35.3 28.7-64 64-64s64 28.7 64 64v48H160V112zm-48 48H48c-26.5 0-48 21.5-48 48V416c0 53 43 96 96 96H352c53 0 96-43 96-96V208c0-26.5-21.5-48-48-48H336V112C336 50.1 285.9 0 224 0S112 50.1 112 112v48zm24 48a24 24 0 1 1 0 48 24 24 0 1 1 0-48zm152 24a24 24 0 1 1 48 0 24 24 0 1 1 -48 0z" />
     </svg>
   <g clipPath="url(#theClipPath)">
     <text
@@ -140,12 +130,12 @@ export default function Menu({
       y="35"
       textAnchor="end"
       fontSize="15"
-      style={{ fill: closingMenuIconColor }}
+      style={{ fill: secondary}}
     >
       CLOSE
     </text>
     <svg className={styles.cart_overlay} onClick={handleShoppingBagClick} xmlns="http://www.w3.org/2000/svg" x="150px" y="15" height="25" width="25" viewBox="0 0 448 512">
-      <path fill={cartOverlayColor} d="M160 112c0-35.3 28.7-64 64-64s64 28.7 64 64v48H160V112zm-48 48H48c-26.5 0-48 21.5-48 48V416c0 53 43 96 96 96H352c53 0 96-43 96-96V208c0-26.5-21.5-48-48-48H336V112C336 50.1 285.9 0 224 0S112 50.1 112 112v48zm24 48a24 24 0 1 1 0 48 24 24 0 1 1 0-48zm152 24a24 24 0 1 1 48 0 24 24 0 1 1 -48 0z" />
+      <path fill={secondary} d="M160 112c0-35.3 28.7-64 64-64s64 28.7 64 64v48H160V112zm-48 48H48c-26.5 0-48 21.5-48 48V416c0 53 43 96 96 96H352c53 0 96-43 96-96V208c0-26.5-21.5-48-48-48H336V112C336 50.1 285.9 0 224 0S112 50.1 112 112v48zm24 48a24 24 0 1 1 0 48 24 24 0 1 1 0-48zm152 24a24 24 0 1 1 48 0 24 24 0 1 1 -48 0z" />
     </svg>
   </g>
 </svg>
@@ -156,25 +146,47 @@ export default function Menu({
 
                 <ul className={styles.items} >
                 <GSAPAnimation targetSelector=".item-text" />
-                    <Link href='/pages/shop'><li className={`${styles.item} item-text`} style={{ color: itemTextColor }}>SHOP</li></Link>
-                    <Link href='/pages/lookbook'><li className={`${styles.item} item-text`} style={{ color: itemTextColor }}>LOOKBOOK</li></Link>
-                    <Link href='/pages/about'><li className={`${styles.item} item-text`} style={{ color: itemTextColor }}>ABOUT</li></Link>
-                    <Link href='/pages/contact'><li className={`${styles.item} item-text`} style={{ color: itemTextColor }}>CONTACT</li></Link>
+                    <Link className={styles.link} href='/pages/shop'><li className={`${styles.item} item-text`} style={{ color: secondary }}>SHOP</li></Link>
+                    <Link href='/pages/lookbook'><li className={`${styles.item} item-text`} style={{ color: secondary }}>LOOKBOOK</li></Link>
+                    <Link href='/pages/about'><li className={`${styles.item} item-text`} style={{ color: secondary }}>ABOUT</li></Link>
+                    <Link href='/pages/contact'><li className={`${styles.item} item-text`} style={{ color: secondary }}>CONTACT</li></Link>
                 </ul>
                 </div>
 
 </header>
-<div className={styles.desktop_menu_container}>
-                <ul className={styles.menu_items_desktop} >
-                    <Link href='/pages/shop'><li className={styles.item_desktop} style={{ color: DesktopItemTextColor }}>SHOP</li></Link>
-                    <Link href='/pages/lookbook'><li className={styles.item_desktop} style={{ color: DesktopItemTextColor }}>LOOKBOOK</li></Link>
-                    <Link href='/pages/about'><li className={styles.item_desktop} style={{ color: DesktopItemTextColor }}>ABOUT</li></Link>
-                    <Link href='/pages/contact'><li className={styles.item_desktop} style={{ color: DesktopItemTextColor }}>CONTACT</li></Link>
-                </ul>
+<div className={styles.desktop_menu_container} style={{ '--desktop-item-primary': primary }}>
+<div className={styles.desktop_menu_container} style={{ '--desktop-item-secondary': secondary }}>
+  <ul className={styles.menu_items_desktop}>
+    <Link href='/pages/shop' className={styles.link}>
+      <li className={styles.item_desktop} style={{ color: primary }}>
+        <span className={styles.item_text}>SHOP</span>
+        <span className={styles.overlay}>SHOP</span>
+      </li>
+    </Link>
+    <Link href='/pages/lookbook' className={styles.link}>
+      <li className={styles.item_desktop} style={{ color: primary }}>
+        <span className={styles.item_text}>LOOKBOOK</span>
+        <span className={styles.overlay}>LOOKBOOK</span>
+      </li>
+    </Link>
+    <Link href='/pages/about' className={styles.link}>
+      <li className={styles.item_desktop} style={{ color: primary }}>
+        <span className={styles.item_text}>ABOUT</span>
+        <span className={styles.overlay}>ABOUT</span>
+      </li>
+    </Link>
+    <Link href='/pages/contact' className={styles.link}>
+      <li className={styles.item_desktop} style={{ color: primary }}>
+        <span className={styles.item_text}>CONTACT</span>
+        <span className={styles.overlay}>CONTACT</span>
+      </li>
+    </Link>
+  </ul>
+</div>
+
                 </div>
 </>
 
 
     );
 }
-

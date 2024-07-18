@@ -80,6 +80,7 @@ export default function Contact() {
         <div className={styles.formGroup}>
           <label htmlFor="phone">Phone Number (optional)</label>
           <input
+            placeholder="Phone number (optional)"
             type="tel"
             id="phone"
             name="phone"
@@ -97,7 +98,18 @@ export default function Contact() {
             required
           />
         </div>
-        <button type="submit" className={styles.submitButton}>Submit</button>
+        <button type="submit" className={styles.submitButton}>
+          <div className={styles.submit_content}>
+            <span className={styles.first}>Submit</span>
+            <svg className={styles.arrow} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"/></svg>
+            
+          </div>
+          <div className={styles.submit_overlay}>
+          <span className={styles.second}>Submit</span>
+          <svg className={styles.arrow_overlay} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"/></svg>
+          </div>
+          
+        </button>
       </form>
       {submitted && <p className={styles.confirmationMessage}>Message has been sent</p>}
     </div>

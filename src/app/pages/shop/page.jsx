@@ -5,14 +5,13 @@ import Footer from '@/app/components/footer';
 
 const query = `
   query {
-    allProducts {
+     allProducts {
       id
       category
       color
       paintCombo
       price
       productDetail
-      recommended
       size
       productBackImage {
         url
@@ -36,25 +35,36 @@ export default async function Shop() {
   return (
     <>
     <Menu 
-    menuIconColor="red"
-    closingMenuIconColor="#00F135"
-    moveMeColor="#00F135"
-    rectColor="red"
-    logoColor="red"
-    logoOverlayColor="#00F135"
-    lineColor="red"
-    lineOverlayColor="#00F135"
-    cartIconColor="red"
-    cartOverlayColor="#00F135"
-    itemTextColor="#00F135"
-    DesktopItemTextColor="red"
+      primary="red"
+      secondary="#00F135"
 />
       <ShopContent products={allProducts} />
     <Footer
-    color="red"
-    fill="red"
-    border=" 1px red"
+
     />
     </>
   );
 }
+/*
+
+
+    allProducts {
+      id
+      category
+      color
+      paintCombo
+      price
+      productDetail
+      size
+      productBackImage {
+        url
+      }
+      productFrontImage {
+        url
+      }
+      productModelImage {
+        url
+      }
+    }
+
+*/

@@ -1,11 +1,12 @@
 /* lookbook.module.scss */
 .background {
   position: fixed;
-  background-color: #ff91c6;
+  background-color: #6A00AB;
   height: 60px;
   width: 100%;
   top: 0;
   left: 0;
+  z-index: 20;
 }
 
 .main_container {
@@ -14,6 +15,10 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: #ff91c6;
+  h1,h2 {
+    color: #6A00AB;
+  }
 }
 
 .headlines {
@@ -27,11 +32,48 @@
 
 .images_container {
   width: 100%;
-  padding: 1rem;
+  padding: 2rem;
   display: grid;
   grid-template-columns: 1fr;
-  gap: 1rem;
+  gap: 2rem;
   background-color: #ff91c6;
+  .image_container {
+
+    overflow: hidden;
+    position: relative;
+    .image_title {
+      display: flex;
+    justify-content: center;
+    align-items: center;
+      position: absolute;
+        top: 50%;
+        left: -35rem;
+        margin: auto;
+        
+        background-color: #ff91c6;
+        height: 8rem;
+        width: 20rem;
+        padding: 2rem;
+        
+        color: #6A00AB ;
+        transition: left 0.3s ease-in-out;
+
+
+    }
+  }
+  .image_container:hover .image_title {
+    left: 0;
+  animation: moveTitle 0.3s ease-in-out;
+}
+
+@keyframes moveTitle {
+  from {
+    left: -35rem;
+  }
+  to {
+    left: 0;
+  }
+}
 }
 
 @media (min-width: 768px) {
@@ -41,7 +83,5 @@
 }
 
 @media (min-width: 1024px) {
-  .images_container {
-    grid-template-columns: repeat(3, 1fr);
-  }
+
 }

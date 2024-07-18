@@ -12,6 +12,7 @@ const query = `
         id
         gallery {
           url
+          title
         }
       }
   }
@@ -24,19 +25,11 @@ export default async function Lookbook() {
 
   return (
     <>
-      <Menu 
-        menuIconColor="#6A00AB"
-        closingMenuIconColor="#FF69B1"
-        moveMeColor="#FF69B1"
-        rectColor="#6A00AB"
-        logoColor="#6A00AB"
-        logoOverlayColor="#FF69B1"
-        lineColor="#6A00AB"
-        lineOverlayColor="#FF69B1"
-        cartIconColor="#6A00AB"
-        cartOverlayColor="#FF69B1"
-        itemTextColor="#FF69B1"
-        DesktopItemTextColor="#6A00AB"
+      <Menu
+        primary="#ff91c6"
+        secondary="#6A00AB"
+
+        
       />
       <div className={styles.background}></div>
       <main className={styles.main_container}>
@@ -46,6 +39,7 @@ export default async function Lookbook() {
         </div>
         <div className={styles.images_container}>
           {lookbook.gallery.map((image) => (
+            <div className={styles.image_container} key={image.url}>
             <Image
               alt=""
               key={image.url}
@@ -55,6 +49,9 @@ export default async function Lookbook() {
               height={300}
               width={300}
             />
+            <h3 className={styles.image_title} key={image.title}>{image.title}</h3>
+            </div>
+            
           ))}
         </div>
       </main>

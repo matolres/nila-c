@@ -39,6 +39,7 @@ const ProductDetail = ({ product }) => {
       <div className={styles.background}></div>
       <Link className={styles.back_to_shop} href='/pages/shop'>
         <h3>BACK TO SHOP</h3>
+        <h3>BACK TO SHOP</h3>
       </Link>
     <main className={styles.main_container} style={{ position: 'relative' }}>
 
@@ -136,8 +137,8 @@ const ProductDetail = ({ product }) => {
           </section>
         </section>
         <section className={styles.container_2}>
-          <button className={styles.container_2_1} onClick={handleAddToBag}>ADD TO BAG</button>
-          <button className={styles.container_2_2} onClick={handleCheckout}>CHECKOUT</button>
+          <button className={styles.container_2_1} onClick={handleAddToBag}><span>ADD TO BAG</span></button>
+          <button className={styles.container_2_2} onClick={handleCheckout}><span>CHECKOUT</span></button>
         </section>
         </section>
       </section>
