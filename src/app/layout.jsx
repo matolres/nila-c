@@ -2,16 +2,13 @@ import "./globals.scss";
 import { Bebas_Neue, DM_Mono } from 'next/font/google';
 import { ShoppingBagProvider } from '@/app/components/shopping_bag_context';
 
-
-
- 
-const bebas_Neue = Bebas_Neue({
+const bebasNeue = Bebas_Neue({
   subsets: ['latin'],
   weight: ["400"],
   display: 'swap',
 });
 
-const dm_Mono = DM_Mono({
+const dmMono = DM_Mono({
   subsets: ['latin'],
   weight: ["300"],
   display: 'swap',
@@ -25,14 +22,11 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" >
-      <body className={` ${bebas_Neue.className} ${dm_Mono.className}`} >
-
-          <ShoppingBagProvider>
-            {children}
+      <body className={`${bebasNeue.className} ${dmMono.className}`} >
+        <ShoppingBagProvider>
+          {children}
         </ShoppingBagProvider>
-
-        </body>
+      </body>
     </html>
   );
 }
-

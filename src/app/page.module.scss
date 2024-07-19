@@ -72,16 +72,23 @@ position: relative;
   display: flex;
   flex-direction: column;
 
-  .latest_container {
-    max-width: 1400px;
-  }
+  
   .paint_comb_container {
     max-width: 1400px;
   }
   h2 {
-    padding: 1rem 1rem 1rem 2rem;
+    padding: 1rem 1rem 0 2rem;
     color: #1717D2;
 
+  }
+}
+.latest_container {
+  max-width: 1400px;
+  .paint_combo_text {
+    padding: 0.5rem 1rem 2rem 2rem;
+    color: #1717D2;
+    max-width: 400px;
+ 
   }
 }
 
@@ -112,6 +119,13 @@ position: relative;
   
   
 @media (min-width: 1024px) {
+  
+    .latest_container {
+      .paint_combo_text {
+        max-width: 800px;
+      }
+    }
+  
   .image {
     overflow: hidden;
     position: relative;

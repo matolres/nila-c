@@ -20,10 +20,7 @@ export default function ShopContent({ products }) {
 
     <main className={styles.container_1}>
       <div className={styles.background}></div>
-      <button className={styles.filter_button} class onClick={toggleFilterVisibility}>
-      <span className={styles.button_text}>Filter</span>
-      <span className={styles.button_text_overlay}>Filter</span>
-      </button>
+
       
         <FilterOptions
           products={products}

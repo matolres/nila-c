@@ -10,7 +10,7 @@
     z-index: 800;
     transform: translate(100%, 0px);
 
-    h3 {
+    span {
         color: red;
         text-align: end;
         margin: 1rem;
@@ -19,6 +19,29 @@
 
 
 
+}
+.open_filter {
+    cursor: pointer;
+    display: block;
+    align-self: end;
+    color: red;
+    margin: 1rem ;
+}
+
+.op_overlay {
+    position: fixed;
+    background-color: #00F135;
+    height: 100vh;
+    width: 100vw;
+    opacity: 0;
+    z-index: 20;
+    pointer-events: none;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.visible_overlay {
+    opacity: 0.2;
+    pointer-events: all;
 }
 
 .filtercontainer{
@@ -62,17 +85,6 @@
     }
     }
 
-
-    .filter_panel {
-        position: absolute;
-        top: 0;
-        right: 0;
-        width: 100vw; /* Adjust as needed */
-        height: 100vh; /* Full height of the viewport */
-        overflow-y: auto;
-        transform: translateX(0%);
-        z-index: 1000;
-    }
 }
 
 .options_container {
@@ -177,11 +189,26 @@ input[type="checkbox"]:checked + span::before {
 
 @media (min-width: 768px) {
     .container {
-    width: 100vw;
+        right: 0;
+    width: 50vw;
     transform: translate(100%, 0px);
     }
     .filtercontainer {
-        width: 33vw;
+        width: 50vw;
+        overflow-y:hidden;
+        .buttons {
+            width: 50vw;
+        }
+    }
+    }
+@media (min-width: 1024px) {
+    .container {
+        right: 0;
+    width: 34vw;
+    transform: translate(100%, 0px);
+    }
+    .filtercontainer {
+        width: 34vw;
         overflow-y:hidden;
         .buttons {
             width: 34vw;

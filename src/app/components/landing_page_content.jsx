@@ -43,6 +43,7 @@ export default function LandingPageContent({products, paintCombination}) {
        
         <div className={styles.latest_container}>
         <h2>PAINT COMBINATIONS</h2>
+        <p className={styles.paint_combo_text}>Each piece is featuring one of the four distinctive color combinations seen below, to ensure that every piece is truly one-of-a-kind.</p>
         <div className={styles.scrolling_wrapper}>
         <div className={styles.card}>
             {paintCombination.map(paint => (

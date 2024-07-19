@@ -40,6 +40,7 @@ export default async function Shop() {
 />
       <ShopContent products={allProducts} />
     <Footer
+    color="red" fill="red"
 
     />
     </>
