@@ -9,7 +9,7 @@ import { useShoppingBag } from '@/app/components/shopping_bag_context';
 import { useRouter } from 'next/navigation';
 import 'swiper/css';
 import 'swiper/css/scrollbar';
-import { Scrollbar } from 'swiper/modules';
+import { Scrollbar, Mousewheel } from 'swiper/modules';
 import Link from 'next/link';
 
 const ProductDetail = ({ product }) => {
@@ -36,17 +36,20 @@ const ProductDetail = ({ product }) => {
 
   return (
     <>
-      <div className={styles.background}></div>
-      <Link className={styles.back_to_shop} href='/pages/shop'>
-        <h3>BACK TO SHOP</h3>
-        <h3>BACK TO SHOP</h3>
+    <div className={styles.background}></div>
+    <main className={styles.main_container} >
+      <div className={styles.back_to_shop}>
+      <Link className={styles.shop_link}  href='/pages/shop'>
+        <span>BACK TO SHOP</span>
       </Link>
-    <main className={styles.main_container} style={{ position: 'relative' }}>
+      </div>
+    
 
-      <section className={styles.product}>
+      <section className={styles.product} style={{ position: 'relative' }}>
         <Swiper
           scrollbar={{ hide: true }}
-          modules={[Scrollbar]}
+          modules={[Scrollbar, Mousewheel]}
+          mousewheel={true}
           className={styles.container_1_1}
         >
           <SwiperSlide>

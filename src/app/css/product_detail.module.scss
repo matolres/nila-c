@@ -1,9 +1,16 @@
-.main_container {
+.product {
     display: flex;
     justify-content: center; /* Centers the main container horizontally */
     /* Centers the main container vertically */
 
 
+}
+.shop_link {
+    text-decoration: none;
+    color: red;
+}
+.main_container {
+    padding-top: 60px;
 }
 
 .background {
@@ -21,11 +28,11 @@
 .product {
     width: 100%;
     max-width: 1400px;
+    flex-flow: wrap;
 
 }
 .back_to_shop {
-    text-decoration: none;
-    color: red;
+
     padding: 1rem;
     
     h3 {
@@ -185,5 +192,6 @@
             margin: 1rem;
         }
     }
+
     
   }
