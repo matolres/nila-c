@@ -89,6 +89,21 @@ const FilterOptions = ({ products, setFilteredProducts, isFilterVisible, toggleF
     });
   };
 
+  const handlePaintComboClick = (option) => {
+    setTempSelectedFilters({
+      categories: [],
+      colors: [],
+      paintCombos: [option],
+      sizes: []
+    });
+    setSelectedFilters({
+      categories: [],
+      colors: [],
+      paintCombos: [option],
+      sizes: []
+    });
+  };
+
   const handleCategoryReset = () => {
     setSelectedFilters(prevFilters => ({
       ...prevFilters,
@@ -103,10 +118,9 @@ const FilterOptions = ({ products, setFilteredProducts, isFilterVisible, toggleF
       paintCombos: [],
       sizes: []
     });
-  }
+  };
 
   const applyFilters = () => {
-    // Apply the temporary filters to check if any products match
     let filtered = products;
     Object.keys(tempSelectedFilters).forEach(filterType => {
       if (tempSelectedFilters[filterType].length > 0) {
@@ -115,7 +129,6 @@ const FilterOptions = ({ products, setFilteredProducts, isFilterVisible, toggleF
       }
     });
 
-    // If no products match, do not apply the filters
     if (filtered.length === 0) {
       console.log("No products match the selected filters");
       return;
@@ -126,7 +139,6 @@ const FilterOptions = ({ products, setFilteredProducts, isFilterVisible, toggleF
     console.log("filtered products:", tempSelectedFilters);
   };
 
-
   const clearFilters = () => {
     setTempSelectedFilters({
       categories: [],
@@ -135,20 +147,33 @@ const FilterOptions = ({ products, setFilteredProducts, isFilterVisible, toggleF
       sizes: []
     });
   };
+
   const categoryOptions = filterOptions.find(option => option.filterType === 'categories')?.options || [];
+  const PaintCombos = filterOptions.find(option => option.filterType === 'paintCombos')?.options || [];
 
   return (
     <>
       <div className={styles.category_filter}>
-        <ul className={styles.category_list}>
-          {categoryOptions.map(option => (
-            <li key={option} onClick={() => handleCategoryClick(option)}>
-              <span>{option}</span>
-            </li>
-            
-          ))}
-          <li><span onClick={handleCategoryReset}>all</span></li>
-        </ul>
+        <div className={styles.desktop_filter_container}>
+          <div className={styles.paint_dropdown_container}>
+            <span>paint combinations</span>
+            <ul className={styles.dropdown}>
+              {PaintCombos.map(option => (
+                <li key={option} onClick={() => handlePaintComboClick(option)}>
+                  <span>{option}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <ul className={styles.category_list}>
+            {categoryOptions.map(option => (
+              <li key={option} onClick={() => handleCategoryClick(option)}>
+                <span>{option}</span>
+              </li>
+            ))}
+            <li><span onClick={handleCategoryReset}>all</span></li>
+          </ul>
+        </div>
         <span className={styles.open_filter} onClick={toggleFilterVisibility}>FILTER</span>
       </div>
 
@@ -158,7 +183,7 @@ const FilterOptions = ({ products, setFilteredProducts, isFilterVisible, toggleF
           <span className={styles.close_filter} onClick={toggleFilterVisibility} style={{ cursor: 'pointer' }}>CLOSE</span>
           <div className={styles.options_container}>
             {filterOptions.map(({ label, filterType, options }) => (
-              <div key={filterType} className={styles.filter_options} >
+              <div key={filterType} className={styles.filter_options}>
                 <Collapsible
                   className={styles.triggers}
                   trigger={label}
@@ -170,7 +195,7 @@ const FilterOptions = ({ products, setFilteredProducts, isFilterVisible, toggleF
                   <form className={styles.filter_form}>
                     {options.map(option => (
                       <label key={option} className={styles.labels}>
-                        <input
+                        <input 
                           type="checkbox"
                           value={option}
                           checked={tempSelectedFilters[filterType].includes(option)}

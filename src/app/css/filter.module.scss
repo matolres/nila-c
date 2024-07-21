@@ -26,6 +26,7 @@
     align-self: flex-end;
     color: red;
     margin: 1rem ;
+    text-align: end;
 }
 
 .op_overlay {
@@ -43,6 +44,7 @@
     opacity: 0.2;
     pointer-events: all;
 }
+
 
 .filtercontainer{
 
@@ -142,6 +144,7 @@ label {
     padding: 0.5rem; /* Padding around each checkbox for better click area */
     text-align: left; /* Align labels to the left */
     position: relative;
+    color: red;
     
         /* For positioning the custom checkbox */
 }
@@ -189,7 +192,13 @@ input[type="checkbox"]:checked + span::before {
 }
 .category_list {
     display: none;
+
 }
+.desktop_filter_container {
+    display: none;
+}
+
+
 
 @media (min-width: 768px) {
     .container {
@@ -219,17 +228,20 @@ input[type="checkbox"]:checked + span::before {
         }
     }
     .category_filter {
-        display: flex;
-        justify-content: center;
+        display: grid;
+        grid-template-columns: 1fr;
         align-items: center;
         position: fixed;
         z-index: 10;
         background-color: white;
         width: 100vw;
+        padding: 0 1rem;
+
       }     
       
       .open_filter {
-        margin-left: auto;
+        grid-column: 3;
+        justify-self: end;
         cursor: pointer;
       }
 
@@ -240,9 +252,16 @@ input[type="checkbox"]:checked + span::before {
         list-style: none;
         justify-content: center;
         align-items: center;
-        margin-left: auto;
+        grid-column: 2;
+        justify-self: center;
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
         li {
             cursor: pointer;
+            span {
+                color: red;
+            }
         }
     }
 
@@ -254,6 +273,53 @@ input[type="checkbox"]:checked + span::before {
         display: none;
       }
 
+      .dropdown {
+        display: none;
+      }
+    
+      .desktop_filter_container {
+        display: flex;
+        align-items: baseline;
+        gap: 3rem;
+      }
+
+      .paint_dropdown_container {
+        position: relative;
+        display: inline-block;
+      }
+      
+      .paint_dropdown_container span {
+        cursor: pointer;
+        color: red;
+      }
+      
+      .dropdown {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: white;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        width: max-content;
+      }
+      
+      .dropdown li {
+        padding: 8px 16px;
+        color: red;
+      }
+      
+      .dropdown li:hover {
+        background-color: rgba(255, 0, 0, 0.173);
+      }
+      
+      .paint_dropdown_container:hover .dropdown {
+        display: block;
+      }
+      
     }
 
 
