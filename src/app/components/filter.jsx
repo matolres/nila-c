@@ -4,10 +4,10 @@ import Collapsible from 'react-collapsible';
 import gsap from 'gsap';
 
 const filterOptions = [
-  { label: 'CATEGORIES', filterType: 'categories', options: ['Hoodie', 'Jeans', 'T-shirt'] },
-  { label: 'COLORS', filterType: 'colors', options: ['Blue', 'Navy', 'White', 'Black'] },
+  { label: 'CATEGORIES', filterType: 'categories', options: ['Hoodie', 'Jeans', 'T-shirt', 'Pants', 'Skirt'] },
+  { label: 'COLORS', filterType: 'colors', options: ['Blue', 'Navy', 'White', 'Black', 'Yellow', 'Green', 'Orange', 'Purple', 'Pink', 'Grey'] },
   { label: 'PAINT COMBINATIONS', filterType: 'paintCombos', options: ['Friend', 'Uni', 'Cool', 'Ice'] },
-  { label: 'SIZES', filterType: 'sizes', options: ['S', 'M', 'L', '34', '36'] }
+  { label: 'SIZES', filterType: 'sizes', options: ['XS', 'S', 'M', 'L', 'XL', 'XXL', '28', '30', '32', '34', '36', '38', '40'] }
 ];
 
 const FilterOptions = ({ products, setFilteredProducts, isFilterVisible, toggleFilterVisibility }) => {
@@ -58,7 +58,8 @@ const FilterOptions = ({ products, setFilteredProducts, isFilterVisible, toggleF
     let filtered = products;
     Object.keys(selectedFilters).forEach(filterType => {
       if (selectedFilters[filterType].length > 0) {
-        filtered = filtered.filter(product => selectedFilters[filterType].includes(product[filterType.slice(0, -1)]));
+        const key = filterType === 'categories' ? 'category' : filterType.slice(0, -1);
+        filtered = filtered.filter(product => selectedFilters[filterType].includes(product[key]));
       }
     });
     setFilteredProducts(filtered);
@@ -73,10 +74,58 @@ const FilterOptions = ({ products, setFilteredProducts, isFilterVisible, toggleF
     }));
   };
 
+  const handleCategoryClick = (option) => {
+    setTempSelectedFilters({
+      categories: [option],
+      colors: [],
+      paintCombos: [],
+      sizes: []
+    });
+    setSelectedFilters({
+      categories: [option],
+      colors: [],
+      paintCombos: [],
+      sizes: []
+    });
+  };
+
+  const handleCategoryReset = () => {
+    setSelectedFilters(prevFilters => ({
+      ...prevFilters,
+      categories: [],
+      colors: [],
+      paintCombos: [],
+      sizes: []
+    }));
+    setTempSelectedFilters({
+      categories: [],
+      colors: [],
+      paintCombos: [],
+      sizes: []
+    });
+  }
+
   const applyFilters = () => {
+    // Apply the temporary filters to check if any products match
+    let filtered = products;
+    Object.keys(tempSelectedFilters).forEach(filterType => {
+      if (tempSelectedFilters[filterType].length > 0) {
+        const key = filterType === 'categories' ? 'category' : filterType.slice(0, -1);
+        filtered = filtered.filter(product => tempSelectedFilters[filterType].includes(product[key]));
+      }
+    });
+
+    // If no products match, do not apply the filters
+    if (filtered.length === 0) {
+      console.log("No products match the selected filters");
+      return;
+    }
+
     setSelectedFilters(tempSelectedFilters);
     toggleFilterVisibility();
+    console.log("filtered products:", tempSelectedFilters);
   };
+
 
   const clearFilters = () => {
     setTempSelectedFilters({
@@ -86,17 +135,30 @@ const FilterOptions = ({ products, setFilteredProducts, isFilterVisible, toggleF
       sizes: []
     });
   };
+  const categoryOptions = filterOptions.find(option => option.filterType === 'categories')?.options || [];
 
   return (
     <>
-    <span className={styles.open_filter} onClick={toggleFilterVisibility} style={{ cursor: 'pointer' }}>FILTER</span>
+      <div className={styles.category_filter}>
+        <ul className={styles.category_list}>
+          {categoryOptions.map(option => (
+            <li key={option} onClick={() => handleCategoryClick(option)}>
+              <span>{option}</span>
+            </li>
+            
+          ))}
+          <li><span onClick={handleCategoryReset}>all</span></li>
+        </ul>
+        <span className={styles.open_filter} onClick={toggleFilterVisibility}>FILTER</span>
+      </div>
+
       <div className={`${styles.op_overlay} ${overlayVisible ? styles.visible_overlay : ''}`}></div>
       <section className={`${styles.container} ${isFilterVisible ? styles.visible : ''}`} ref={filterRef}>
         <div className={styles.filtercontainer}>
           <span className={styles.close_filter} onClick={toggleFilterVisibility} style={{ cursor: 'pointer' }}>CLOSE</span>
           <div className={styles.options_container}>
             {filterOptions.map(({ label, filterType, options }) => (
-              <div key={filterType} className={styles[`${filterType}_choices`]}>
+              <div key={filterType} className={styles.filter_options} >
                 <Collapsible
                   className={styles.triggers}
                   trigger={label}
@@ -105,9 +167,9 @@ const FilterOptions = ({ products, setFilteredProducts, isFilterVisible, toggleF
                   easing="ease-in-out"
                   classParentString={styles.MyCollapsible}
                 >
-                  <form>
+                  <form className={styles.filter_form}>
                     {options.map(option => (
-                      <label key={option}>
+                      <label key={option} className={styles.labels}>
                         <input
                           type="checkbox"
                           value={option}

@@ -73,8 +73,8 @@ export default function LandingPageContent({products, paintCombination}) {
                 <Image 
                   alt=""
                   src={product.productFrontImage.url}
-                  width={200}
-                  height={200}
+                  width={170}
+                  height={170}
                   layout="responsive"
                 />
               </div>

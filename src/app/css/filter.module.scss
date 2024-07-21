@@ -23,7 +23,7 @@
 .open_filter {
     cursor: pointer;
     display: block;
-    align-self: end;
+    align-self: flex-end;
     color: red;
     margin: 1rem ;
 }
@@ -94,6 +94,7 @@
     gap: 2rem;
     margin: 2rem 1rem 1rem 1rem;
     height: 100dvh;
+
 
 
 
@@ -186,6 +187,9 @@ input[type="checkbox"]:checked + span::before {
 }
 
 }
+.category_list {
+    display: none;
+}
 
 @media (min-width: 768px) {
     .container {
@@ -214,6 +218,42 @@ input[type="checkbox"]:checked + span::before {
             width: 34vw;
         }
     }
+    .category_filter {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        z-index: 10;
+        background-color: white;
+        width: 100vw;
+      }     
+      
+      .open_filter {
+        margin-left: auto;
+        cursor: pointer;
+      }
+
+    .category_list {
+        display: flex;
+        gap: 3rem;
+        font-size: 1.5rem;
+        list-style: none;
+        justify-content: center;
+        align-items: center;
+        margin-left: auto;
+        li {
+            cursor: pointer;
+        }
+    }
+
+
+    .filter_options:nth-of-type(1) {
+        display: none;
+      }
+      .filter_options:nth-of-type(3) {
+        display: none;
+      }
+
     }
 
 

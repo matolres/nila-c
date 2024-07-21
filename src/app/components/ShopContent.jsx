@@ -14,8 +14,6 @@ export default function ShopContent({ products }) {
 
   const toggleFilterVisibility = () => setFilterVisible(!isFilterVisible);
 
-  console.log("ShopContent products:", products);
-
   return (
 
     <main className={styles.container_1}>

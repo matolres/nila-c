@@ -73,8 +73,9 @@ secondary="#00F135"
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
     width: 100%; /* Ensure it takes full width without overflow */
-    padding: 20px;
-    box-sizing: border-box; /* Include padding in the element's total width */
+    padding: 1rem 1rem 4rem 1rem;
+    box-sizing: border-box;
+    
   }
 
 
@@ -91,6 +92,7 @@ secondary="#00F135"
   .container_1_2 {
     .card {
       grid-template-columns: repeat(4, 1fr);
+      padding: 4rem 20px;
     }
   }
 
