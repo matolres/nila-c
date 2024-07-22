@@ -1,9 +1,11 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import Collapsible from 'react-collapsible';
 import Image from 'next/image';
+import Zoom from 'react-medium-image-zoom';
+import 'react-medium-image-zoom/dist/styles.css';
 import styles from '@/app/css/product_detail.module.scss';
 import { useShoppingBag } from '@/app/components/shopping_bag_context';
 import { useRouter } from 'next/navigation';
@@ -41,125 +43,135 @@ const ProductDetail = ({ product }) => {
 
   return (
     <>
-    <div className={styles.background}></div>
-    <main className={styles.main_container} >
-      <section className={styles.product} style={{ position: 'relative' }}>
-        <Swiper
-          scrollbar={{ hide: true }}
-          modules={[Scrollbar, Mousewheel]}
-          mousewheel={true}
-          className={styles.container_1_1}
-        >
-          <SwiperSlide>
-            <Image
-              alt="Product Front"
-              src={product.productFrontImage.url}
-              width={600}
-              height={600}
-              sizes="(max-width: 768px) 400px, (max-width: 1024px) 500px, 600px"
-              style={{ objectFit: "cover", width: "100%", height: "auto" }}
-              loading="lazy"
-            />
-          </SwiperSlide>
-          <SwiperSlide>
-            <Image
-              alt="Product Back"
-              src={product.productBackImage.url}
-              width={600}
-              height={600}
-              sizes="(max-width: 768px) 400px, (max-width: 1024px) 500px, 600px"
-              style={{ objectFit: "cover", width: "100%", height: "auto" }}
-              loading="lazy"
-            />
-          </SwiperSlide>
-          <SwiperSlide>
-            <Image
-              alt="Product Model"
-              src={product.productModelImage.url}
-              width={600}
-              height={600}
-              sizes="(max-width: 768px) 400px, (max-width: 1024px) 500px, 600px"
-              style={{ objectFit: "cover", width: "100%", height: "auto" }}
-              loading="lazy"
-            />
-          </SwiperSlide>
-        </Swiper>
-        <section className={styles.product_description}>
-          <section className={styles.container_1}>
-          <div className={styles.back_to_shop}>
-      <Link className={styles.shop_link}  href='/pages/shop'>
-        <span>BACK TO SHOP</span>
-      </Link>
-      </div>
-            <div className={styles.container_1_2}>
-              
-              <div className={styles.container_1_2_2}>
-                <h3>{product.category} - {product.paintCombo}</h3>
-                <h3>{product.price} DKK</h3>
+      <div className={styles.background}></div>
+      <main className={styles.main_container}>
+        <section className={styles.product} style={{ position: 'relative' }}>
+          <Swiper
+            scrollbar={{ hide: true }}
+            modules={[Scrollbar, Mousewheel]}
+            mousewheel={true}
+            className={styles.container_1_1}
+          >
+            <SwiperSlide>
+              <Zoom>
+                <Image
+                  alt="Product Front"
+                  src={product.productFrontImage.url}
+                  width={600}
+                  height={600}
+                  sizes="(max-width: 768px) 400px"
+                  style={{ objectFit: 'cover', width: '100%', height: 'auto' }}
+                  loading="lazy"
+                />
+              </Zoom>
+            </SwiperSlide>
+            <SwiperSlide>
+              <Zoom>
+                <Image
+                  alt="Product Back"
+                  src={product.productBackImage.url}
+                  width={600}
+                  height={600}
+                  sizes="(max-width: 768px) 400px"
+                  style={{ objectFit: 'cover', width: '100%', height: 'auto' }}
+                  loading="lazy"
+                />
+              </Zoom>
+            </SwiperSlide>
+            <SwiperSlide>
+              <Zoom>
+                <Image
+                  alt="Product Model"
+                  src={product.productModelImage.url}
+                  width={600}
+                  height={600}
+                  sizes="(max-width: 768px) 400px"
+                  style={{ objectFit: 'cover', width: '100%', height: 'auto' }}
+                  loading="lazy"
+                />
+              </Zoom>
+            </SwiperSlide>
+          </Swiper>
+          <section className={styles.product_description}>
+            <section className={styles.container_1}>
+              <div className={styles.back_to_shop}>
+                <Link className={styles.shop_link} href='/pages/shop'>
+                <button className={styles.animated_button}>
+                <svg xmlns="http://www.w3.org/2000/svg" className={styles.arr_2} width="24" height="24" viewBox="0 0 24 24" fill="none"  stroke="red" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H6M12 5l-7 7 7 7"/></svg>
+  <span className={styles.text}>back to shop</span>
+  <span className={styles.circle}></span>
+  <svg xmlns="http://www.w3.org/2000/svg" className={styles.arr_1} width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="red" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H6M12 5l-7 7 7 7"/></svg>
+</button>
+                </Link>
               </div>
-              <h4>{product.color}</h4>
-              <h4>size: {product.size}</h4>
-            </div>
-            
-          
-          {message && <div className={styles.message}><span>{message}</span></div>}
-          <section className={styles.info_container}>
-          <section className={styles.container_3}>
-          <Collapsible
-        className={styles.triggers}
-        trigger="Product details"
-        triggerStyle={{ color: 'red', cursor: 'pointer', fontSize: '18px' }}
-        contentContainerTagName="article"
-        transitionTime={300}
-        easing="ease-in-out"
-        open={openSection === 'productDetails'}
-        handleTriggerClick={() => handleTriggerClick('productDetails')}
-        classParentString={styles.MyCollapsible}
-      >
-        <p className={styles.product_detail}>{product.productDetail}</p>
-      </Collapsible>
-      <Collapsible
-        className={styles.triggers}
-        trigger="Shipping"
-        triggerStyle={{ color: 'red', cursor: 'pointer', fontSize: '18px' }}
-        contentContainerTagName="article"
-        transitionTime={300}
-        easing="ease-in-out"
-        open={openSection === 'shipping'}
-        handleTriggerClick={() => handleTriggerClick('shipping')}
-        classParentString={styles.MyCollapsible}
-      >
-        <p className={styles.product_detail}>
-          The delivery charge is DKK 60. Free Shipping on orders over DKK 750.
-          Delivery within 4-6 working days
-        </p>
-      </Collapsible>
-      <Collapsible
-        className={styles.triggers}
-        trigger="Care instructions"
-        triggerStyle={{ color: 'red', cursor: 'pointer', fontSize: '18px' }}
-        contentContainerTagName="article"
-        transitionTime={300}
-        easing="ease-in-out"
-        open={openSection === 'careInstructions'}
-        handleTriggerClick={() => handleTriggerClick('careInstructions')}
-        classParentString={styles.MyCollapsible}
-      >
-        <p className={styles.product_detail}>
-          Machine wash up to 40 degrees, gentle cycle, Do not Dry Clean,
-          Suitable for tumble-drying.
-        </p>
-      </Collapsible>
+              <div className={styles.container_1_2}>
+                <div className={styles.container_1_2_2}>
+                  <h2>{product.category} - {product.paintCombo}</h2>
+                  <h3 className={styles.product_price}>{product.price} DKK</h3>
+                </div>
+                <div className={styles.container_1_2_3}>
+                <h4 className={styles.product_color}>{product.color}</h4>
+                <h4 className={styles.product_size}>size: {product.size}</h4>
+                </div>
+              </div>
+              {message && <div className={styles.message}><span>{message}</span></div>}
+              <section className={styles.info_container}>
+                <section className={styles.container_3}>
+                  <Collapsible
+                    className={styles.triggers}
+                    trigger="Product details"
+                    triggerStyle={{ color: 'red', cursor: 'pointer', fontSize: '18px' }}
+                    contentContainerTagName="article"
+                    transitionTime={300}
+                    easing="ease-in-out"
+                    open={openSection === 'productDetails'}
+                    handleTriggerClick={() => handleTriggerClick('productDetails')}
+                    classParentString={styles.MyCollapsible}
+                  >
+                    <p className={styles.product_detail}>{product.productDetail}</p>
+                  </Collapsible>
+                  <Collapsible
+                    className={styles.triggers}
+                    trigger="Shipping"
+                    triggerStyle={{ color: 'red', cursor: 'pointer', fontSize: '18px' }}
+                    contentContainerTagName="article"
+                    transitionTime={300}
+                    easing="ease-in-out"
+                    open={openSection === 'shipping'}
+                    handleTriggerClick={() => handleTriggerClick('shipping')}
+                    classParentString={styles.MyCollapsible}
+                  >
+                    <p className={styles.product_detail}>
+                      The delivery charge is DKK 60. Free Shipping on orders over DKK 750.
+                      Delivery within 4-6 working days
+                    </p>
+                  </Collapsible>
+                  <Collapsible
+                    className={styles.triggers}
+                    trigger="Care instructions"
+                    triggerStyle={{ color: 'red', cursor: 'pointer', fontSize: '18px' }}
+                    contentContainerTagName="article"
+                    transitionTime={300}
+                    easing="ease-in-out"
+                    open={openSection === 'careInstructions'}
+                    handleTriggerClick={() => handleTriggerClick('careInstructions')}
+                    classParentString={styles.MyCollapsible}
+                  >
+                    <p className={styles.product_detail}>
+                      Machine wash up to 40 degrees, gentle cycle, Do not Dry Clean,
+                      Suitable for tumble-drying.
+                    </p>
+                  </Collapsible>
+                </section>
+              </section>
+            </section>
+            <section className={styles.container_2}>
+              <button className={styles.container_2_1} onClick={handleAddToBag}><span>ADD TO BAG</span></button>
+              <button className={styles.container_2_2} onClick={handleCheckout}><span>CHECKOUT</span></button>
+            </section>
           </section>
-          </section>
         </section>
-        <section className={styles.container_2}>
-          <button className={styles.container_2_1} onClick={handleAddToBag}><span>ADD TO BAG</span></button>
-          <button className={styles.container_2_2} onClick={handleCheckout}><span>CHECKOUT</span></button>
-        </section>
-        </section>
-      </section>
-    </main>
+      </main>
     </>
   );
 };
