@@ -15,7 +15,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #ff91c6;
   h1,h2 {
     color: #6A00AB;
   }
@@ -34,11 +33,12 @@
   width: 100%;
   padding: 2rem;
   display: grid;
+
   grid-template-columns: 1fr;
   gap: 2rem;
   background-color: #ff91c6;
   .image_container {
-
+    border-radius: 5px;
     overflow: hidden;
     position: relative;
     .image_title {

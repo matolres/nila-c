@@ -14,6 +14,7 @@ import Link from 'next/link';
 
 const ProductDetail = ({ product }) => {
   const { addToBag, removeFromBag } = useShoppingBag();
+  const [openSection, setOpenSection] = useState(null);
   const router = useRouter();
   const [message, setMessage] = useState('');
 
@@ -27,24 +28,21 @@ const ProductDetail = ({ product }) => {
 
     setTimeout(() => {
       setMessage('');
-    }, 3000);
+    }, 4000);
   };
 
   const handleCheckout = () => {
     router.push('/pages/checkout');
   };
 
+  const handleTriggerClick = (section) => {
+    setOpenSection(openSection === section ? null : section);
+  };
+
   return (
     <>
     <div className={styles.background}></div>
     <main className={styles.main_container} >
-      <div className={styles.back_to_shop}>
-      <Link className={styles.shop_link}  href='/pages/shop'>
-        <span>BACK TO SHOP</span>
-      </Link>
-      </div>
-    
-
       <section className={styles.product} style={{ position: 'relative' }}>
         <Swiper
           scrollbar={{ hide: true }}
@@ -88,54 +86,70 @@ const ProductDetail = ({ product }) => {
         </Swiper>
         <section className={styles.product_description}>
           <section className={styles.container_1}>
+          <div className={styles.back_to_shop}>
+      <Link className={styles.shop_link}  href='/pages/shop'>
+        <span>BACK TO SHOP</span>
+      </Link>
+      </div>
             <div className={styles.container_1_2}>
-              <div className={styles.container_1_2_1}>
+              
+              <div className={styles.container_1_2_2}>
                 <h3>{product.category} - {product.paintCombo}</h3>
                 <h3>{product.price} DKK</h3>
               </div>
               <h4>{product.color}</h4>
               <h4>size: {product.size}</h4>
             </div>
+            
           
-          {message && <div className={styles.message}><h2>{message}</h2></div>}
+          {message && <div className={styles.message}><span>{message}</span></div>}
           <section className={styles.info_container}>
           <section className={styles.container_3}>
-            <Collapsible
-              className={styles.triggers}
-              trigger='Product details'
-              triggerStyle={{ color: 'red', cursor: 'pointer', fontSize: '18px' }}
-              contentContainerTagName="article"
-              transitionTime={300}
-              easing="ease-in-out"
-              open={false}
-              classParentString={styles.MyCollapsible}
-            >
-              <p className={styles.product_detail}>{product.productDetail}</p>
-            </Collapsible>
-            <Collapsible
-              className={styles.triggers}
-              trigger='Shipping'
-              triggerStyle={{ color: 'red', cursor: 'pointer', fontSize: '18px' }}
-              contentContainerTagName="article"
-              transitionTime={300}
-              easing="ease-in-out"
-              open={false}
-              classParentString={styles.MyCollapsible}
-            >
-              <p className={styles.product_detail}>The delivery charge is DKK 60. Free Shipping on orders over DKK 750. Delivery within 4-6 working days</p>
-            </Collapsible>
-            <Collapsible
-              className={styles.triggers}
-              trigger='Care instructions'
-              triggerStyle={{ color: 'red', cursor: 'pointer', fontSize: '18px' }}
-              contentContainerTagName="article"
-              transitionTime={300}
-              easing="ease-in-out"
-              open={false}
-              classParentString={styles.MyCollapsible}
-            >
-              <p className={styles.product_detail}>Machine wash up to 40 degrees, gentle cycle, Do not Dry Clean, Suitable for tumble-drying.</p>
-            </Collapsible>
+          <Collapsible
+        className={styles.triggers}
+        trigger="Product details"
+        triggerStyle={{ color: 'red', cursor: 'pointer', fontSize: '18px' }}
+        contentContainerTagName="article"
+        transitionTime={300}
+        easing="ease-in-out"
+        open={openSection === 'productDetails'}
+        handleTriggerClick={() => handleTriggerClick('productDetails')}
+        classParentString={styles.MyCollapsible}
+      >
+        <p className={styles.product_detail}>{product.productDetail}</p>
+      </Collapsible>
+      <Collapsible
+        className={styles.triggers}
+        trigger="Shipping"
+        triggerStyle={{ color: 'red', cursor: 'pointer', fontSize: '18px' }}
+        contentContainerTagName="article"
+        transitionTime={300}
+        easing="ease-in-out"
+        open={openSection === 'shipping'}
+        handleTriggerClick={() => handleTriggerClick('shipping')}
+        classParentString={styles.MyCollapsible}
+      >
+        <p className={styles.product_detail}>
+          The delivery charge is DKK 60. Free Shipping on orders over DKK 750.
+          Delivery within 4-6 working days
+        </p>
+      </Collapsible>
+      <Collapsible
+        className={styles.triggers}
+        trigger="Care instructions"
+        triggerStyle={{ color: 'red', cursor: 'pointer', fontSize: '18px' }}
+        contentContainerTagName="article"
+        transitionTime={300}
+        easing="ease-in-out"
+        open={openSection === 'careInstructions'}
+        handleTriggerClick={() => handleTriggerClick('careInstructions')}
+        classParentString={styles.MyCollapsible}
+      >
+        <p className={styles.product_detail}>
+          Machine wash up to 40 degrees, gentle cycle, Do not Dry Clean,
+          Suitable for tumble-drying.
+        </p>
+      </Collapsible>
           </section>
           </section>
         </section>

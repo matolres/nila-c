@@ -44,10 +44,14 @@
 
     .container_2 {
         padding: 2rem;
-        background-color: #ff7300;
+        background-color: white;
+        h1 {
+            color: #ff7300;
+        }
 
         p {
             margin-bottom: 1.5rem;
+            color: #ff7300;
         }
     }
 }
