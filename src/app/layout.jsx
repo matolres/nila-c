@@ -1,18 +1,7 @@
 import "./globals.scss";
-import { Oswald, DM_Mono } from 'next/font/google';
 import { ShoppingBagProvider } from '@/app/components/shopping_bag_context';
+import { oswald, bebasNeue, dmMono } from '@/app/fonts/fonts';
 
-const oswald = Oswald({
-  subsets: ['latin'],
-  weight: ["400"],
-  display: 'swap',
-});
-
-const dmMono = DM_Mono({
-  subsets: ['latin'],
-  weight: ["300"],
-  display: 'swap',
-});
 
 export const metadata = {
   title: "Create Next App",
@@ -22,7 +11,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" >
-      <body className={`${oswald.className} ${dmMono.className}`} >
+      <body className={`${oswald.variable} ${bebasNeue.variable} ${dmMono.variable}`}>
         <ShoppingBagProvider>
           {children}
         </ShoppingBagProvider>

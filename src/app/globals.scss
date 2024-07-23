@@ -26,18 +26,18 @@ text {
   font-size: 1.5rem;
 }
 
-h1, li {
-  font-family: "Bebas Neue", sans-serif;
-  font-weight: 700;
-}
 
 
 
 
-h2, h3, h4, text, button {
-  font-family: "Bebas Neue", sans-serif;
+h1, h2, h3, h4, text, button, li, span {
+  font-family: var(--bebasNeue-font);
   font-weight: 400;
   font-style: normal;
+}
+
+p {
+  font-family: var(--dmMono-font);
 }
 
 button {
@@ -80,7 +80,6 @@ p {
 
 h1, .text_container_1, .text_container_2 {
   font-size: var(--font-size-h1);
-  font-family: "Bebas Neue", sans-serif;
   font-weight: 700;
   font-style: normal;
 }
@@ -88,23 +87,20 @@ h1, .text_container_1, .text_container_2 {
 h2 {
   
   font-size: var(--font-size-h2);
-  font-family: "Bebas Neue", sans-serif;
   font-weight: 700;
-  font-style: normal;
+
 }
 
 h3,span {
   font-size: var(--font-size-h3);
-  font-family: "Bebas Neue", sans-serif;
   font-weight: 400;
-  font-style: normal;
+
 }
 
 h4 {
   font-size: var(--font-size-h4);
-  font-family: "Bebas Neue", sans-serif;
   font-weight: 400;
-  font-style: normal;
+
 }
 
 /* Media query for larger screens */
