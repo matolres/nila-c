@@ -1,11 +1,6 @@
 .product {
     display: flex;
     justify-content: center;
-    
-    
-
-
-
 }
 .shop_link {
     text-decoration: none;
@@ -180,6 +175,60 @@
     border-top: 1px solid red;
 }
   
+.animated_button {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 16px 36px;
+    font-size: 16px;
+    border: none;
+    font-weight: 600;
+    background-color: white;
+    color: red;
+    cursor: pointer;
+    overflow: hidden;
+  }
+  
+  .animated_button svg {
+    position: absolute;
+    width: 34px;
+    z-index: 9;
+    transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+
+  }
+  
+  .animated_button .arr_1 {
+    left: 14px;
+    width: 34px;
+  }
+  
+  .animated_button .arr_2 {
+    right: -25%;
+    width: 34px;
+  }
+  .text {
+    padding-top: 3px;
+  }
+  
+  .animated_button .text {
+    position: relative;
+    z-index: 1;
+    transform: translateX(12px);
+    transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+  
+  .animated_button:hover .arr_1 {
+    left: -25%;
+  }
+  
+  .animated_button:hover .arr_2 {
+    right: 16px;
+  }
+  
+  .animated_button:hover .text {
+    transform: translateX(-12px);
+  }
   
 
 
@@ -263,18 +312,23 @@
       
       .animated_button svg {
         position: absolute;
-        width: 24px;
+        width: 34px;
         z-index: 9;
         transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
 
       }
       
       .animated_button .arr_1 {
-        left: 16px;
+        left: 14px;
+        width: 34px;
       }
       
       .animated_button .arr_2 {
         right: -25%;
+        width: 34px;
+      }
+      .text {
+        padding-top: 3px;
       }
       
       .animated_button .text {
@@ -294,10 +348,6 @@
       
       .animated_button:hover .text {
         transform: translateX(-12px);
-      }
-      
-      .animated_button:active {
-        scale: 0.95;
       }
       
 
