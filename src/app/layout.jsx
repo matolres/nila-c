@@ -1,8 +1,8 @@
 import "./globals.scss";
-import { Bebas_Neue, DM_Mono } from 'next/font/google';
+import { Oswald, DM_Mono } from 'next/font/google';
 import { ShoppingBagProvider } from '@/app/components/shopping_bag_context';
 
-const bebasNeue = Bebas_Neue({
+const oswald = Oswald({
   subsets: ['latin'],
   weight: ["400"],
   display: 'swap',
@@ -22,7 +22,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" >
-      <body className={`${bebasNeue.className} ${dmMono.className}`} >
+      <body className={`${oswald.className} ${dmMono.className}`} >
         <ShoppingBagProvider>
           {children}
         </ShoppingBagProvider>
