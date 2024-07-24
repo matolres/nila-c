@@ -41,7 +41,8 @@ export default function Contact() {
     return(
         <>
         <Menu
-        DesktopItemTextColor="yellow"
+            primary="yellow"
+            secondary="blue"
         />
         <div className={styles.background}></div>
         <main className={styles.main_container}>
@@ -51,13 +52,13 @@ export default function Contact() {
           >
               <source src="/dummy/splash.mp4" type="video/mp4" />
           </video>
-          <h1>WHAT´S ON YOUR MIND ?</h1>  
+          <h1>WHAT IS ON YOUR MIND ?</h1>  
       </div>
       <div className={styles.contactFormContainer}>
       <form onSubmit={handleSubmit} className={styles.contactForm}>
         <div className={styles.formGroup}>
           <label htmlFor="name">Name</label>
-          <input
+          <input className={styles.input_text}
             type="text"
             id="name"
             name="name"
@@ -68,7 +69,7 @@ export default function Contact() {
         </div>
         <div className={styles.formGroup}>
           <label htmlFor="email">Email</label>
-          <input
+          <input className={styles.input_text}
             type="email"
             id="email"
             name="email"
@@ -79,8 +80,7 @@ export default function Contact() {
         </div>
         <div className={styles.formGroup}>
           <label htmlFor="phone">Phone Number (optional)</label>
-          <input
-            placeholder="Phone number (optional)"
+          <input className={styles.input_text}
             type="tel"
             id="phone"
             name="phone"
@@ -90,7 +90,7 @@ export default function Contact() {
         </div>
         <div className={styles.formGroup}>
           <label htmlFor="message">Message</label>
-          <textarea
+          <textarea className={styles.input_text}
             id="message"
             name="message"
             value={formData.message}

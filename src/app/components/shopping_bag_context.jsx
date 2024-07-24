@@ -58,8 +58,10 @@ export const ShoppingBagProvider = ({ children }) => {
         });
     };
 
+    const bagCount = bag.length;
+
     return (
-        <ShoppingBagContext.Provider value={{ bag, addToBag, removeFromBag }}>
+        <ShoppingBagContext.Provider value={{ bag, bagCount, addToBag, removeFromBag }}>
             {children}
         </ShoppingBagContext.Provider>
     );

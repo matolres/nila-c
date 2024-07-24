@@ -30,13 +30,13 @@ text {
 
 
 
-h1, h2, h3, h4, text, button, li, span {
+h1, h2, h3, h4, text, button, li, span, label {
   font-family: var(--bebasNeue-font);
   font-weight: 400;
   font-style: normal;
 }
 
-p {
+p, input {
   font-family: var(--dmMono-font);
 }
 
@@ -49,7 +49,7 @@ button {
 :root {
   --font-size-base: 12px;
 
-  --font-size-h1: 3.5rem;
+  --font-size-h1: 4.25rem;
   --font-size-h2: 2.5rem;
   --font-size-h3: 1.25rem;
   --font-size-h4: 1rem;
@@ -67,6 +67,7 @@ button {
   --font-size-h3-desktop: 1.75rem;
   --font-size-span-desktop:1.75rem;
   --font-size-h4-desktop: 1.5rem;
+  --font-size-label-desktop: 1.5rem;
 }
 
 body {
@@ -101,6 +102,10 @@ h4 {
   font-size: var(--font-size-h4);
   font-weight: 400;
 
+}
+
+label {
+  font-size: var(--font-size-label-desktop);
 }
 
 /* Media query for larger screens */

@@ -167,6 +167,16 @@
       .line_overlay {
         stroke:blue;
       }
+
+      .bag_count {
+        position: absolute;
+        top: 14px;
+        left: 170px;
+        color: white;
+        border-radius: 50%;
+        padding: 5px 10px;
+        font-size: 16px;
+    }
       
       @media (min-width: 1024px) {
         .desktop_menu_container {

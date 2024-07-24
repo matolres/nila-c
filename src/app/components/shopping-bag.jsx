@@ -18,7 +18,7 @@ const ShoppingBag = () => {
   return (
     <main className={styles.main_container}>
     <div className={styles.container_1}>
-      <h2 className={styles.title}>Shopping Bag</h2>
+      <h3 className={styles.title}>Shopping Bag</h3>
       {message && <div className={styles.message}>{message}</div>}
       <ul className={styles.list}>
         {bag?.map(({ product, timestamp }) => (
