@@ -1,57 +1,57 @@
 "use client"
 import React from 'react';
 import { useShoppingBag } from '@/app/components/shopping_bag_context';
-import styles from '@/app/css/shopping_bag.module.scss'
+import { usePageColor } from '@/app/components/page_color_context';
+import styles from '@/app/css/shopping_bag.module.scss';
 import Image from 'next/image';
 import Link from 'next/link';
 
 const ShoppingBag = () => {
-  const { bag, removeFromBag, message } = useShoppingBag();
+    const { bag, removeFromBag, message } = useShoppingBag();
+    const { colors } = usePageColor();
 
-  const handleRemoveFromBag = (productId) => {
+    const handleRemoveFromBag = (productId) => {
+        setTimeout(() => {
+            removeFromBag(productId);
+        }, 0);
+    };
 
-    setTimeout(() => {
-      removeFromBag(productId);
-    }, 0);
-  };
-
-  return (
-    <main className={styles.main_container}>
-    <div className={styles.container_1}>
-      <h3 className={styles.title}>Shopping Bag</h3>
-      {message && <div className={styles.message}>{message}</div>}
-      <ul className={styles.list}>
-        {bag?.map(({ product, timestamp }) => (
-          <li key={product.id} className={styles.container_1_1}>
-            <div className={styles.container_1_1_1}>
-              <Image 
-                alt=""
-                style={{objectFit: "contain"}}
-                loading="lazy"
-                src={product.productFrontImage.url}
-                height={150}
-                width={150}
-              />
+    return (
+        <main className={styles.main_container} style={{ backgroundColor: colors.background, color: colors.text }}>
+            <div className={styles.container_1}>
+                <h3 className={styles.title}>Shopping Bag</h3>
+                {message && <div className={styles.message}>{message}</div>}
+                <ul className={styles.list}>
+                    {bag?.map(({ product, timestamp }) => (
+                        <li key={product.id} className={styles.container_1_1}>
+                            <div className={styles.container_1_1_1}>
+                                <Image 
+                                    alt=""
+                                    style={{objectFit: "contain"}}
+                                    loading="lazy"
+                                    src={product.productFrontImage.url}
+                                    height={150}
+                                    width={150}
+                                />
+                            </div>
+                            <div className={styles.container_1_1_2}>
+                                <h3>{product.category} - {product.paintCombo}</h3>
+                                <p>{product.color}</p>
+                                <p>{product.size}</p>
+                                <p>{product.price}</p>
+                                <button className={styles.remove} onClick={() => handleRemoveFromBag(product.id)}>
+                                    <span>remove</span>
+                                </button>
+                            </div>
+                        </li>
+                    ))}
+                </ul>
+                <Link rel="" href="/pages/checkout">
+                    <button className={styles.checkout}>CHECKOUT</button>
+                </Link>
             </div>
-            <div className={styles.container_1_1_2}>
-              
-
-              <h3>{product.category} - {product.paintCombo}</h3>
-              
-              <p>{product.color}</p>
-              <p>{product.size}</p>
-              <p>{product.price}</p>
-              <button className={styles.remove} onClick={() => handleRemoveFromBag(product.id)}><span>remove</span></button>
-            </div>
-          </li>
-        ))}
-      </ul>
-      <Link rel="" href="/pages/checkout" >
-                <button className={styles.checkout}>CHECKOUT</button>
-              </Link>
-    </div>
-    </main>
-  );
+        </main>
+    );
 };
 
 export default ShoppingBag;

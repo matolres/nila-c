@@ -1,9 +1,19 @@
+'use client'
 import styles from '@/app/css/about.module.scss';
 import Menu from '@/app/components/menu';
 import Footer from '@/app/components/footer';
 import Image from 'next/image';
+import { usePageColor } from '@/app/components/page_color_context';
+import { useEffect } from 'react';
 
 export default function About() {
+    const { setColors } = usePageColor();
+
+    useEffect(() => {
+        setColors({ text: '#ff7300', background: 'black' });
+  
+        return () => setColors({ text: 'defaultTextColor', background: 'defaultBackgroundColor' });
+    }, [setColors]);
     return (
         <main className={styles.main_container}>
             <div className={styles.background}></div>

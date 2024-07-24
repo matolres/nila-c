@@ -1,9 +1,10 @@
 "use client"
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from '@/app/css/shop.module.scss';
 
 import FilterOptions from '@/app/components/filter';
 import Products from '@/app/components/products';
+import { usePageColor } from '@/app/components/page_color_context';
 
 
 
@@ -13,6 +14,13 @@ export default function ShopContent({ products }) {
   const [isFilterVisible, setFilterVisible] = useState(false);
 
   const toggleFilterVisibility = () => setFilterVisible(!isFilterVisible);
+  const { setColors } = usePageColor();
+
+  useEffect(() => {
+      setColors({ text: 'red', background: '#00F135' });
+
+      return () => setColors({ text: 'defaultTextColor', background: 'defaultBackgroundColor' });
+  }, [setColors]);
 
   return (
 

@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import Collapsible from 'react-collapsible';
 import Image from 'next/image';
@@ -13,12 +13,20 @@ import 'swiper/css';
 import 'swiper/css/scrollbar';
 import { Scrollbar, Mousewheel } from 'swiper/modules';
 import Link from 'next/link';
+import { usePageColor } from '@/app/components/page_color_context';
 
 const ProductDetail = ({ product }) => {
   const { addToBag, removeFromBag } = useShoppingBag();
   const [openSection, setOpenSection] = useState(null);
   const router = useRouter();
   const [message, setMessage] = useState('');
+  const { setColors } = usePageColor();
+
+  useEffect(() => {
+      setColors({ text: 'red', background: '#00F135' });
+
+      return () => setColors({ text: 'defaultTextColor', background: 'defaultBackgroundColor' });
+  }, [setColors]);
 
   const handleAddToBag = () => {
     const result = addToBag(product);

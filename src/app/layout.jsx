@@ -1,7 +1,7 @@
 import "./globals.scss";
 import { ShoppingBagProvider } from '@/app/components/shopping_bag_context';
+import { PageColorProvider } from '@/app/components/page_color_context';
 import { oswald, bebasNeue, dmMono } from '@/app/fonts/fonts';
-
 
 export const metadata = {
   title: "Create Next App",
@@ -10,10 +10,12 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" >
+    <html lang="en">
       <body className={`${oswald.variable} ${bebasNeue.variable} ${dmMono.variable}`}>
         <ShoppingBagProvider>
-          {children}
+          <PageColorProvider>
+            {children}
+          </PageColorProvider>
         </ShoppingBagProvider>
       </body>
     </html>

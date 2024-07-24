@@ -2,8 +2,18 @@
 import Image from "next/image";
 import styles from "@/app/page.module.scss"
 import GSAPAnimation from "@/app/components/Text-reveal-animation";
+import { usePageColor } from '@/app/components/page_color_context';
+import { useEffect } from "react";
 
 export default function LandingPageContent({products, paintCombination}) {
+
+  const { setColors } = usePageColor();
+
+  useEffect(() => {
+      setColors({ text: 'yellow', background: 'blue' });
+
+      return () => setColors({ text: 'defaultTextColor', background: 'defaultBackgroundColor' });
+  }, [setColors]);
   return (
     <main className={styles.main_container}>
       <div className={styles.background}></div>
