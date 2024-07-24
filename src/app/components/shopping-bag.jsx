@@ -36,12 +36,12 @@ const ShoppingBag = () => {
             <div className={styles.container_1_1_2}>
               
 
-              <h2>{product.category} - {product.paintCombo}</h2>
+              <h3>{product.category} - {product.paintCombo}</h3>
               
-              <h3>{product.color}</h3>
-              <h3>{product.size}</h3>
-              <h3>{product.price}</h3>
-              <button className={styles.remove} onClick={() => handleRemoveFromBag(product.id)}>Remove</button>
+              <p>{product.color}</p>
+              <p>{product.size}</p>
+              <p>{product.price}</p>
+              <button className={styles.remove} onClick={() => handleRemoveFromBag(product.id)}><span>remove</span></button>
             </div>
           </li>
         ))}

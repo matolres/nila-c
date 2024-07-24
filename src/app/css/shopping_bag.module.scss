@@ -61,3 +61,26 @@
     }
 
 }
+// shopping_bag.module.scss
+.shopping_bag_wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: white;
+    transform: translateX(100%);
+    transition: transform 0.5s ease-in-out;
+  }
+
+
+  
+
+@media (min-width: 1025px) {
+    .main_container {
+        width: 65vh;
+    }
+    .container_1 {
+        width: 65vh;
+    }
+}

@@ -1,6 +1,6 @@
 "use client";
 import styles from "@/app/css/menu.module.scss";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
@@ -8,15 +8,25 @@ import ShoppingBag from "./shopping-bag";
 import GSAPAnimation from "./Text-reveal-animation";
 import { useShoppingBag } from "@/app/components/shopping_bag_context";
 
-export default function Menu({
-    primary,
-    secondary
-}) {
+export default function Menu({ primary, secondary }) {
     const { bagCount } = useShoppingBag();
     const [isOpen, setIsOpen] = useState(false);
     const [isShoppingBagOpen, setShoppingBagOpen] = useState(false);
+    const [shouldRenderShoppingBag, setShouldRenderShoppingBag] = useState(false);
+    const shoppingBagRef = useRef(null);
 
     const handleShoppingBagClick = () => {
+        if (!isShoppingBagOpen) {
+            setShouldRenderShoppingBag(true);
+            gsap.fromTo(shoppingBagRef.current, { x: '-65%' }, { x: '0', duration: 0.5, ease: "power3.out" });
+        } else {
+            gsap.fromTo(shoppingBagRef.current, { x: '0' }, {
+                x: '-65%',
+                duration: 0.5,
+                ease: "power3.in",
+                onComplete: () => setShouldRenderShoppingBag(false)
+            });
+        }
         setShoppingBagOpen(!isShoppingBagOpen);
     };
 
@@ -146,7 +156,10 @@ export default function Menu({
                     </span>
                 )}
 
-                {isShoppingBagOpen && <ShoppingBag />}
+                <div ref={shoppingBagRef} className={styles.shopping_bag_wrapper}>
+                    {shouldRenderShoppingBag && <ShoppingBag />}
+                </div>
+
                 <div className={`${styles.items_container} ${isOpen ? styles.animate_menu : styles.animate_menu_up}`}>
                     <ul className={styles.items}>
                         <GSAPAnimation targetSelector=".item-text" />
