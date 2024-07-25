@@ -39,7 +39,7 @@ const ShoppingBag = () => {
                                 <p>{product.color}</p>
                                 <p>{product.size}</p>
                                 <p>{product.price}</p>
-                                <button className={styles.remove} onClick={() => handleRemoveFromBag(product.id)}>
+                                <button className={styles.remove} onClick={() => handleRemoveFromBag(product.id)} style={{ backgroundColor: colors.text, color: colors.background }}>
                                     <span>remove</span>
                                 </button>
                             </div>
@@ -47,7 +47,7 @@ const ShoppingBag = () => {
                     ))}
                 </ul>
                 <Link rel="" href="/pages/checkout">
-                    <button className={styles.checkout}>CHECKOUT</button>
+                    <button className={styles.checkout} style={{ backgroundColor: colors.text, color: colors.background }}>CHECKOUT</button>
                 </Link>
             </div>
         </main>

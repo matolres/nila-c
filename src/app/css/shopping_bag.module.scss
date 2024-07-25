@@ -12,7 +12,7 @@
 .container_1 {
     padding: 60px 1rem 1rem 1rem;
     margin-bottom: 6rem;
-    height: 100vh;
+    height: 100dvh;
     width: 100dvw;
 
     
@@ -20,8 +20,8 @@
 
     position: relative;
     .list{
-        overflow-y: scroll;
-        height: 70dvh;
+        overflow-y: auto;
+        height: 75dvh;
     }
     
 
