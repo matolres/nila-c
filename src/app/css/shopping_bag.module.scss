@@ -1,7 +1,6 @@
 .main_container{
     height: 100vh;
     width: 100dvw;
-    background-color: white;
     position: fixed;
     .title {
         margin: 1rem 0;
@@ -43,7 +42,7 @@
         cursor: pointer;
         border-radius: 4px;
         
-        width: 90%;
+        width: 100%;
         position: absolute;
         left: auto;
         right: auto;
@@ -51,10 +50,11 @@
 
     }
     .remove {
-        padding: 5px 10px;
         border: none;
-        background-color: #007bff;
-        color: white;
+        background-color: transparent;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         cursor: pointer;
         border-radius: 4px;
         
@@ -74,13 +74,33 @@
   }
 
 
+.background_overlay {
+    position: fixed;
+    opacity: 0;
+    background-color: rgba(0, 241, 53, 0.5);
+    height: 100vh;
+    width: 100vw;
+    z-index: 20;
+    pointer-events: none;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.visible_overlay {
+    opacity: 0.5;
+    pointer-events: all;
+}
+
+
+
+
+
   
 
 @media (min-width: 1025px) {
     .main_container {
-        width: 65vh;
+        width: 75dvh;
     }
     .container_1 {
-        width: 65vh;
+        width: 75dvh;
     }
 }

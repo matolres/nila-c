@@ -150,13 +150,11 @@
       }
       
       .cart_icon {
-        fill: yellow;
         cursor: pointer;
+        fill: transparent;
       }
       
-      .cart_overlay {
-        fill: blue;
-      }
+
       .rect_background {
         fill: yellow;
       }
@@ -177,6 +175,25 @@
         padding: 5px 10px;
         font-size: 16px;
     }
+
+/* menu.module.scss */
+
+.background_overlay {
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  z-index: -10;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease-in-out;
+
+}
+
+.visible_overlay {
+  opacity: 0.2;
+  pointer-events: all;
+}
+
       
       @media (min-width: 1024px) {
         .desktop_menu_container {

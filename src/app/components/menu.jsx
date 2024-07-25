@@ -14,18 +14,31 @@ export default function Menu({ primary, secondary }) {
     const [isShoppingBagOpen, setShoppingBagOpen] = useState(false);
     const [shouldRenderShoppingBag, setShouldRenderShoppingBag] = useState(false);
     const shoppingBagRef = useRef(null);
+    const [overlayVisible, setOverlayVisible] = useState(false);
 
     const handleShoppingBagClick = () => {
         if (!isShoppingBagOpen) {
             setShouldRenderShoppingBag(true);
-            gsap.fromTo(shoppingBagRef.current, { x: '-65%' }, { x: '0', duration: 0.5, ease: "power3.out" });
+            gsap.fromTo(shoppingBagRef.current, { x: '-65%' }, { x: '0', duration: 0.5, ease: "power2.out" });
+            setOverlayVisible(true);
+            gsap.to(`.${styles.background_overlay}`, {
+              opacity: 0.5,
+              duration: 0.005,
+              ease: 'power2.inOut',
+            });
         } else {
             gsap.fromTo(shoppingBagRef.current, { x: '0' }, {
                 x: '-65%',
                 duration: 0.5,
-                ease: "power3.in",
+                ease: "power2.in",
                 onComplete: () => setShouldRenderShoppingBag(false)
             });
+            gsap.to(`.${styles.background_overlay}`, {
+                opacity: 0,
+                duration: 0.05,
+                ease: 'power2.inOut',
+                onComplete: () => setOverlayVisible(false),
+              });
         }
         setShoppingBagOpen(!isShoppingBagOpen);
     };
@@ -127,10 +140,7 @@ export default function Menu({ primary, secondary }) {
                     >
                         MENU
                     </text>
-
-                    <svg className={styles.cart_icon} onClick={handleShoppingBagClick} xmlns="http://www.w3.org/2000/svg" x="150px" y="15" height="25" width="25" viewBox="0 0 448 512">
-                        <path fill={primary} d="M160 112c0-35.3 28.7-64 64-64s64 28.7 64 64v48H160V112zm-48 48H48c-26.5 0-48 21.5-48 48V416c0 53 43 96 96 96H352c53 0 96-43 96-96V208c0-26.5-21.5-48-48-48H336V112C336 50.1 285.9 0 224 0S112 50.1 112 112v48zm24 48a24 24 0 1 1 0 48 24 24 0 1 1 0-48zm152 24a24 24 0 1 1 48 0 24 24 0 1 1 -48 0z" />
-                    </svg>
+                    <svg className={styles.cart_icon} onClick={handleShoppingBagClick} x="150px" y="15" height="25" width="25" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24" fill='none' stroke={primary}  strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path  d="M6 2L3 6v14c0 1.1.9 2 2 2h14a2 2 0 0 0 2-2V6l-3-4H6zM3.8 6h16.4M16 10a4 4 0 1 1-8 0"/></svg>
                     <g clipPath="url(#theClipPath)">
                         <text
                             className={styles.closing_menu_icon}
@@ -149,16 +159,17 @@ export default function Menu({ primary, secondary }) {
                         </svg>
                     </g>
                 </svg>
-
+                
                 {bagCount >= 0 && (
                     <span className={styles.bag_count} style={{ color: primary }}>
                         ( {bagCount} )
                     </span>
                 )}
-
+                
                 <div ref={shoppingBagRef} className={styles.shopping_bag_wrapper}>
                     {shouldRenderShoppingBag && <ShoppingBag />}
                 </div>
+                <div className={`${styles.background_overlay} ${overlayVisible ? styles.visible_overlay : ''}`} style={{ backgroundColor: secondary }}></div>
 
                 <div className={`${styles.items_container} ${isOpen ? styles.animate_menu : styles.animate_menu_up}`}>
                     <ul className={styles.items}>

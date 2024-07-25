@@ -22,7 +22,7 @@ position: relative;
         text-align: center;
         color: rgba(255, 255, 0, 0.25);
         -webkit-text-stroke-width: 1px;
-        -webkit-text-stroke-color: #EDED21;
+        -webkit-text-stroke-color: yellow;
         
     }
 }
@@ -45,11 +45,11 @@ position: relative;
     
     h1 {
         text-align: center;
-        color: #EDED21;
+        color: yellow;
     }
     p {
       margin: 0 2rem;
-      color: #1717D2;
+      color: blue;
       max-width: 350px;
     }
 }
@@ -68,7 +68,7 @@ position: relative;
 }
 
 .container_1_2 {
-  background-color: #ffff1b;
+  background-color: yellow;
   display: flex;
   flex-direction: column;
 
@@ -78,7 +78,7 @@ position: relative;
   }
   h2 {
     padding: 1rem 1rem 0 2rem;
-    color: #1717D2;
+    color: blue;
 
   }
 }
@@ -86,7 +86,7 @@ position: relative;
   max-width: 1400px;
   .paint_combo_text {
     padding: 0.5rem 1rem 2rem 2rem;
-    color: #1717D2;
+    color: blue;
     max-width: 400px;
  
   }
@@ -108,7 +108,7 @@ position: relative;
   
   } 
   .paint_name {
-    color: #1717D2;
+    color: blue;
     text-align: center;
     display: flex;
     justify-content: center;
@@ -133,8 +133,8 @@ position: relative;
       display: flex;
       justify-content: center;
       align-items: center;
-      background-color: #ffff1b;
-      color: #1717D2;
+      background-color: yellow;
+      color: blue;
       text-align: center;
       position: absolute;
       bottom: -4rem;
@@ -194,7 +194,7 @@ position: relative;
     flex-direction: row;
     width: 100%;
     gap: 1rem;
-    background-color: #1717D2;
+    background-color: blue;
     padding: 2rem 0;
 
 }
@@ -205,7 +205,7 @@ position: relative;
 
 }
 .background {
-    background-color: #1717D2;
+    background-color: blue;
     width: 100%;
     height: 60px;
     position: fixed;
@@ -220,7 +220,7 @@ position: relative;
 .container_1_5 {
     display: flex;
     flex-direction: column;
-    background-color: #ffff1b;
+    background-color: yellow;
     padding: 1rem 1rem;
     gap: 1rem;
 
@@ -240,7 +240,7 @@ position: relative;
       display: block;
       clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
       text-align: center;
-      color: #1717D2;
+      color: blue;
       
     }
   }
@@ -249,7 +249,7 @@ position: relative;
       display: block;
       clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
       text-align: center;
-      color: #1717D2;
+      color: blue;
       
     }
     .span {
@@ -259,7 +259,7 @@ position: relative;
   }
 
   .last_span :last-child {
-    color: #ffff1b;
+    color: yellow;
   }
 
   @media (min-width: 768px) {
