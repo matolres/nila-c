@@ -1,7 +1,7 @@
 .main_container{
-    height: 100vh;
+    height: 100dvh;
     width: 100dvw;
-    position: fixed;
+    
     .title {
         margin: 1rem 0;
     }
@@ -10,17 +10,18 @@
 
 .container_1 {
     padding: 60px 1rem 1rem 1rem;
-    margin-bottom: 6rem;
+    
     height: 100dvh;
-    width: 100dvw;
-
-    
-    
-
+    width: 100%;
     position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     .list{
         overflow-y: auto;
-        height: 75dvh;
+        flex-grow: 1;
+
+        
     }
     
 
@@ -43,9 +44,8 @@
         border-radius: 4px;
         
         width: 100%;
-        position: absolute;
-        left: auto;
-        right: auto;
+
+
         bottom: 10px;
 
     }
@@ -74,33 +74,11 @@
   }
 
 
-.background_overlay {
-    position: fixed;
-    opacity: 0;
-    background-color: rgba(0, 241, 53, 0.5);
-    height: 100vh;
-    width: 100vw;
-    z-index: 20;
-    pointer-events: none;
-    transition: opacity 0.5s ease-in-out;
-}
-
-.visible_overlay {
-    opacity: 0.5;
-    pointer-events: all;
-}
-
-
-
-
-
-  
-
 @media (min-width: 1025px) {
     .main_container {
-        width: 75dvh;
+        width: 50dvw;
     }
     .container_1 {
-        width: 75dvh;
+        width: 100%;;
     }
 }

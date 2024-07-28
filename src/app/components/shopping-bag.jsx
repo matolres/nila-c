@@ -20,6 +20,7 @@ const ShoppingBag = () => {
         <>
         <main className={styles.main_container} style={{ backgroundColor: colors.background, color: colors.text }}>
             <div className={styles.container_1}>
+           
                 <h3 className={styles.title}>Shopping Bag</h3>
                 {message && <div className={styles.message}>{message}</div>}
                 <ul className={styles.list}>

@@ -30,7 +30,7 @@
 }
 .back_to_shop {
 
-    padding: 1rem 1rem 0 1rem;
+    padding: 1rem 0 0 0;
     
     h3 {
 
@@ -215,21 +215,10 @@
     position: relative;
     z-index: 1;
     transform: translateX(12px);
-    transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+
   }
   
-  .animated_button:hover .arr_1 {
-    left: -25%;
-  }
-  
-  .animated_button:hover .arr_2 {
-    right: 16px;
-  }
-  
-  .animated_button:hover .text {
-    transform: translateX(-12px);
-  }
-  
+
 
 
 
@@ -277,7 +266,7 @@
         gap: 1rem;
     }
     .container_1 {
-        padding: 6rem 4rem 3rem 4rem;
+        padding: 6rem 3rem 3rem 3rem;
         gap: 2rem;
     }
     .container_1_2 {

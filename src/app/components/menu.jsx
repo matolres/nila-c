@@ -119,7 +119,7 @@ export default function Menu({ primary, secondary }) {
                     </defs>
                     <rect className={`moveMe ${styles.rect_background}`} width="100%" style={{ fill: primary }} y="0%" x="0"></rect>
                     <Link rel="stylesheet" href="/">
-                        <text className={styles.logo} x="30" y="40" fontSize="25" style={{ fill: primary }}>NILA-C</text>
+                        <text className={styles.logo} x="1rem" y="40" fontSize="25" style={{ fill: primary }}>NILA-C</text>
                     </Link>
 
                     <g clipPath="url(#theClipPath)" width="100%">
@@ -140,7 +140,7 @@ export default function Menu({ primary, secondary }) {
                     >
                         MENU
                     </text>
-                    <svg className={styles.cart_icon} onClick={handleShoppingBagClick} x="150px" y="15" height="25" width="25" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24" fill='none' stroke={primary}  strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path  d="M6 2L3 6v14c0 1.1.9 2 2 2h14a2 2 0 0 0 2-2V6l-3-4H6zM3.8 6h16.4M16 10a4 4 0 1 1-8 0"/></svg>
+                    <svg className={styles.cart_icon} onClick={handleShoppingBagClick} x="125px" y="15" height="25" width="25" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24" fill='none' stroke={primary}  strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path  d="M6 2L3 6v14c0 1.1.9 2 2 2h14a2 2 0 0 0 2-2V6l-3-4H6zM3.8 6h16.4M16 10a4 4 0 1 1-8 0"/></svg>
                     <g clipPath="url(#theClipPath)">
                         <text
                             className={styles.closing_menu_icon}
@@ -161,7 +161,7 @@ export default function Menu({ primary, secondary }) {
                 </svg>
                 
                 {bagCount >= 0 && (
-                    <span className={styles.bag_count} style={{ color: primary }}>
+                    <span className={styles.bag_count} style={{ color: primary}}>
                         ( {bagCount} )
                     </span>
                 )}
