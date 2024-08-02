@@ -1,19 +1,22 @@
 "use client";
 import Image from "next/image";
-import styles from "@/app/page.module.scss"
+import styles from "@/app/page.module.scss";
 import GSAPAnimation from "@/app/components/Text-reveal-animation";
 import { usePageColor } from '@/app/components/page_color_context';
 import { useEffect } from "react";
 
-export default function LandingPageContent({products, paintCombination}) {
+
+export default function LandingPageContent({ products, paintCombination }) {
 
   const { setColors } = usePageColor();
 
   useEffect(() => {
-      setColors({ text: 'yellow', background: 'blue' });
+    setColors({ text: 'yellow', background: 'blue' });
 
-      return () => setColors({ text: 'defaultTextColor', background: 'defaultBackgroundColor' });
+    return () => setColors({ text: 'defaultTextColor', background: 'defaultBackgroundColor' });
   }, [setColors]);
+
+
   return (
     <main className={styles.main_container}>
       <div className={styles.background}></div>
@@ -33,37 +36,45 @@ export default function LandingPageContent({products, paintCombination}) {
       </div>
       <section className={styles.container_1}>
         <section className={styles.container_1_1}>
+        <div className={styles.container_span_1}>
           <GSAPAnimation targetSelector=".text_container_1" />
-          <div className={styles.container_span_1}>
-            <span className="text_container_1">EACH PIECE IS </span>
+          
+          <div className={styles.anim_container}>
+  <span className="text_container_1">EACH PIECE IS</span>
+          </div>
+          <div className={styles.anim_container}>
             <span className="text_container_1">HANDPAINTED</span>
+            </div>
           </div>
           <p>
-            Elevate Your Style: Unique Hand-Painted Clothing as Abstract Art.
+          ELEVATE YOUR STYLE: UNIQUE HAND-PAINTED CLOTHING AS ABSTRACT ART.
             <br />
             <br />
-            Discover a world where fashion meets individuality. Each garment is meticulously crafted, ensuring its status as a true original – a rare gem in a world of mass production.
+            DISCOVER A WORLD WHERE FASHION MEETS INDIVIDUALITY. EACH GARMENT IS METICULOUSLY CRAFTED, ENSURING ITS STATUS AS A TRUE ORIGINAL – A RARE GEM IN A WORLD OF MASS PRODUCTION.
             <br />
             <br />
-            Make a bold statement with clothing that is as unique as you are. Welcome to a realm where fashion becomes a canvas and every piece tells a story.
+            MAKE A BOLD STATEMENT WITH CLOTHING THAT IS AS UNIQUE AS YOU ARE. WELCOME TO A REALM WHERE FASHION BECOMES A CANVAS AND EVERY PIECE TELLS A STORY.
           </p>
         </section>
       </section>
       <section className={styles.container_1_2}>
        
         <div className={styles.latest_container}>
-        <h2>PAINT COMBINATIONS</h2>
-        <p className={styles.paint_combo_text}>Each piece is featuring one of the four distinctive color combinations seen below, to ensure that every piece is truly one-of-a-kind.</p>
+        <div className={styles.anim_container}>
+        <h1 className={styles.paint_title}>PAINT COMBINATIONS</h1>
+        </div>
+        <div className={styles.flex}>
+        <p className={styles.paint_combo_text}>EACH PIECE IS FEATURING ONE OF THE FOUR DISTINCTIVE COLOR COMBINATIONS SEEN BELOW, TO ENSURE THAT EVERY PIECE IS TRULY ONE-OF-A-KIND.</p>
         <div className={styles.scrolling_wrapper}>
         <div className={styles.card}>
             {paintCombination.map(paint => (
                 <div className={styles.image} key={paint.id}>
-                <Image 
+                <Image className={styles.img}
                   alt=""
                   src={paint.colorCombo.url}
-                  width={200}
-                  height={200}
-                  layout="responsive"
+                  width={400}
+                  height={400}
+
                 />
                 <h3 className={styles.paint_name}>{paint.name}</h3>
               </div>
@@ -72,9 +83,10 @@ export default function LandingPageContent({products, paintCombination}) {
           </div>
         </div>
         </div>
+        </div>
 
         <div className={styles.paint_comb_container}>
-        <h2>LATEST RELEASES</h2>
+        <h1>LATEST RELEASES</h1>
         <p></p>
         <div className={styles.scrolling_wrapper}>
           <div className={styles.card}>
@@ -98,19 +110,15 @@ export default function LandingPageContent({products, paintCombination}) {
         <GSAPAnimation targetSelector=".text_container_2" />
         <div className={styles.container_span}>
           <div className={styles.span}>
-            <span className="text_container_2">BRINGING <br /> </span>{" "}
-            <span className="text_container_2"> MODERN ART</span>
+            <span className="text_container_2">BRINGING MODERN ART <br /> </span>{" "}
           </div>
           <div className={styles.span}>
             {" "}
-            <span className="text_container_2"> AND CLOTHING </span>{" "}
-            <span className="text_container_2"> TOGETHER.</span>{" "}
+            <span className="text_container_2"> AND CLOTHING TOGETHER.</span>{" "}
           </div>
-          <div className={styles.last_span}>
-            <span className="text_container_2">DARE TO BE </span>{" "}
-            <span className={`text_container_2 ${styles.last_span}`}>
-              UNIQUE.
-            </span>{" "}
+          <div className={styles.span}>
+            <span className="text_container_2">DARE TO BE</span>{" "}
+            <span className="text_container_2"><h1 className={styles.last_word}>UNIQUE.</h1></span>{" "}
           </div>
         </div>
       </section>

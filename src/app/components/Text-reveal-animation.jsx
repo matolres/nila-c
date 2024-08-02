@@ -8,21 +8,24 @@ export default function GSAPAnimation({ targetSelector, additionalOptions }) {
     useGSAP(() => {
     gsap.registerPlugin(ScrollTrigger);
     const defaultAnimationOptions = {
-      y: 30,
-      clipPath: 'polygon(0 100%, 100% 100%, 100% 100%, 0% 100%)',
-      stagger: 0.03,
-      delay: 0.3,
-      duration: 0.8
+      y: 135,
+      
+      stagger: 0.05,
+      
+      duration: 0.5
     };
     const animationOptions = { ...defaultAnimationOptions, ...additionalOptions };
     gsap.from(targetSelector, {
       ...animationOptions,
       scrollTrigger: {
         trigger: targetSelector,
-        toggleActions: 'restart none none none',
+        start: "top-=100 center",
+        
+        toggleActions: "play none none reverse",
+        markers: true,
         
       },
-      ease: "back.out" 
+      ease: "power4.out"
     });
     gsap.context()
   });
