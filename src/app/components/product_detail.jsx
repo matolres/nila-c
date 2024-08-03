@@ -11,7 +11,7 @@ import { useShoppingBag } from '@/app/components/shopping_bag_context';
 import { useRouter } from 'next/navigation';
 import 'swiper/css';
 import 'swiper/css/scrollbar';
-import { Scrollbar, Mousewheel } from 'swiper/modules';
+import { Mousewheel, Pagination } from 'swiper/modules';
 import Link from 'next/link';
 import { usePageColor } from '@/app/components/page_color_context';
 
@@ -55,12 +55,13 @@ const ProductDetail = ({ product }) => {
       <main className={styles.main_container}>
         <section className={styles.product} style={{ position: 'relative' }}>
           <Swiper
-            scrollbar={{ hide: true }}
-            modules={[Scrollbar, Mousewheel]}
+            modules={[Pagination, Mousewheel]}
             mousewheel={true}
+            pagination={true}
+            direction={'vertical'}
             className={styles.container_1_1}
           >
-            <SwiperSlide>
+            <SwiperSlide className={styles.slide_container}>
               <Zoom>
                 <Image
                   alt="Product Front"
@@ -68,7 +69,7 @@ const ProductDetail = ({ product }) => {
                   width={600}
                   height={600}
                   sizes="(max-width: 768px) 400px"
-                  style={{ objectFit: 'cover', width: '100%', height: 'auto' }}
+                  style={{ objectFit: 'cover', width: '110%', height: 'auto' }}
                   loading="lazy"
                 />
               </Zoom>
@@ -81,7 +82,7 @@ const ProductDetail = ({ product }) => {
                   width={600}
                   height={600}
                   sizes="(max-width: 768px) 400px"
-                  style={{ objectFit: 'cover', width: '100%', height: 'auto' }}
+                  style={{ objectFit: 'cover', width: '110%', height: 'auto' }}
                   loading="lazy"
                 />
               </Zoom>
@@ -94,7 +95,7 @@ const ProductDetail = ({ product }) => {
                   width={600}
                   height={600}
                   sizes="(max-width: 768px) 400px"
-                  style={{ objectFit: 'cover', width: '100%', height: 'auto' }}
+                  style={{ objectFit: 'cover', width: '110%', height: 'auto' }}
                   loading="lazy"
                 />
               </Zoom>

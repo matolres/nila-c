@@ -281,6 +281,24 @@
     .product {
         min-height: 90vh;
     }
+    .container_1_1 {
+      width: 100%;
+      height: 100dvh; 
+      display: flex;
+      justify-content: center;/* Ensure consistent height */
+    }
+    
+    .swiper_slide {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh; /* Ensure slide takes full container height */
+    }
+    .slide_container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
 
     .animated_button {
         position: relative;
