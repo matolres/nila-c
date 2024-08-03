@@ -4,6 +4,12 @@ import styles from "@/app/page.module.scss";
 import GSAPAnimation from "@/app/components/Text-reveal-animation";
 import { usePageColor } from '@/app/components/page_color_context';
 import { useEffect } from "react";
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/scrollbar'; // Import Swiper pagination CSS
+import { Scrollbar, Navigation } from 'swiper/modules';
+
 
 
 export default function LandingPageContent({ products, paintCombination }) {
@@ -89,21 +95,56 @@ export default function LandingPageContent({ products, paintCombination }) {
         <h1>LATEST RELEASES</h1>
         <p></p>
         <div className={styles.scrolling_wrapper}>
-          <div className={styles.card}>
-            {products.map(product => (
-                <div className={styles.image} key={product.id}>
-                <Image 
-                  alt=""
-                  src={product.productFrontImage.url}
-                  width={170}
-                  height={170}
-                  layout="responsive"
-                />
-              </div>
-            ))}
-            
+        <Swiper
+              modules={[Scrollbar, Navigation]}
+              navigation={{
+                nextEl: '.custom-next',
+                prevEl: '.custom-prev',
+              }}
+              scrollbar={{ hide: true }}
+              spaceBetween={10}
+              slidesPerView={1}
+              breakpoints={{
+                640: { slidesPerView: 2, spaceBetween: 20 },
+                768: { slidesPerView: 3, spaceBetween: 40 },
+                1024: { slidesPerView: 3, spaceBetween: 50 },
+              }}
+              style={{
+                '--swiper-pagination-color': 'red',
+                '--swiper-pagination-bullet-inactive-color': 'rgba(255,0,0,0.3)',
+                '--swiper-pagination-bullet-inactive-opacity': '1',
+                '--swiper-pagination-bullet-size': '14px',
+                '--swiper-pagination-bullet-horizontal-gap': '6px'
+              }}
+            >
+              {products.map(product => (
+                <SwiperSlide key={product.id}>
+                  <div className={styles.card}>
+                    <div className={styles.image}>
+                      <Image
+                        alt=""
+                        src={product.productFrontImage.url}
+                        width={170}
+                        height={170}
+                        layout="responsive"
+                      />
+                    </div>
+                  </div>
+                </SwiperSlide>
+              ))}
+            </Swiper>
+</div>
+
+<div className={`${styles.customPrev} custom-prev`}>
+<svg xmlns="http://www.w3.org/2000/svg" className={styles.arr_2} width="34" height="34" viewBox="0 0 24 24" fill="none"  stroke="red" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H6M12 5l-7 7 7 7"/></svg>
           </div>
-        </div>
+          <div className={`${styles.customNext} custom-next`}>
+          <svg xmlns="http://www.w3.org/2000/svg" className={styles.arr_2} width="34" height="34" viewBox="0 0 24 24" fill="none"  stroke="red" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M12 5l7 7-7 7"/></svg>
+              
+        
+          </div>
+
+
         </div>
       </section>
       <section className={styles.container_1_4}>

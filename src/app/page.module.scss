@@ -86,6 +86,28 @@ position: relative;
   }
 }
 
+.custom-prev, .custom-next {
+  width: 40px; /* Adjust size as needed */
+  height: 40px; /* Adjust size as needed */
+  background-color: transparent; /* Ensure background is transparent */
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.custom-prev {
+  left: 40px; /* Adjust positioning as needed */
+}
+
+.custom-next {
+  right: 10px; /* Adjust positioning as needed */
+}
+
+.custom-prev svg, .custom-next svg {
+  fill: currentColor; /* Adjust color based on theme */
+}
+
 .paint_title {
   color: blue;
 }

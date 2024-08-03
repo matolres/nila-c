@@ -11,6 +11,7 @@ import { useShoppingBag } from '@/app/components/shopping_bag_context';
 import { useRouter } from 'next/navigation';
 import 'swiper/css';
 import 'swiper/css/scrollbar';
+import 'swiper/css/pagination'; // Import Swiper pagination CSS
 import { Mousewheel, Pagination } from 'swiper/modules';
 import Link from 'next/link';
 import { usePageColor } from '@/app/components/page_color_context';
@@ -21,12 +22,24 @@ const ProductDetail = ({ product }) => {
   const router = useRouter();
   const [message, setMessage] = useState('');
   const { setColors } = usePageColor();
+  const [isVertical, setIsVertical] = useState(window.innerWidth >= 1024);
 
   useEffect(() => {
       setColors({ text: 'red', background: '#00F135' });
 
       return () => setColors({ text: 'defaultTextColor', background: 'defaultBackgroundColor' });
   }, [setColors]);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsVertical(window.innerWidth >= 1024);
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
 
   const handleAddToBag = () => {
     const result = addToBag(product);
@@ -54,11 +67,17 @@ const ProductDetail = ({ product }) => {
       <div className={styles.background}></div>
       <main className={styles.main_container}>
         <section className={styles.product} style={{ position: 'relative' }}>
-          <Swiper
+          <Swiper style={{
+  "--swiper-pagination-color": "red",
+  "--swiper-pagination-bullet-inactive-color": "rgba(255,0,0,0.3)",
+  "--swiper-pagination-bullet-inactive-opacity": "1",
+  "--swiper-pagination-bullet-size": "14px",
+  "--swiper-pagination-bullet-horizontal-gap": "6px"
+}}
             modules={[Pagination, Mousewheel]}
             mousewheel={true}
-            pagination={true}
-            direction={'vertical'}
+            pagination={{ clickable: true }}
+            direction={isVertical ? 'vertical' : 'horizontal'}
             className={styles.container_1_1}
           >
             <SwiperSlide className={styles.slide_container}>
