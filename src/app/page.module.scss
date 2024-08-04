@@ -21,7 +21,7 @@ position: relative;
         left: 50%;
         transform: translate(-50%, -50%);
         text-align: center;
-        color: rgba(255, 255, 0, 0.25);
+        color: transparent;
         -webkit-text-stroke-width: 1px;
         -webkit-text-stroke-color: yellow;
         
@@ -97,7 +97,7 @@ position: relative;
 }
 
 .custom-prev {
-  left: 40px; /* Adjust positioning as needed */
+  left: 10rem;
 }
 
 .custom-next {
@@ -149,6 +149,26 @@ position: relative;
 
 .scrolling_wrapper {
   overflow-x: auto;
+  position: relative;
+  margin: 0 2rem;
+  .prev_button_container {
+    position: absolute;
+    top: 50%;
+    left: -1rem;
+    z-index: 10;
+    cursor: pointer;
+    transform: translateY(-50%);
+  }
+  
+  .next_button_container {
+    position: absolute;
+    top: 50%;
+    right: -1rem;
+    z-index: 10;
+    cursor: pointer;
+    transform: translateY(-50%);
+  }
+  
   h2 {
     text-align: center;
     margin: 1rem;
@@ -250,15 +270,16 @@ position: relative;
 
 
 
-.card2 {
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    gap: 1rem;
-    background-color: blue;
-    padding: 2rem 0;
+.card_2 {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  overflow-x: scroll;
 
-}
+
+} 
 .container_1_4 {
     padding: 2rem;
     

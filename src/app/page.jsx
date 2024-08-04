@@ -18,6 +18,12 @@ allPaintCombinations {
     productFrontImage {
       url
     }
+    category
+    color
+    paintCombo
+    price
+    productDetail
+    size
   }
 }
 `;
