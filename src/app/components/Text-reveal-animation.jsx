@@ -20,9 +20,8 @@ export default function GSAPAnimation({ targetSelector, additionalOptions }) {
       scrollTrigger: {
         trigger: targetSelector,
         start: "top-=100 center",
-        
         toggleActions: "play none none reverse",
-        markers: true,
+
         
       },
       ease: "power4.out"

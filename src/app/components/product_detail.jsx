@@ -17,7 +17,7 @@ import Link from 'next/link';
 import { usePageColor } from '@/app/components/page_color_context';
 
 const ProductDetail = ({ product }) => {
-  const { addToBag, removeFromBag } = useShoppingBag();
+  const { addToBag } = useShoppingBag();
   const [openSection, setOpenSection] = useState(null);
   const router = useRouter();
   const [message, setMessage] = useState('');

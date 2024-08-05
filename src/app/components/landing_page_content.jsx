@@ -1,19 +1,22 @@
 "use client";
 
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import styles from "@/app/page.module.scss";
 import GSAPAnimation from "@/app/components/Text-reveal-animation";
 import { usePageColor } from '@/app/components/page_color_context';
-import { useEffect } from "react";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/scrollbar';
 import { Scrollbar, Navigation } from 'swiper/modules';
-import Link from "next/link";
+import { useShoppingBag } from '@/app/components/shopping_bag_context';
+import Link from 'next/link';
 
 export default function LandingPageContent({ products, paintCombination }) {
   const { setColors } = usePageColor();
+  const { addToBag } = useShoppingBag();
+  const [message, setMessage] = useState('');
 
   useEffect(() => {
     setColors({ text: 'yellow', background: 'blue' });
@@ -21,8 +24,25 @@ export default function LandingPageContent({ products, paintCombination }) {
     return () => setColors({ text: 'defaultTextColor', background: 'defaultBackgroundColor' });
   }, [setColors]);
 
+  const handleAddToBag = (product) => {
+    const result = addToBag(product);
+    if (result.status === 'added') {
+      setMessage('Product added to the bag.');
+    } else if (result.status === 'exists') {
+      setMessage('Product is already in the bag.');
+    }
+
+    setTimeout(() => {
+      setMessage('');
+    }, 4000);
+  };
+
   return (
+    <>
+    {message && <div className={styles.message}><span>{message}</span></div>}
+
     <main className={styles.main_container}>
+      
       <div className={styles.background}></div>
 
       <div className={styles.splash}>
@@ -40,6 +60,7 @@ export default function LandingPageContent({ products, paintCombination }) {
       </div>
 
       <section className={styles.container_1}>
+      
         <section className={styles.container_1_1}>
           <div className={styles.container_span_1}>
             <GSAPAnimation targetSelector=".text_container_1" />
@@ -61,7 +82,7 @@ export default function LandingPageContent({ products, paintCombination }) {
           </p>
         </section>
       </section>
-
+      
       <section className={styles.container_1_2}>
         <div className={styles.latest_container}>
           <div className={styles.anim_container}>
@@ -86,8 +107,10 @@ export default function LandingPageContent({ products, paintCombination }) {
             </div>
           </div>
         </div>
+        
 
         <div className={styles.paint_comb_container}>
+        
           <h1>LATEST RELEASES</h1>
           <p></p>
           <div className={styles.scrolling_wrapper}>
@@ -127,17 +150,24 @@ export default function LandingPageContent({ products, paintCombination }) {
               {products.map(product => (
                 <SwiperSlide key={product.id}>
                   <div className={styles.card_2}>
-                    <div className={styles.image}>
-                    <Link href={`/pages/product/${product.id}`} key={product.id} className={styles.product_link}>
+                    <div className={styles.image_2}>
                       <Image
                         alt=""
                         src={product.productFrontImage.url}
                         width={350}
                         height={350}
                       />
-                      </Link>
-                      <p></p>
+                      <div className={styles.hover_container}>
+                        
+                        <button className={styles.button} onClick={() => handleAddToBag(product)}>QUICK ADD</button>
+                      </div>
+                     
                     </div>
+                  </div>
+                  <div className={styles.latest_product_detail}>
+                  <h4>{product.category} - {product.paintCombo}</h4>
+                        <p>size {product.size} - {product.color}</p>
+                        <h4>{product.price} DKK</h4>
                   </div>
                 </SwiperSlide>
               ))}
@@ -162,73 +192,8 @@ export default function LandingPageContent({ products, paintCombination }) {
         </div>
       </section>
 
-      <section className={styles.container_1_5}>
-        
-      </section>
+      <section className={styles.container_1_5}></section>
     </main>
+    </>
   );
 }
-
-/* 
-<div className={styles.flexContainer}>
-          <div className="photo1">
-            <Image
-              src="/models/Joe blue.jpg"
-              alt="blue t-shirt"
-              width={800}
-              height={400}
-              objectfit="cover"
-            />
-          </div>
-          <div className={styles.hide1}>
-            <Image
-              src="/models/Joe blue.jpg"
-              alt="blue t-shirt"
-              width={800}
-              height={400}
-              objectfit="cover"
-            />
-          </div>
-          <div className={styles.hide2}>
-            <Image
-              src="/models/Joe blue.jpg"
-              alt="blue t-shirt"
-              width={800}
-              height={400}
-              objectfit="cover"
-            />
-          </div>
-        </div>
-        <div className={styles.flexContainer}>
-          <div className="photo2">
-            <Image
-              src="/models/Helena Black sweats.jpg"
-              alt="Black sweats"
-              width={200}
-              height={200}
-
-              objectfit="contain"
-            />
-          </div>
-          <div className="photo3">
-            <Image
-              src="/models/Andji Black tee.jpg"
-              alt="Black tee"
-              width={200}
-              height={200}
-
-              objectfit="contain"
-            />
-          </div>
-          <div className={styles.hide2}>
-            <Image
-              src="/models/Andji Black tee.jpg"
-              alt="Photo 3"
-              width={200}
-              height={200}
-              objectfit="contain"
-            />
-          </div>
-        </div>
-
-*/

@@ -154,7 +154,7 @@ position: relative;
   .prev_button_container {
     position: absolute;
     top: 50%;
-    left: -1rem;
+    left: 0;
     z-index: 10;
     cursor: pointer;
     transform: translateY(-50%);
@@ -163,7 +163,7 @@ position: relative;
   .next_button_container {
     position: absolute;
     top: 50%;
-    right: -1rem;
+    right: 0;
     z-index: 10;
     cursor: pointer;
     transform: translateY(-50%);
@@ -196,10 +196,69 @@ position: relative;
       color: yellow;
     }
   }
+
+  .message {
+    text-align: center;
+    position: fixed;
+    left: 0;
+    top: -10px;
+    background-color: yellow;
+    padding: 10px;
+    width: 100vw;
+    color: blue;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    animation: moveDownUp 3s ease-in-out;
+  }
+  
+  @keyframes moveDownUp {
+    0% {
+      top: -10px;
+    }
+    15% {
+      top: 200px;
+    }
+    85% {
+      top: 200px;
+    }
+    100% {
+      top: -10px;
+    }
+  }
+  
   
   
   
 @media (min-width: 1024px) {
+
+  .message {
+    text-align: center;
+    position: fixed;
+    left: 0;
+    top: -10px;
+    background-color: yellow;
+    padding: 10px;
+    width: 100vw;
+    color: blue;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    animation: moveDownUp 3s ease-in-out;
+  }
+  
+  @keyframes moveDownUp {
+    0% {
+      top: -10px;
+    }
+    15% {
+      top: 200px;
+    }
+    85% {
+      top: 200px;
+    }
+    100% {
+      top: -10px;
+    }
+  }
   
     .latest_container {
       .paint_combo_text {
@@ -239,6 +298,66 @@ position: relative;
     }
   }
 }
+
+/* Parent container */
+.card_2 {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Image container */
+.image {
+  position: relative;
+  z-index: 1;
+}
+
+.latest_product_detail {
+  margin: 1rem 2rem;
+  p, h4 {
+    color: blue;
+  }
+}
+.hover_container {
+  position: absolute;
+  bottom: -100%; /* Position it outside the bottom of the parent initially */
+  left: 0;
+  width: 100%;
+  color: blue;
+  text-align: center;
+  padding: 20px;
+  box-sizing: border-box;
+  transition: bottom 0.4s ease; /* Transition effect */
+  z-index: 2;
+  scale: 0.9;
+  h4, p {
+    text-align: start;
+  }
+  button {
+    background-color: blue;
+    color: yellow;
+    width: 100%;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+}
+
+.image_2 {
+  transition: 0.3s ease;
+}
+
+.image_2:hover {
+  scale: 1.1;
+}
+
+
+
+/* Move the hover container to the center on hover */
+.card_2:hover .hover_container {
+  bottom: 10px; /* Move to the center */
+  
+}
+
 
 
 }
