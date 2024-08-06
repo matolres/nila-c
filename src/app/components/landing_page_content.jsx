@@ -56,9 +56,16 @@ export default function LandingPageContent({ products, paintCombination }) {
           >
             <source src="/dummy/splash.mp4" type="video/mp4" />
           </video>
-          <GSAPAnimation targetSelector=".hero_headline" />
+          <div></div>
+          <GSAPAnimation targetSelector=".hero_headline" additionalOptions={{ delay: 0.5 }} />
           <div className={styles.hero_headline_container}>
-            <h1 className="hero_headline">WEAR WHAT YOU ARE</h1>
+            <div className={styles.hero_element_container}>
+              <h1 className="hero_headline">WEAR WHAT YOU ARE</h1>
+            </div>
+            <div className={styles.hero_element_container}>
+              <button className="hero_headline"> SEE SHOP </button>
+            </div>
+
           </div>
         </div>
 
