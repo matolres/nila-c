@@ -46,21 +46,21 @@ export default function LandingPageContent({ products, paintCombination }) {
       <div className={styles.background}></div>
 
       <div className={styles.splash}>
-        <video
-          className={styles.video}
-          autoPlay
-          loop
-          muted
-          playsInline
-          objectfit="cover"
-        >
-          <source src="/dummy/splash.mp4" type="video/mp4" />
-        </video>
-        <GSAPAnimation targetSelector=".hero_headline" />
-        <div className={styles.anim_container} >
-        <h1 className="hero_headline" >WEAR WHAT YOU ARE</h1>
+          <video
+            className={styles.video}
+            autoPlay
+            loop
+            muted
+            playsInline
+            objectfit="cover"
+          >
+            <source src="/dummy/splash.mp4" type="video/mp4" />
+          </video>
+          <GSAPAnimation targetSelector=".hero_headline" />
+          <div className={styles.hero_headline_container}>
+            <h1 className="hero_headline">WEAR WHAT YOU ARE</h1>
+          </div>
         </div>
-      </div>
 
       <section className={styles.container_1}>
       
