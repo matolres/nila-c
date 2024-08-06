@@ -1,5 +1,4 @@
-'use client';
-
+"use client"
 import React, { useState, useEffect } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import Collapsible from 'react-collapsible';
@@ -22,12 +21,12 @@ const ProductDetail = ({ product }) => {
   const router = useRouter();
   const [message, setMessage] = useState('');
   const { setColors } = usePageColor();
-  const [isVertical, setIsVertical] = useState(window.innerWidth >= 1024);
+  const [isVertical, setIsVertical] = useState(false);
 
   useEffect(() => {
-      setColors({ text: 'red', background: '#00F135' });
+    setColors({ text: 'red', background: '#00F135' });
 
-      return () => setColors({ text: 'defaultTextColor', background: 'defaultBackgroundColor' });
+    return () => setColors({ text: 'defaultTextColor', background: 'defaultBackgroundColor' });
   }, [setColors]);
 
   useEffect(() => {
@@ -35,6 +34,7 @@ const ProductDetail = ({ product }) => {
       setIsVertical(window.innerWidth >= 1024);
     };
 
+    handleResize(); // Set initial value
     window.addEventListener('resize', handleResize);
     return () => {
       window.removeEventListener('resize', handleResize);
@@ -67,13 +67,14 @@ const ProductDetail = ({ product }) => {
       <div className={styles.background}></div>
       <main className={styles.main_container}>
         <section className={styles.product} style={{ position: 'relative' }}>
-          <Swiper style={{
-  "--swiper-pagination-color": "red",
-  "--swiper-pagination-bullet-inactive-color": "rgba(255,0,0,0.3)",
-  "--swiper-pagination-bullet-inactive-opacity": "1",
-  "--swiper-pagination-bullet-size": "14px",
-  "--swiper-pagination-bullet-horizontal-gap": "6px"
-}}
+          <Swiper
+            style={{
+              "--swiper-pagination-color": "red",
+              "--swiper-pagination-bullet-inactive-color": "rgba(255,0,0,0.3)",
+              "--swiper-pagination-bullet-inactive-opacity": "1",
+              "--swiper-pagination-bullet-size": "14px",
+              "--swiper-pagination-bullet-horizontal-gap": "6px"
+            }}
             modules={[Pagination, Mousewheel]}
             mousewheel={true}
             pagination={{ clickable: true }}
@@ -89,7 +90,8 @@ const ProductDetail = ({ product }) => {
                   height={600}
                   sizes="(max-width: 768px) 400px"
                   style={{ objectFit: 'cover', width: '110%', height: 'auto' }}
-                  loading="lazy"
+                  
+                  priority={true}
                 />
               </Zoom>
             </SwiperSlide>
@@ -106,30 +108,32 @@ const ProductDetail = ({ product }) => {
                 />
               </Zoom>
             </SwiperSlide>
-            <SwiperSlide>
-              <Zoom>
-                <Image
-                  alt="Product Model"
-                  src={product.productModelImage.url}
-                  width={600}
-                  height={600}
-                  sizes="(max-width: 768px) 400px"
-                  style={{ objectFit: 'cover', width: '110%', height: 'auto' }}
-                  loading="lazy"
-                />
-              </Zoom>
-            </SwiperSlide>
+            {product.productModelImage && (
+              <SwiperSlide>
+                <Zoom>
+                  <Image
+                    alt="Product Model"
+                    src={product.productModelImage.url}
+                    width={600}
+                    height={600}
+                    sizes="(max-width: 768px) 400px"
+                    style={{ objectFit: 'cover', width: '110%', height: 'auto' }}
+                    loading="lazy"
+                  />
+                </Zoom>
+              </SwiperSlide>
+            )}
           </Swiper>
           <section className={styles.product_description}>
             <section className={styles.container_1}>
               <div className={styles.back_to_shop}>
                 <Link className={styles.shop_link} href='/pages/shop'>
-                <button className={styles.animated_button}>
-                <svg xmlns="http://www.w3.org/2000/svg" className={styles.arr_2} width="34" height="34" viewBox="0 0 24 24" fill="none"  stroke="red" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H6M12 5l-7 7 7 7"/></svg>
-  <span className={styles.text}>back to shop</span>
-  <span className={styles.circle}></span>
-  <svg xmlns="http://www.w3.org/2000/svg" className={styles.arr_1} width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="red" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H6M12 5l-7 7 7 7"/></svg>
-</button>
+                  <button className={styles.animated_button}>
+                    <svg xmlns="http://www.w3.org/2000/svg" className={styles.arr_2} width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="red" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M19 12H6M12 5l-7 7 7 7" /></svg>
+                    <span className={styles.text}>back to shop</span>
+                    <span className={styles.circle}></span>
+                    <svg xmlns="http://www.w3.org/2000/svg" className={styles.arr_1} width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="red" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M19 12H6M12 5l-7 7 7 7" /></svg>
+                  </button>
                 </Link>
               </div>
               <div className={styles.container_1_2}>
@@ -138,8 +142,8 @@ const ProductDetail = ({ product }) => {
                   <h3 className={styles.product_price}>{product.price} DKK</h3>
                 </div>
                 <div className={styles.container_1_2_3}>
-                <h4 className={styles.product_color}>{product.color}</h4>
-                <h4 className={styles.product_size}>size: {product.size}</h4>
+                  <h4 className={styles.product_color}>{product.color}</h4>
+                  <h4 className={styles.product_size}>size: {product.size}</h4>
                 </div>
               </div>
               {message && <div className={styles.message}><span>{message}</span></div>}

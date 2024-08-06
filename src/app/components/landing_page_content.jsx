@@ -135,8 +135,8 @@ export default function LandingPageContent({ products, paintCombination }) {
               spaceBetween={1}
               slidesPerView={1}
               breakpoints={{
-                640: { slidesPerView: 2, spaceBetween: 20 },
-                768: { slidesPerView: 3, spaceBetween: 40 },
+                640: { slidesPerView: 1, spaceBetween: 20 },
+                768: { slidesPerView: 2, spaceBetween: 40 },
                 1024: { slidesPerView: 3, spaceBetween: 20 },
               }}
               style={{

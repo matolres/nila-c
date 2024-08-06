@@ -23,7 +23,7 @@ const Products = ({ product }) => {
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
         >
-          <Image src={imageSrc} alt="" height="200" width="200" layout="responsive" />
+          <Image src={imageSrc} alt="" height="200" width="200" style={{ objectFit: 'cover', width: '100%', height: 'auto' }} />
           <div className={styles.color_price}>
             <h3 className="type">{product.category} - {product.paintCombo}</h3>
             <p>{product.color}</p>

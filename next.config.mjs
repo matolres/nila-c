@@ -1,13 +1,14 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-
-    images: {
-        domains: ['www.datocms-assets.com'],
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'www.datocms-assets.com',
       },
-      reactStrictMode: false,
+    ],
+  },
+  reactStrictMode: false,
 };
 
-
-
 export default nextConfig;
-
