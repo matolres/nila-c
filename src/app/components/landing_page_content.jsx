@@ -56,7 +56,10 @@ export default function LandingPageContent({ products, paintCombination }) {
         >
           <source src="/dummy/splash.mp4" type="video/mp4" />
         </video>
-        <h1>WEAR WHAT YOU ARE</h1>
+        <GSAPAnimation targetSelector=".hero_headline" />
+        <div className={styles.anim_container} >
+        <h1 className="hero_headline" >WEAR WHAT YOU ARE</h1>
+        </div>
       </div>
 
       <section className={styles.container_1}>

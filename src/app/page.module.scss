@@ -22,7 +22,10 @@ position: relative;
       transform: translate(-50%, -50%);
       text-align: center;
       color: yellow;
-      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+      width: 100%;
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+        overflow: hidden;
     }
 }
 .video {
@@ -226,76 +229,6 @@ position: relative;
   
   
   
-  
-@media (min-width: 1024px) {
-
-  .message {
-    text-align: center;
-    position: fixed;
-    left: 0;
-    top: -10px;
-    background-color: yellow;
-    padding: 10px;
-    width: 100vw;
-    color: blue;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    z-index: 1000;
-    animation: moveDownUp 3s ease-in-out;
-  }
-  
-  @keyframes moveDownUp {
-    0% {
-      top: -10px;
-    }
-    15% {
-      top: 200px;
-    }
-    85% {
-      top: 200px;
-    }
-    100% {
-      top: -10px;
-    }
-  }
-  
-    .latest_container {
-      .paint_combo_text {
-        max-width: 800px;
-      }
-    }
-  
-  .image {
-    overflow: hidden;
-    position: relative;
-    .paint_name {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background-color: yellow;
-      color: blue;
-      text-align: center;
-      position: absolute;
-      bottom: -4rem;
-      width: 100%;
-      height: 4rem;
-      transition: bottom 0.2s ;
-    }
-    
-    
-  }
-  .image:hover .paint_name {
-    bottom: 0;
-    animation: moveTitle 0.2s ease-in-out;
-  }
-  @keyframes moveTitle {
-    from {
-      bottom: -4rem;
-    }
-    to {
-      bottom: 0;
-    }
-  }
-}
 
 /* Parent container */
 .card_2 {
@@ -586,6 +519,74 @@ position: relative;
       display: block;
     }
 
+  }
+
+  
+  .message {
+    text-align: center;
+    position: fixed;
+    left: 0;
+    top: -10px;
+    background-color: yellow;
+    padding: 10px;
+    width: 100vw;
+    color: blue;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    animation: moveDownUp 3s ease-in-out;
+  }
+  
+  @keyframes moveDownUp {
+    0% {
+      top: -10px;
+    }
+    15% {
+      top: 200px;
+    }
+    85% {
+      top: 200px;
+    }
+    100% {
+      top: -10px;
+    }
+  }
+  
+    .latest_container {
+      .paint_combo_text {
+        max-width: 800px;
+      }
+    }
+  
+  .image {
+    overflow: hidden;
+    position: relative;
+    .paint_name {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: yellow;
+      color: blue;
+      text-align: center;
+      position: absolute;
+      bottom: -4rem;
+      width: 100%;
+      height: 4rem;
+      transition: bottom 0.2s ;
+    }
+    
+    
+  }
+  .image:hover .paint_name {
+    bottom: 0;
+    animation: moveTitle 0.2s ease-in-out;
+  }
+  @keyframes moveTitle {
+    from {
+      bottom: -4rem;
+    }
+    to {
+      bottom: 0;
+    }
   }
 
 
