@@ -39,11 +39,13 @@ export default function LandingPageContent({ products, paintCombination }) {
 
   return (
     <>
-    {message && <div className={styles.message}><span>{message}</span></div>}
+    
 
     <main className={styles.main_container}>
+    
       
       <div className={styles.background}></div>
+      {message && <div className={styles.message}><span>{message}</span></div>}
 
       <div className={styles.splash}>
           <video
@@ -63,7 +65,8 @@ export default function LandingPageContent({ products, paintCombination }) {
               <h1 className="hero_headline">WEAR WHAT YOU ARE</h1>
             </div>
             <div className={styles.hero_element_container}>
-              <button className="hero_headline"> SEE SHOP </button>
+            <Link href='/pages/shop'><button className="hero_headline"> SEE SHOP </button></Link>
+              
             </div>
             <div className={styles.hero_element_container}>
             <svg xmlns="http://www.w3.org/2000/svg" className="hero_headline" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="	#FFFF00" strokeWidth="2" strokeLinecap="square" strokeLinejoin="round"><path d="M12 5v13M5 12l7 7 7-7"/></svg>

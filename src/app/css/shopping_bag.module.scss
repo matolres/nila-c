@@ -76,6 +76,14 @@
 
 }
 
+.total_price {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 1rem 0;
+    
+}
+
 .empty_bag_message {
     position: absolute;
     top: 50%;

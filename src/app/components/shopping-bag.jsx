@@ -66,6 +66,10 @@ const ShoppingBag = ({ handleShoppingBagClick }) => {
                         </li>
                     ))}
                 </ul>
+                <div className={styles.total_price}>
+                    <h4>SubTotal: </h4>
+                    <h4>DKK {bag.reduce((total, { product }) => total + product.price, 0)}</h4>
+                </div>
                 <Link rel="" href="/pages/checkout">
                     <button className={styles.checkout} style={{ backgroundColor: colors.text, color: colors.background }}>CHECKOUT</button>
                 </Link>
