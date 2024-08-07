@@ -1,14 +1,29 @@
-"use client"
-import React from 'react';
+"use client";
+
+import { useEffect, useRef } from 'react';
 import { useShoppingBag } from '@/app/components/shopping_bag_context';
 import { usePageColor } from '@/app/components/page_color_context';
 import styles from '@/app/css/shopping_bag.module.scss';
 import Image from 'next/image';
 import Link from 'next/link';
 
-const ShoppingBag = () => {
+const ShoppingBag = ({ handleShoppingBagClick }) => {
     const { bag, removeFromBag, message } = useShoppingBag();
     const { colors } = usePageColor();
+    const mainRef = useRef(null);
+
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+            if (mainRef.current && !mainRef.current.contains(event.target)) {
+                handleShoppingBagClick();
+            }
+        };
+
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, [handleShoppingBagClick]);
 
     const handleRemoveFromBag = (productId) => {
         setTimeout(() => {
@@ -18,11 +33,14 @@ const ShoppingBag = () => {
 
     return (
         <>
-        <main className={styles.main_container} style={{ backgroundColor: colors.background, color: colors.text }}>
+        <main ref={mainRef} className={styles.main_container} style={{ backgroundColor: colors.background, color: colors.text }}>
             <div className={styles.container_1}>
-           
-                <h3 className={styles.title}>Shopping Bag</h3>
+                <div className={styles.title_container}>
+                    <h3 className={styles.title}>Shopping Bag</h3>
+                    <span onClick={ handleShoppingBagClick }>close</span>
+                </div>
                 {message && <div className={styles.message}>{message}</div>}
+                {bag?.length === 0 && <h2 className={styles.empty_bag_message}>Shopping bag is empty</h2>}
                 <ul className={styles.list}>
                     {bag?.map(({ product }) => (
                         <li key={product.id} className={styles.container_1_1}>
