@@ -66,7 +66,7 @@ export default function LandingPageContent({ products, paintCombination }) {
               <button className="hero_headline"> SEE SHOP </button>
             </div>
             <div className={styles.hero_element_container}>
-            <svg xmlns="http://www.w3.org/2000/svg" className="hero_headline" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="	#FFFF00" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 5v13M5 12l7 7 7-7"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" className="hero_headline" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="	#FFFF00" strokeWidth="2" strokeLinecap="square" strokeLinejoin="round"><path d="M12 5v13M5 12l7 7 7-7"/></svg>
             </div>
 
           </div>
