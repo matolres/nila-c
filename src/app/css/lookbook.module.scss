@@ -31,11 +31,11 @@
 
 .images_container {
   width: 100%;
-  padding: 2rem;
+  padding: 1rem;
   display: grid;
 
   grid-template-columns: 1fr;
-  gap: 2rem;
+  gap: 1rem;
   background-color: #ff91c6;
   .image_container {
     border-radius: 5px;
@@ -46,16 +46,14 @@
     justify-content: center;
     align-items: center;
       position: absolute;
-        top: 50%;
+        top: 10%;
         left: -35rem;
         margin: auto;
         
-        background-color: #ff91c6;
-        height: 8rem;
-        width: 20rem;
-        padding: 2rem;
         
-        color: #6A00AB ;
+        padding: 1rem;
+        
+        color: #ff91c6 ;
         transition: left 0.3s ease-in-out;
 
 

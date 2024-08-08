@@ -31,7 +31,7 @@ export default function LookbookContent({ lookbook }) {
                 height={300}
                 width={300}
               />
-              <h3 className={styles.image_title}>{image.title}</h3>
+              <h4 className={styles.image_title}>{image.title}</h4>
             </div>
           ))}
         </div>

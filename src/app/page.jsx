@@ -13,6 +13,12 @@ allPaintCombinations {
     id
     name
   }
+     allModelPics {
+    number
+    model {
+      url
+    }
+  }
   allProducts(filter: { latest: { eq: true } }) {
     id
     productFrontImage {
@@ -32,6 +38,8 @@ export default async function Home() {
   const { data } = await performRequest({ query: query });
   const allProducts = data.allProducts;
   const allPaintCombinations = data.allPaintCombinations;
+  const allModelPics = data.allModelPics
+  console.log("fetched model pics :", allModelPics)
   console.log("Fetched ALLPRODUCTS in Shop component:", allProducts);
   console.log("Fetched data in Shop component:", allPaintCombinations);
   
@@ -41,7 +49,7 @@ export default async function Home() {
       primary="yellow"
       secondary="blue"
       />
-      <LandingPageContent products={allProducts} paintCombination={allPaintCombinations} />
+      <LandingPageContent products={allProducts} paintCombination={allPaintCombinations} models={allModelPics} />
       <Footer />
     </>
   );
