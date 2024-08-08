@@ -8,7 +8,7 @@ export default function GSAPAnimation({ targetSelector, additionalOptions }) {
     useGSAP(() => {
     gsap.registerPlugin(ScrollTrigger);
     const defaultAnimationOptions = {
-      y: 135,
+      y: 155,
       
       stagger: 0.05,
       
