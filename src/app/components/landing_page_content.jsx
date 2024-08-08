@@ -104,9 +104,11 @@ export default function LandingPageContent({ products, paintCombination, models 
         <section className={styles.container_1_2}>
         <div className={styles.paint_comb_container}>
   <h1>PAINT COMBINATIONS</h1>
+  <div className={styles.paint_combo_text_container}>
   <p className={styles.paint_combo_text}>
     EACH PIECE IS FEATURING ONE OF THE FOUR DISTINCTIVE COLOR COMBINATIONS SEEN BELOW, TO ENSURE THAT EVERY PIECE IS TRULY ONE-OF-A-KIND.
   </p>
+  </div>
   <div className={styles.scrolling_wrapper}>
     <div className={styles.prev_button_container}>
       <div className={`${styles.customPrev} custom-prev-paint`}>
@@ -232,7 +234,7 @@ export default function LandingPageContent({ products, paintCombination, models 
         </section>
 
         <section className={styles.container_1_4}>
-          <GSAPAnimation targetSelector=".text_container_2" />
+          <GSAPAnimation targetSelector=".text_container_2" additionalOptions={{ stagger:0.03 }} />
           <div className={styles.container_span}>
             <div className={styles.span}>
               <span className="text_container_2">BRINGING MODERN ART <br /></span>
@@ -250,12 +252,16 @@ export default function LandingPageContent({ products, paintCombination, models 
         <section className={styles.container_1_5}>
           <div className={styles.small_model_pics}>
             {smallModelPics.map(pic => (
+            <Link href='/pages/lookbook' key={pic.number}>
               <Image key={pic.number} src={pic.model.url} alt={`Model ${pic.number}`} width={300} height={300} style={{ objectFit: 'cover' }} />
+              </Link>
             ))}
           </div>
           <div className={styles.big_model_pics}>
             {bigModelPic && (
-              <Image src={bigModelPic.model.url} alt={`Model ${bigModelPic.number}`} width={300} height={600} style={{ objectFit: 'cover' }} />
+              <Link href='/pages/lookbook'>
+                <Image src={bigModelPic.model.url} alt={`Model ${bigModelPic.number}`} width={300} height={600} style={{ objectFit: 'cover' }} />
+              </Link>
             )}
           </div>
         </section>
