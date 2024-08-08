@@ -1,7 +1,20 @@
+.background {
+  height: 60px;
+  background-color: #00F135;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+}
+
+
 .container {
   max-width: 800px;
   margin: 0 auto;
   padding: 20px;
+  h2, h3, p, label {
+    color: red;
+  }
 }
 
 .order_summary_container {
@@ -64,8 +77,8 @@
 .backToShop {
   padding: 10px 15px;
   border: none;
-  background-color: #007bff;
-  color: white;
+  background-color: red;
+  color: #00F135;
   cursor: pointer;
   border-radius: 4px;
   margin-right: 10px;
@@ -75,7 +88,7 @@
 
 .placeOrderButton:hover,
 .backToShop:hover {
-  background-color: #0056b3;
+  background-color: rgb(221, 0, 0);
 }
 
 .confirmationMessage {

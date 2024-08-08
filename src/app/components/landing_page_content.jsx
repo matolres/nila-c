@@ -260,7 +260,7 @@ export default function LandingPageContent({ products, paintCombination, models 
           <div className={styles.big_model_pics}>
             {bigModelPic && (
               <Link href='/pages/lookbook'>
-                <Image src={bigModelPic.model.url} alt={`Model ${bigModelPic.number}`} width={300} height={600} style={{ objectFit: 'cover' }} />
+                <Image className={styles.big_model} src={bigModelPic.model.url} alt={`Model ${bigModelPic.number}`} width={300} height={600} style={{ objectFit: 'cover' }} />
               </Link>
             )}
           </div>

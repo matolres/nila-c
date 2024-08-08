@@ -1,13 +1,16 @@
 "use client";
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useShoppingBag } from '@/app/components/shopping_bag_context';
 import Link from 'next/link';
 import styles from '@/app/css/checkout.module.scss';
 import Menu from '@/app/components/menu';
 import Image from 'next/image';
 import Collapsible from 'react-collapsible';
+import { usePageColor } from '@/app/components/page_color_context';
+
 
 const Checkout = () => {
+  const { setColors } = usePageColor();
   const { bag } = useShoppingBag();
   const [formData, setFormData] = useState({
     name: '',
@@ -54,21 +57,19 @@ const Checkout = () => {
     }, 3000);
   };
 
+  useEffect(() => {
+    setColors({ text: 'red', background: '#00F135' });
+
+    return () => setColors({ text: 'defaultTextColor', background: 'defaultBackgroundColor' });
+}, [setColors]);
+
   return (
     <>
     <Menu
-    menuIconColor="red"
-    closingMenuIconColor="#00F135"
-    moveMeColor="#00F135"
-    rectColor="red"
-    logoColor="red"
-    logoOverlayColor="#00F135"
-    lineColor="red"
-    lineOverlayColor="#00F135"
-    cartIconColor="red"
-    cartOverlayColor="#00F135"
-    itemTextColor="#00F135"
+    primary="red"
+    secondary="#00F135"
     />
+    <div className={styles.background}></div>
     <div className={styles.container}>
       <div className={styles.order_summary_container}>
       <Collapsible
