@@ -1,4 +1,4 @@
-"use client";
+"use client"
 
 import React, { useEffect, useState, useRef } from "react";
 import Image from "next/image";
@@ -59,6 +59,7 @@ export default function LandingPageContent({ products, paintCombination, models 
             loop
             muted
             playsInline
+            objectfit="cover"
           >
             <source src="/dummy/splash.mp4" type="video/mp4" />
           </video>
@@ -101,76 +102,76 @@ export default function LandingPageContent({ products, paintCombination, models 
         </section>
 
         <section className={styles.container_1_2}>
-          <div className={styles.paint_comb_container}>
-            <h1>PAINT COMBINATIONS</h1>
-            <div className={styles.paint_combo_text_container}>
-              <p className={styles.paint_combo_text}>
-                EACH PIECE IS FEATURING ONE OF THE FOUR DISTINCTIVE COLOR COMBINATIONS SEEN BELOW, TO ENSURE THAT EVERY PIECE IS TRULY ONE-OF-A-KIND.
-              </p>
-            </div>
-            <div className={styles.scrolling_wrapper}>
-              <div className={styles.prev_button_container}>
-                <div className={`${styles.customPrev} custom-prev-paint`}>
-                  <svg xmlns="http://www.w3.org/2000/svg" className={styles.arr_1} width="100%" height="100%" viewBox="0 0 24 24" fill="none" stroke="blue" strokeWidth="2" strokeLinecap="square" strokeLinejoin="round">
-                    <path d="M19 12H6M12 5l-7 7 7 7" />
-                  </svg>
-                </div>
-              </div>
-              <div className={styles.next_button_container}>
-                <div className={`${styles.customNext} custom-next-paint`}>
-                  <svg xmlns="http://www.w3.org/2000/svg" className={styles.arr_2} width="100%" height="100%" viewBox="0 0 24 24" fill="none" stroke="blue" strokeWidth="2" strokeLinecap="square" strokeLinejoin="round">
-                    <path d="M5 12h13M12 5l7 7-7 7" />
-                  </svg>
-                </div>
-              </div>
+        <div className={styles.paint_comb_container}>
+  <h1>PAINT COMBINATIONS</h1>
+  <div className={styles.paint_combo_text_container}>
+  <p className={styles.paint_combo_text}>
+    EACH PIECE IS FEATURING ONE OF THE FOUR DISTINCTIVE COLOR COMBINATIONS SEEN BELOW, TO ENSURE THAT EVERY PIECE IS TRULY ONE-OF-A-KIND.
+  </p>
+  </div>
+  <div className={styles.scrolling_wrapper}>
+    <div className={styles.prev_button_container}>
+      <div className={`${styles.customPrev} custom-prev-paint`}>
+        <svg xmlns="http://www.w3.org/2000/svg" className={styles.arr_1} width="100%" height="100%" viewBox="0 0 24 24" fill="none" stroke="blue" strokeWidth="2" strokeLinecap="square" strokeLinejoin="round">
+          <path d="M19 12H6M12 5l-7 7 7 7" />
+        </svg>
+      </div>
+    </div>
+    <div className={styles.next_button_container}>
+  <div className={`${styles.customNext} custom-next-paint`}>
+        <svg xmlns="http://www.w3.org/2000/svg" className={styles.arr_2} width="100%" height="100%" viewBox="0 0 24 24" fill="none" stroke="blue" strokeWidth="2" strokeLinecap="square" strokeLinejoin="round">
+          <path d="M5 12h13M12 5l7 7-7 7" />
+        </svg>
+      </div>
+    </div>
 
-              <Swiper
-                modules={[Scrollbar, Navigation]}
-                navigation={{
-                  nextEl: '.custom-next-paint',
-                  prevEl: '.custom-prev-paint',
-                }}
-                scrollbar={{ hide: true }}
-                spaceBetween={1}
-                slidesPerView={1}
-                breakpoints={{
-                  640: { slidesPerView: 1, spaceBetween: 20 },
-                  768: { slidesPerView: 2, spaceBetween: 40 },
-                  1024: { slidesPerView: 4, spaceBetween: 20 },
-                }}
+    <Swiper
+      modules={[Scrollbar, Navigation]}
+      navigation={{
+        nextEl: '.custom-next-paint',
+        prevEl: '.custom-prev-paint',
+      }}
+      scrollbar={{ hide: true }}
+      spaceBetween={1}
+      slidesPerView={1}
+      breakpoints={{
+        640: { slidesPerView: 1, spaceBetween: 20 },
+        768: { slidesPerView: 2, spaceBetween: 40 },
+        1024: { slidesPerView: 4, spaceBetween: 20 },
+      }}
 
-              >
-                {paintCombination.map(paint => (
-                  <SwiperSlide key={paint.id}>
-                    <div className={styles.card_2}>
-                      <div className={styles.image}>
-                        <Image
-                          className={styles.img}
-                          alt=""
-                          src={paint.colorCombo.url}
-                          width={400}
-                          height={400}
-                        />
-                        <h3 className={styles.paint_name}>{paint.name}</h3>
-                      </div>
-                    </div>
-                  </SwiperSlide>
-                ))}
-              </Swiper>
+    >
+      {paintCombination.map(paint => (
+        <SwiperSlide key={paint.id}>
+          <div className={styles.card_2}>
+            <div className={styles.image}>
+              <Image
+                className={styles.img}
+                alt=""
+                src={paint.colorCombo.url}
+                width={400}
+                height={400}
+              />
+              <h3 className={styles.paint_name}>{paint.name}</h3>
             </div>
           </div>
+        </SwiperSlide>
+      ))}
+    </Swiper>
+  </div>
+</div>
 
           <div className={styles.paint_comb_container}>
             <h1>LATEST RELEASES</h1>
             <p></p>
             <div className={styles.scrolling_wrapper}>
               <div className={styles.prev_button_container}>
-                <div className={`${styles.customPrev} custom-prev-releases`}>
+                <div className={`${styles.customPrev} custom-prev-releases` }>
                   <svg xmlns="http://www.w3.org/2000/svg" className={styles.arr_1} width="100%" height="100%" viewBox="0 0 24 24" fill="none" stroke="blue" strokeWidth="2" strokeLinecap="square" strokeLinejoin="round"><path d="M19 12H6M12 5l-7 7 7 7" /></svg>
                 </div>
               </div>
               <div className={styles.next_button_container}>
-                <div className={`${styles.customNext} custom-next-releases`}>
+                <div className={`${styles.customNext} custom-next-releases` }>
                   <svg xmlns="http://www.w3.org/2000/svg" className={styles.arr_2} width="100%" height="100%" viewBox="0 0 24 24" fill="none" stroke="blue" strokeWidth="2" strokeLinecap="square" strokeLinejoin="round"><path d="M5 12h13M12 5l7 7-7 7" /></svg>
                 </div>
               </div>
@@ -185,30 +186,33 @@ export default function LandingPageContent({ products, paintCombination, models 
                 spaceBetween={1}
                 slidesPerView={1}
                 breakpoints={{
-                  640: { slidesPerView: 1, spaceBetween: 20 },
+                  640: { slidesPerView: 1, spaceBetween: 0 },
                   768: { slidesPerView: 2, spaceBetween: 40 },
-                  1024: { slidesPerView: 4, spaceBetween: 20 },
+                  1024: { slidesPerView: 3, spaceBetween: 20 },
                 }}
+
               >
                 {products.map(product => (
                   <SwiperSlide key={product.id}>
                     <div className={styles.card_2}>
-                      <div className={styles.image}>
+                      <div className={styles.image_2}>
+                      <Link href={`/pages/product/${product.id}`} key={product.id} className={styles.product_detail_link}>
                         <Image
-                          className={styles.img}
                           alt=""
-                          src={product.picture.url}
-                          width={400}
-                          height={400}
+                          src={product.productFrontImage.url}
+                          width={350}
+                          height={350}
                         />
-                        <h3 className={styles.paint_name}>{product.name}</h3>
-                        <button
-                          className={styles.btn_1}
-                          onClick={() => handleAddToBag(product)}
-                        >
-                          Add to Bag
-                        </button>
+                        </Link>
+                        <div className={styles.hover_container}>
+                          <button className={styles.button} onClick={() => handleAddToBag(product)}>QUICK ADD</button>
+                        </div>
                       </div>
+                    </div>
+                    <div className={styles.latest_product_detail}>
+                      <h4>{product.category} - {product.paintCombo}</h4>
+                      <p>size {product.size} - {product.color}</p>
+                      <h4>{product.price} DKK</h4>
                     </div>
                   </SwiperSlide>
                 ))}
@@ -217,29 +221,35 @@ export default function LandingPageContent({ products, paintCombination, models 
           </div>
         </section>
 
-        <section className={styles.container_1_3}>
-          <h1 className={styles.text_element_2}>MODEL</h1>
-          <div className={styles.img_container}>
-            <div className={styles.model_pics_small}>
-              {smallModelPics.map((pic) => (
-                <Image
-                  key={pic.id}
-                  alt=""
-                  src={pic.image.url}
-                  width={pic.image.width}
-                  height={pic.image.height}
-                />
-              ))}
+        <section className={styles.container_1_4}>
+          <GSAPAnimation targetSelector=".text_container_2" additionalOptions={{ stagger:0.03 }} />
+          <div className={styles.container_span}>
+            <div className={styles.span}>
+              <span className="text_container_2">BRINGING MODERN ART <br /></span>
             </div>
+            <div className={styles.span}>
+              <span className="text_container_2"> AND CLOTHING TOGETHER.</span>
+            </div>
+            <div className={styles.span}>
+              <span className="text_container_2">DARE TO BE</span>
+              <span className="text_container_2"><h1 className={styles.last_word}>UNIQUE.</h1></span>
+            </div>
+          </div>
+        </section>
+
+        <section className={styles.container_1_5}>
+          <div className={styles.small_model_pics}>
+            {smallModelPics.map(pic => (
+            <Link href='/pages/lookbook' key={pic.number}>
+              <Image key={pic.number} src={pic.model.url} alt=""   width={300} height={300} style={{ objectFit: 'cover' }} />
+              </Link>
+            ))}
+          </div>
+          <div className={styles.big_model_pics}>
             {bigModelPic && (
-              <div className={styles.model_pic_large}>
-                <Image
-                  alt=""
-                  src={bigModelPic.image.url}
-                  width={bigModelPic.image.width}
-                  height={bigModelPic.image.height}
-                />
-              </div>
+              <Link href='/pages/lookbook'>
+                <Image className={styles.big_model} src={bigModelPic.model.url} alt=""  width={300} height={600} style={{ objectFit: 'cover' }} />
+              </Link>
             )}
           </div>
         </section>
