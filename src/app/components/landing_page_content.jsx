@@ -13,6 +13,7 @@ import { Scrollbar, Navigation } from 'swiper/modules';
 import { useShoppingBag } from '@/app/components/shopping_bag_context';
 import Link from 'next/link';
 
+
 export default function LandingPageContent({ products, paintCombination, models }) {
   const { setColors } = usePageColor();
   const { addToBag } = useShoppingBag();
