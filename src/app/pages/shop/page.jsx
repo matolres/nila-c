@@ -1,5 +1,5 @@
 import { performRequest } from '@/app/lib/datocms';
-import ShopContent from '@/app/components/ShopContent';
+import ShopContent from '@/app/pages/shop/ShopContent';
 import Menu from '@/app/components/menu';
 import Footer from '@/app/components/footer';
 

@@ -1,7 +1,7 @@
 import { performRequest } from '@/app/lib/datocms';
 import Menu from '@/app/components/menu';
 import Footer from '@/app/components/footer';
-import LookbookContent from '@/app/components/lookbook_content';
+import LookbookContent from '@/app/pages/lookbook/lookbook_content';
 
 const query = `
   query {

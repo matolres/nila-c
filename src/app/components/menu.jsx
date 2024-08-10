@@ -6,7 +6,7 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import ShoppingBag from "./shopping-bag";
 import GSAPAnimation from "./Text-reveal-animation";
-import { useShoppingBag } from "@/app/components/shopping_bag_context";
+import { useShoppingBag } from "@/app/contexts/shopping_bag_context";
 
 export default function Menu({ primary, secondary }) {
     const { bagCount } = useShoppingBag();

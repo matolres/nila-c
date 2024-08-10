@@ -11,8 +11,6 @@ export const performRequest = async ({ query, variables = {}, includeDrafts = fa
 
   const responseBody = await response.json();
 
-  // Log the response body with pretty-printing
-  console.log('Response Body:', JSON.stringify(responseBody, null, 2));
 
   if (!response.ok) {
     throw new Error(`${response.status} ${response.statusText}: ${JSON.stringify(responseBody)}`);

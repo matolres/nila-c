@@ -1,8 +1,8 @@
 "use client";
 
 import { useEffect, useRef } from 'react';
-import { useShoppingBag } from '@/app/components/shopping_bag_context';
-import { usePageColor } from '@/app/components/page_color_context';
+import { useShoppingBag } from '@/app/contexts/shopping_bag_context';
+import { usePageColor } from '@/app/contexts/page_color_context';
 import styles from '@/app/css/shopping_bag.module.scss';
 import Image from 'next/image';
 import Link from 'next/link';

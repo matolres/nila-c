@@ -1,7 +1,7 @@
 import { performRequest } from '@/app/lib/datocms';
 import Menu from "@/app/components/menu";
 import Footer from "@/app/components/footer";
-import ProductDetail from "@/app/components/product_detail";
+import ProductDetail from "@/app/pages/product/product_detail";
 
 export async function generateStaticParams() {
   const query = `

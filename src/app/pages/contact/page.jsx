@@ -3,7 +3,7 @@
 import Menu from "@/app/components/menu"
 import styles from "@/app/css/contact.module.scss"
 import { useState } from 'react';
-import { usePageColor } from '@/app/components/page_color_context';
+import { usePageColor } from '@/app/contexts/page_color_context';
 import { useEffect } from 'react';
 
 

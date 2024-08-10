@@ -1,4 +1,4 @@
-import LandingPageContent from "./components/landing_page_content";
+import LandingPageContent from "./pages/landing_page/landing_page_content";
 import styles from "./page.module.scss";
 import Menu from "./components/menu";
 import Footer from "./components/footer";

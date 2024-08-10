@@ -4,7 +4,7 @@ import styles from '@/app/css/shop.module.scss';
 
 import FilterOptions from '@/app/components/filter';
 import Products from '@/app/components/products';
-import { usePageColor } from '@/app/components/page_color_context';
+import { usePageColor } from '@/app/contexts/page_color_context';
 
 
 

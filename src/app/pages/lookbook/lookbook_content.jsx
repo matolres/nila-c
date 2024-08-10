@@ -2,13 +2,13 @@
 import { useEffect } from "react";
 import Image from "next/image";
 import styles from '@/app/css/lookbook.module.scss';
-import { usePageColor } from "./page_color_context";
+import { usePageColor } from "../../contexts/page_color_context";
 
 export default function LookbookContent({ lookbook }) {
     const { setColors } = usePageColor();
 
     useEffect(() => {
-        setColors({ text: '#ff91c6', background: '#6A00AB' });
+      setColors({ text: 'var(--lookbook-primary-color)', background: 'var(--lookbook-secondary-color)' });
   
         return () => setColors({ text: 'defaultTextColor', background: 'defaultBackgroundColor' });
     }, [setColors]);

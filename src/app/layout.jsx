@@ -1,6 +1,6 @@
 import "./globals.scss";
-import { ShoppingBagProvider } from '@/app/components/shopping_bag_context';
-import { PageColorProvider } from '@/app/components/page_color_context';
+import { ShoppingBagProvider } from '@/app/contexts/shopping_bag_context';
+import { PageColorProvider } from '@/app/contexts/page_color_context';
 import { oswald, bebasNeue, dmMono } from '@/app/fonts/fonts';
 
 

@@ -3,14 +3,14 @@ import styles from '@/app/css/about.module.scss';
 import Menu from '@/app/components/menu';
 import Footer from '@/app/components/footer';
 import Image from 'next/image';
-import { usePageColor } from '@/app/components/page_color_context';
+import { usePageColor } from '@/app/contexts/page_color_context';
 import { useEffect } from 'react';
 
 export default function About() {
     const { setColors } = usePageColor();
 
     useEffect(() => {
-        setColors({ text: '#ff7300', background: 'black' });
+        setColors({ text: 'var(--about-primary-color)', background: 'var(--about-secondary-color)' });
   
         return () => setColors({ text: 'defaultTextColor', background: 'defaultBackgroundColor' });
     }, [setColors]);

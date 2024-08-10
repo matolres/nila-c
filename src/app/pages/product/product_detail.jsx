@@ -6,14 +6,14 @@ import Image from 'next/image';
 import Zoom from 'react-medium-image-zoom';
 import 'react-medium-image-zoom/dist/styles.css';
 import styles from '@/app/css/product_detail.module.scss';
-import { useShoppingBag } from '@/app/components/shopping_bag_context';
+import { useShoppingBag } from '@/app/contexts/shopping_bag_context';
 import { useRouter } from 'next/navigation';
 import 'swiper/css';
 import 'swiper/css/scrollbar';
 import 'swiper/css/pagination'; // Import Swiper pagination CSS
 import { Mousewheel, Pagination } from 'swiper/modules';
 import Link from 'next/link';
-import { usePageColor } from '@/app/components/page_color_context';
+import { usePageColor } from '@/app/contexts/page_color_context';
 
 const ProductDetail = ({ product }) => {
   const { addToBag } = useShoppingBag();
@@ -24,7 +24,7 @@ const ProductDetail = ({ product }) => {
   const [isVertical, setIsVertical] = useState(false);
 
   useEffect(() => {
-    setColors({ text: 'red', background: '#00F135' });
+    setColors({ text: 'var(--shop-primary-color)', background: 'var(--shop-secondary-color)' });
 
     return () => setColors({ text: 'defaultTextColor', background: 'defaultBackgroundColor' });
   }, [setColors]);

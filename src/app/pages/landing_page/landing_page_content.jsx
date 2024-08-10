@@ -4,14 +4,15 @@ import React, { useEffect, useState, useRef } from "react";
 import Image from "next/image";
 import styles from "@/app/page.module.scss";
 import GSAPAnimation from "@/app/components/Text-reveal-animation";
-import { usePageColor } from '@/app/components/page_color_context';
+import { usePageColor } from '@/app/contexts/page_color_context';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/scrollbar';
 import { Scrollbar, Navigation } from 'swiper/modules';
-import { useShoppingBag } from '@/app/components/shopping_bag_context';
+import { useShoppingBag } from '@/app/contexts/shopping_bag_context';
 import Link from 'next/link';
+import Products from '@/app/components/products';
 
 
 export default function LandingPageContent({ products, paintCombination, models }) {
@@ -21,7 +22,7 @@ export default function LandingPageContent({ products, paintCombination, models 
   const sectionRef = useRef(null);
 
   useEffect(() => {
-    setColors({ text: 'yellow', background: 'blue' });
+    setColors({ text: 'var(--landing-primary-color)', background: 'var(--landing-secondary-color)' });
 
     return () => setColors({ text: 'defaultTextColor', background: 'defaultBackgroundColor' });
   }, [setColors]);
@@ -197,24 +198,13 @@ export default function LandingPageContent({ products, paintCombination, models 
                   <SwiperSlide key={product.id}>
                     <div className={styles.card_2}>
                       <div className={styles.image_2}>
-                      <Link href={`/pages/product/${product.id}`} key={product.id} className={styles.product_detail_link}>
-                        <Image
-                          alt=""
-                          src={product.productFrontImage.url}
-                          width={350}
-                          height={350}
-                        />
-                        </Link>
+                      <Products product={product}  key={product.id}/>
                         <div className={styles.hover_container}>
                           <button className={styles.button} onClick={() => handleAddToBag(product)}>QUICK ADD</button>
                         </div>
                       </div>
                     </div>
-                    <div className={styles.latest_product_detail}>
-                      <h4>{product.category} - {product.paintCombo}</h4>
-                      <p>size {product.size} - {product.color}</p>
-                      <h4>{product.price} DKK</h4>
-                    </div>
+
                   </SwiperSlide>
                 ))}
               </Swiper>
@@ -239,6 +229,7 @@ export default function LandingPageContent({ products, paintCombination, models 
         </section>
 
         <section className={styles.container_1_5}>
+          <div className={styles.models_container}>
           <div className={styles.small_model_pics}>
             {smallModelPics.map(pic => (
             <Link href='/pages/lookbook' key={pic.number}>
@@ -252,6 +243,7 @@ export default function LandingPageContent({ products, paintCombination, models 
                 <Image className={styles.big_model} src={bigModelPic.model.url} alt=""  width={300} height={600} style={{ objectFit: 'cover' }} />
               </Link>
             )}
+          </div>
           </div>
         </section>
       </main>
