@@ -1,12 +1,12 @@
 "use client";
 import React, { useState, useEffect } from 'react';
-import { useShoppingBag } from '@/app/components/shopping_bag_context';
+import { useShoppingBag } from '@/app/contexts/shopping_bag_context';
 import Link from 'next/link';
 import styles from '@/app/css/checkout.module.scss';
 import Menu from '@/app/components/menu';
 import Image from 'next/image';
 import Collapsible from 'react-collapsible';
-import { usePageColor } from '@/app/components/page_color_context';
+import { usePageColor } from '@/app/contexts/page_color_context';
 
 
 const Checkout = () => {
