@@ -44,7 +44,7 @@ export default function LandingPageContent({ products, paintCombination, models 
     sectionRef.current.scrollIntoView({ behavior: 'smooth' });
   };
 
-  // Filter the images based on their number property
+ 
   const smallModelPics = models.filter(pic => pic.number === 1 || pic.number === 2);
   const bigModelPic = models.find(pic => pic.number === 3);
 
