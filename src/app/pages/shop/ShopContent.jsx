@@ -35,11 +35,13 @@ export default function ShopContent({ products }) {
           toggleFilterVisibility={toggleFilterVisibility} 
         />
       <section className={styles.container_1_2}>
+        <div className={styles.card_container}>
         <div className={styles.card}>
           {filteredProducts.map(product => (
             
               <Products product={product}  key={product.id}/>
           ))}
+        </div>
         </div>
       </section>
 

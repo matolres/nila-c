@@ -3,7 +3,7 @@ import Image from "next/image";
 import styles from "@/app/css/shop_product.module.scss";
 import Link from "next/link";
 
-const Products = ({ product }) => {
+const Products = ({ product, color }) => {
 
 
   return (
@@ -12,10 +12,10 @@ const Products = ({ product }) => {
 
           <Image src={product.productFrontImage.url} alt="" height="200" width="200" style={{ objectFit: 'cover', width: '100%', height: 'auto' }} />
           <div className={styles.color_price}>
-            <h3 className="type">{product.category} - {product.paintCombo}</h3>
-            <p>{product.color}</p>
-            <p>DKK {product.price}</p>
-            <p>size: {product.size}</p>
+            <h3 className="type" style={{color:color}}>{product.category} - {product.paintCombo}</h3>
+            <p style={{color:color}}>{product.color}</p>
+            <p style={{color:color}}>DKK {product.price}</p>
+            <p style={{color:color}}>size: {product.size}</p>
           </div>
         
       </Link>

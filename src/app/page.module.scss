@@ -321,7 +321,7 @@ position: relative;
 }
 
 .image:hover .img {
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
 
 .latest_container {
@@ -475,7 +475,7 @@ position: relative;
 }
 
 .image_2:hover {
-  scale: 1.1;
+  scale: 1.05;
 }
 
 
@@ -488,6 +488,21 @@ position: relative;
 
 
 
+}
+
+.product {
+  color: blue;
+}
+
+.customTextColor {
+  .color_price {
+    .type,
+    .color,
+    .price,
+    .size {
+      color: blue; // Your desired text color
+    }
+  }
 }
 /*
 .image_container {
@@ -572,7 +587,7 @@ position: relative;
   
   .small_model_pics img{
     width: 100%;
-    height: 100%;
+    height: 102%;
     object-fit: cover;
   }
 
@@ -645,7 +660,12 @@ position: relative;
     line-height: 1.2;
   }
 
+  .container_1_5 {
+    display: flex;
+  justify-content: center;
+  background-color: yellow;
 
+  }
 
 
 

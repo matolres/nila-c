@@ -90,10 +90,17 @@ secondary="#00F135"
 
 @media (min-width: 1024px) {
   .container_1_2 {
-    .card {
-      grid-template-columns: repeat(4, 1fr);
-      padding: 4rem 20px;
+    .card_container {
+      display: flex;
+      justify-content: center;
+      .card {
+        max-width: 1400px;
+        grid-template-columns: repeat(4, 1fr);
+        padding: 4rem 20px;
+      }
+
     }
+
   }
 
 }

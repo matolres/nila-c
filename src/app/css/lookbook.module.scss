@@ -1,4 +1,3 @@
-/* lookbook.module.scss */
 .background {
   position: fixed;
   background-color: #6A00AB;
@@ -29,49 +28,65 @@
   align-items: center;
 }
 
+.images_background {
+  background-color: #ff91c6;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 4rem;
+}
+
 .images_container {
   width: 100%;
-  padding:1rem 1rem 5rem 1rem;
+  padding: 1rem 1rem 5rem 1rem;
   display: grid;
-
   grid-template-columns: 1fr;
   gap: 1rem;
-  background-color: #ff91c6;
+
   .image_container {
     border-radius: 5px;
     overflow: hidden;
     position: relative;
+    
+
+    .image_wrapper {
+      position: relative;
+      width: 100%;
+      height: 300px; /* Adjust height as needed */
+      
+      img {
+        object-fit: contain;
+      }
+    }
+
     .image_title {
       display: flex;
-    justify-content: center;
-    align-items: center;
+      justify-content: center;
+      align-items: center;
       position: absolute;
-        top: 10%;
-        left: -35rem;
-        margin: auto;
-        
-        
-        padding: 1rem;
-        
-        color: var(--lookbook-primary-color) ;
-        transition: left 0.3s ease-in-out;
-
-
+      top: 10%;
+      left: -35rem;
+      margin: auto;
+      padding: 1rem;
+      color: var(--lookbook-secondary-color);
+      background-color: var(--lookbook-primary-color);
+      transition: left 0.3s ease-in-out;
     }
   }
+ 
   .image_container:hover .image_title {
     left: 0;
-  animation: moveTitle 0.3s ease-in-out;
-}
+    animation: moveTitle 0.3s ease-in-out;
+  }
 
-@keyframes moveTitle {
-  from {
-    left: -35rem;
+  @keyframes moveTitle {
+    from {
+      left: -35rem;
+    }
+    to {
+      left: 0;
+    }
   }
-  to {
-    left: 0;
-  }
-}
 }
 
 @media (min-width: 768px) {
@@ -81,5 +96,9 @@
 }
 
 @media (min-width: 1024px) {
-
+  .images_background {
+    .images_container {
+      max-width: 1400px;
+    }
+  }
 }

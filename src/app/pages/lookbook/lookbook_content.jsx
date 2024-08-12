@@ -19,7 +19,8 @@ export default function LookbookContent({ lookbook }) {
         <div className={styles.headlines}>
           <h1>LOOKBOOK</h1>
           <h2>{lookbook.season} - {lookbook.year}</h2>
-        </div>
+        </div >
+        <div className={styles.images_background}>
         <div className={styles.images_container}>
           {lookbook.gallery.map((image) => (
             <div className={styles.image_container} key={image.url}>
@@ -27,13 +28,14 @@ export default function LookbookContent({ lookbook }) {
                 alt=""
                 src={image.url}
                 layout="responsive"
-                objectFit="contain"
+                objectFit="cover"
                 height={300}
                 width={300}
               />
               <h4 className={styles.image_title}>{image.title}</h4>
             </div>
           ))}
+        </div>
         </div>
       </main>
     </>

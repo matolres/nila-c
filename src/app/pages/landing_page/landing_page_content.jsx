@@ -15,7 +15,7 @@ import Link from 'next/link';
 import Products from '@/app/components/products';
 
 
-export default function LandingPageContent({ products, paintCombination, models }) {
+export default function LandingPageContent({ products, paintCombination, models, color }) {
   const { setColors } = usePageColor();
   const { addToBag } = useShoppingBag();
   const [message, setMessage] = useState('');
@@ -198,7 +198,7 @@ export default function LandingPageContent({ products, paintCombination, models 
                   <SwiperSlide key={product.id}>
                     <div className={styles.card_2}>
                       <div className={styles.image_2}>
-                      <Products product={product}  key={product.id}/>
+                      <Products color="blue" className={styles.product} product={product}  key={product.id}/>
                         <div className={styles.hover_container}>
                           <button className={styles.button} onClick={() => handleAddToBag(product)}>QUICK ADD</button>
                         </div>
